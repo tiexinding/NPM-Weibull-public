@@ -16,19 +16,67 @@ This repository hosts the open-source artifacts described in the paper:
 
 ## Status
 
-🚧 **Initial release in progress** (May 2026).
-
-This repository is being populated alongside the arXiv submission of the paper. Current state:
+**Phase 2 release** (May 2026): library source, benchmark database, examples, and tests are now available.
 
 | Component | Status |
 |---|---|
 | Paper information and citation | ✅ Available |
-| `npm-weibull-py` library source | 🚧 Coming next 1--2 days |
-| `DATABASE_v9_1` benchmark JSON files | 🚧 Coming next 1--2 days |
-| Reproducibility example notebooks | 🚧 Planned |
+| `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
+| `DATABASE_v9_1` benchmark (12 entries) | ✅ Available (Python module + CSV) |
+| Quickstart examples | ✅ Available (`examples/`) |
+| Tests | ✅ Available (`tests/`, 12 passing) |
 | Pip-installable release on PyPI | 🚧 Planned |
+| API reference documentation | 🚧 Planned |
 
-For now, please reference the paper for methodology details. Code and data will be uploaded shortly.
+## Install
+
+```bash
+git clone https://github.com/tiexinding/NPM-Weibull-public.git
+cd NPM-Weibull-public
+pip install -e .
+
+# Optional extras
+pip install -e ".[torch]"   # transformers + safetensors for checkpoint extraction
+pip install -e ".[plot]"    # matplotlib for plotting helpers
+pip install -e ".[dev]"     # pytest for running tests
+```
+
+Requires Python ≥ 3.9. Core dependencies are `numpy` and `scipy` only.
+
+## Quick start
+
+```python
+from npm_weibull import weibull_fit, DATABASE_v9_1, compare_to_benchmark
+
+# F1 — fit Weibull to a weight magnitude histogram
+fit = weibull_fit({"edges": edges, "hist": counts}, trim="mid_80")
+print(fit["k"], fit["lambda"], fit["R2"])
+
+# Layer B — compare user-side per-component median k to the 12-entry benchmark
+user = {
+    "arch": {"arch": "GQA", "n_q": 32, "n_kv": 8},
+    "median_k_per_kind": {"q": 1.14, "k": 1.13, "v": 1.19, "o": 1.19},
+}
+print(compare_to_benchmark(user)["nearest_neighbor"])
+```
+
+See `examples/` for three runnable demos covering F1 fit, benchmark comparison, and F3/F5 trajectory decomposition.
+
+## Repository layout
+
+```
+NPM-Weibull-public/
+├── npm_weibull/           # library (F1-F8 + workflow + benchmark)
+│   ├── core/              # F1 weibull, F5 trajectory, F6_ext distfree, F8 architecture, ...
+│   ├── utils/             # closed-form, histogram, cascade reader, KS/AIC
+│   ├── workflow/          # diagnose_model wrapper (Layer A)
+│   └── benchmark/         # DATABASE_v9_1 + compare_to_benchmark (Layer B)
+├── tests/                 # synthetic + integration tests (12 passing)
+├── examples/              # 01 synthetic fit, 02 benchmark, 03 trajectory
+├── database_v9_1/         # populate_database_v9_1.py + generated CSV/MD
+├── pyproject.toml         # pip install config (v0.4.0)
+└── README.md
+```
 
 ## Quick Reference (from the paper)
 
