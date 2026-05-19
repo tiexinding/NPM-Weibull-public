@@ -214,8 +214,15 @@ def compare_to_benchmark(
     nearest = min(distances.items(), key=lambda kv: kv[1])
     nearest_id, k_distance = nearest
 
-    # Family classification
-    user_arch = user_diagnosis.get("arch", {}).get("arch", "?")
+    # Family classification — accept either F8-style dict ({"arch": {"arch": "GQA", ...}})
+    # or a flat string ({"arch": "GQA"}).
+    arch_field = user_diagnosis.get("arch")
+    if isinstance(arch_field, dict):
+        user_arch = arch_field.get("arch", "?")
+    elif isinstance(arch_field, str):
+        user_arch = arch_field
+    else:
+        user_arch = "?"
     nearest_meta = bench_filtered[nearest_id]
     nearest_arch = nearest_meta.get("arch", "?")
     family_class = _classify_family(user_arch, user_med_k, nearest_arch)

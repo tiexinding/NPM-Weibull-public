@@ -222,7 +222,10 @@ def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple[dict[s
     mean_w = float(np.sum(weights * midpoints))
     var_w = float(np.sum(weights * (midpoints - mean_w) ** 2))
     if mean_w <= 0 or var_w <= 0:
-        raise RuntimeError("non-positive moments for gamma init")
+        raise ValueError(
+            "histogram has non-positive moments; cannot initialise Gamma fit "
+            f"(expected positive |w| domain, got mean_w={mean_w:.3g}, var_w={var_w:.3g})"
+        )
     alpha_init = mean_w * mean_w / var_w
     beta_init = var_w / mean_w
 

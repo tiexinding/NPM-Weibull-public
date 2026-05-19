@@ -71,13 +71,16 @@ def sigma_decompose(
         attribution = "mixed"
 
     # Paired correlation (log-log) if available
-    paired_r = None
+    paired_r: float | None = None
     if paired_lambda_traj is not None:
         paired = np.asarray(paired_lambda_traj, dtype=np.float64)
         if paired.size == lam_arr.size and (lam_arr > 0).all() and (paired > 0).all():
             log_x = np.log10(lam_arr)
             log_y = np.log10(paired)
-            paired_r = float(np.corrcoef(log_x, log_y)[0, 1])
+            # Guard against zero-variance trajectories (constant series → corrcoef = NaN)
+            if log_x.std() > 0 and log_y.std() > 0:
+                r_value = float(np.corrcoef(log_x, log_y)[0, 1])
+                paired_r = r_value if np.isfinite(r_value) else None
 
     return {
         "k_init": k_init,

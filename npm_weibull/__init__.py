@@ -1,32 +1,33 @@
 """npm-weibull-py v0.4 — NPM-Weibull Diagnostic Framework Python Toolkit.
 
-Public API (跟 B2_Framework_实施Spec_v2 §5 严格对应):
-  Core (5):
-    weibull_fit       — F1 Weibull fit (k, λ, R², KS) from histogram
-    sigma_decompose   — F3 σ growth attribution (λ vs k) across step trajectory
-    per_block_metrics — F6 distribution-free metrics (Q90/Q10, P99/P50, P99.9/P50, Gini)
-    classify_attention_arch — F8 MHA/GQA/MQA classifier from model config
-    compute_T_tau     — F6 Wang-Aitchison τ_iter cycle ratio
+Public API (15 entries, aligned with paper Appendix B F1-F8 function spec):
+
+  Core diagnostics (7):
+    weibull_fit             — F1 Weibull (k, λ, R², KS) fit from histogram
+    classify_k              — F2 k regime classifier (transmission / mild / strong / init)
+    sigma_decompose         — F3 σ growth attribution (λ vs k) across step trajectory
+    k_drift_severity        — F5 selection-signal severity from k_init → k_trained
+    compute_T_tau           — F6 Wang-Aitchison τ_iter cycle ratio + physical state
+    per_block_metrics       — F6_ext distribution-free heaviness (Q90/Q10, P999/P50, Gini)
+    classify_attention_arch — F8 MHA / GQA / MQA classifier from head counts
 
   Utility (5):
-    load_cascade_v3   — cascade v3+v2 fit_per_component_v3.json reader
-    extract_to_histogram  — weight tensor → 1024-bin log10|w| histogram
-    compare_distributions — KS/AIC ranking (Weibull / Lognormal / Gamma)
-    sigma_from_k_lambda   — σ closed-form
-    weibull_quantile      — quantile closed-form
+    load_cascade_v3         — cascade v3 fit_per_component_v3.json reader
+    extract_to_histogram    — weight tensor → 1024-bin log10|w| histogram (+ optional NPZ save)
+    compare_distributions   — KS/AIC ranking among Weibull / Lognormal / Gamma
+    sigma_from_k_lambda     — σ / mean / median / CV closed-form from (k, λ)
+    weibull_quantile        — Q(q) closed-form from (k, λ)
 
   Workflow (1):
-    diagnose_model    — one-shot diagnostic (combines all 8 functions)
+    diagnose_model          — Layer A one-shot diagnostic chaining F1+F2+F5+F6+F6_ext+F8
 
-  Benchmark:
-    DATABASE_v9_1     — 12 model entries across 7 families (cascade v3 reference)
-    compare_to_benchmark  — user diagnosis vs benchmark closest neighbor
+  Benchmark (2):
+    DATABASE_v9_1           — 12 model entries × 7 architectural families (cascade v3 reference)
+    compare_to_benchmark    — Layer B utility: user diagnosis → nearest-neighbor in DATABASE
 """
 
 __version__ = "0.4.0"
 
-# Core API
-# Benchmark
 from npm_weibull.benchmark.database_v9_1 import DATABASE_v9_1, compare_to_benchmark
 from npm_weibull.core.architecture import classify_attention_arch
 from npm_weibull.core.classify import classify_k
@@ -35,13 +36,9 @@ from npm_weibull.core.training import compute_T_tau
 from npm_weibull.core.trajectory import k_drift_severity, sigma_decompose
 from npm_weibull.core.weibull import weibull_fit
 from npm_weibull.utils.cascade_reader import load_cascade_v3
-
-# Utility API
 from npm_weibull.utils.closed_form import sigma_from_k_lambda, weibull_quantile
 from npm_weibull.utils.histogram import extract_to_histogram
 from npm_weibull.utils.ks_aic import compare_distributions
-
-# Workflow
 from npm_weibull.workflow.diagnose import diagnose_model
 
 __all__ = [

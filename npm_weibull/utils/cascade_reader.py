@@ -8,6 +8,7 @@ Spec: B2_Framework_实施Spec_v2 §5 utility 1 + §6 数据库 reader.
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
 from typing import Any
 
@@ -36,11 +37,15 @@ def load_cascade_v3(derived_dir: str | Path) -> dict[str, list[dict[str, Any]]]:
         try:
             with open(fp) as f:
                 d = json.load(f)
-            pc = d.get("per_component", [])
-            if pc:
-                out[key] = pc
-        except (json.JSONDecodeError, OSError):
+        except (json.JSONDecodeError, OSError) as exc:
+            warnings.warn(
+                f"skipping {fp.name}: {type(exc).__name__}: {exc}",
+                stacklevel=2,
+            )
             continue
+        pc = d.get("per_component", [])
+        if pc:
+            out[key] = pc
     return out
 
 
