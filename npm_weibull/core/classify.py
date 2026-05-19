@@ -13,6 +13,8 @@ Thresholds (paper §A.7/A.8.3 一致, A 5-10 早 09:30 确认):
 
 from __future__ import annotations
 
+from typing import Any
+
 _THRESHOLDS = {
     "transmission_low": 1.18,
     "transmission_high": 1.21,
@@ -27,7 +29,7 @@ def classify_k(
     R2: float | None = None,
     arch_type: str | None = None,
     is_init: bool = False,
-) -> dict:
+) -> dict[str, Any]:
     """F2 Shape Parameter Readout — classify Weibull k into discrete regime.
 
     Parameters

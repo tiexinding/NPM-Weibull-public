@@ -12,11 +12,14 @@ Source: F148 + F150 + F153 实测 metric, paper §A.8 used.
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
+HistogramInput = str | Path | dict[str, Any] | tuple[Any, Any]
 
-def per_block_metrics(histogram: str | Path | dict | tuple) -> dict:
+
+def per_block_metrics(histogram: HistogramInput) -> dict[str, Any]:
     """Compute distribution-free heaviness metrics from histogram.
 
     Parameters
@@ -37,7 +40,7 @@ def per_block_metrics(histogram: str | Path | dict | tuple) -> dict:
     return _per_block_metrics_core(hist, edges)
 
 
-def _load_histogram(h):
+def _load_histogram(h: HistogramInput) -> tuple[np.ndarray, np.ndarray]:
     if isinstance(h, (str, Path)):
         d = np.load(str(h))
         return np.asarray(d["edges"], dtype=np.float64), np.asarray(d["hist"], dtype=np.float64)
@@ -48,7 +51,7 @@ def _load_histogram(h):
     raise TypeError(f"histogram must be path/dict/tuple, got {type(h).__name__}")
 
 
-def _per_block_metrics_core(hist: np.ndarray, edges_log10: np.ndarray) -> dict:
+def _per_block_metrics_core(hist: np.ndarray, edges_log10: np.ndarray) -> dict[str, Any]:
     """Core metric computation. edges are log10|w|; convert to linear |w| domain."""
     if hist.sum() < 100:
         return {

@@ -14,13 +14,15 @@ Critical (老丁 5-8 catch): T/τ < 0.2 = NOT terminal even if step trajectory e
 
 from __future__ import annotations
 
+from typing import Any
+
 _T_TAU_THRESHOLDS = {
     "saturated": 1.0,
     "approaching": 0.2,
 }
 
 
-def compute_T_tau(eta: float, lambda_wd: float, T_steps: int) -> dict:
+def compute_T_tau(eta: float, lambda_wd: float, T_steps: int) -> dict[str, Any]:
     """Compute T/τ_iter cycle ratio + state classification.
 
     Parameters

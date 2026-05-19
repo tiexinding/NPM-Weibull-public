@@ -69,7 +69,7 @@ ignore = [
 "examples/*" = ["E402"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 # Strict on the public surface; relaxed on internal helpers (where dynamic
 # numpy/scipy types make `--strict` flag dozens of false positives).
 warn_return_any = true

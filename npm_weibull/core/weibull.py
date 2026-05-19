@@ -11,16 +11,19 @@ Source: cascade v3 weibull_v3.py weibull_fit_from_hist (5-7 起 verified).
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
 _VALID_TRIM = {"mid_80", "mid_90", "full_range"}
 
+HistogramInput = str | Path | dict[str, Any] | tuple[Any, Any]
+
 
 def weibull_fit(
-    histogram: str | Path | dict | tuple,
+    histogram: HistogramInput,
     trim: str = "mid_80",
-) -> dict:
+) -> dict[str, Any]:
     """Fit Weibull(k, λ) to weight magnitude histogram via weighted lstsq.
 
     Parameters
@@ -53,7 +56,7 @@ def weibull_fit(
     return _weibull_fit_core(hist, edges, trim)
 
 
-def _load_histogram(h):
+def _load_histogram(h: HistogramInput) -> tuple[np.ndarray, np.ndarray]:
     """Normalize input to (edges, hist) numpy arrays."""
     if isinstance(h, (str, Path)):
         d = np.load(str(h))
@@ -65,7 +68,7 @@ def _load_histogram(h):
     raise TypeError(f"histogram must be path/dict/tuple, got {type(h).__name__}")
 
 
-def _weibull_fit_core(hist: np.ndarray, edges: np.ndarray, trim: str) -> dict:
+def _weibull_fit_core(hist: np.ndarray, edges: np.ndarray, trim: str) -> dict[str, Any]:
     """Core weighted lstsq fit. Returns full result dict including KS."""
     total = float(hist.sum())
     if total < 100:
@@ -133,7 +136,7 @@ def _weibull_fit_core(hist: np.ndarray, edges: np.ndarray, trim: str) -> dict:
     }
 
 
-def _nan_result(trim: str, reason: str) -> dict:
+def _nan_result(trim: str, reason: str) -> dict[str, Any]:
     return {
         "k": float("nan"),
         "lambda": float("nan"),

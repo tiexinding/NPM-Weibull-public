@@ -15,17 +15,20 @@ Algorithm:
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 from scipy import optimize, stats
 
 _VALID_CANDIDATES = ("weibull", "lognormal", "gamma")
 
+HistogramInput = str | Path | dict[str, Any] | tuple[Any, Any]
+
 
 def compare_distributions(
-    histogram: str | Path | dict | tuple,
+    histogram: HistogramInput,
     candidates: list[str] | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """KS/AIC ranking of candidate distributions on weight magnitude histogram.
 
     Parameters
@@ -61,7 +64,7 @@ def compare_distributions(
     cum = np.cumsum(hist)
     F_emp = cum / total
 
-    results = {}
+    results: dict[str, dict[str, Any]] = {}
     for c in candidates:
         if c == "weibull":
             params, log_lik = _fit_weibull_binned_mle(edges_w, hist)
@@ -109,7 +112,7 @@ def compare_distributions(
     }
 
 
-def _load_histogram(h):
+def _load_histogram(h: HistogramInput) -> tuple[np.ndarray, np.ndarray]:
     if isinstance(h, (str, Path)):
         d = np.load(str(h))
         return np.asarray(d["edges"], dtype=np.float64), np.asarray(d["hist"], dtype=np.float64)
@@ -125,7 +128,9 @@ def _load_histogram(h):
 # =============================================================================
 
 
-def _fit_weibull_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
+def _fit_weibull_binned_mle(
+    edges_w: np.ndarray, hist: np.ndarray
+) -> tuple[dict[str, float], float]:
     """Binned MLE for Weibull(k, λ) on |w| domain. Reuse weibull_fit weighted lstsq as init,
     then optimize log-likelihood."""
     # Initial guess from weighted lstsq (same as F1)
@@ -137,7 +142,7 @@ def _fit_weibull_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
         raise RuntimeError(f"weibull init fit failed: {init_fit.get('reason')}")
     k_init, lam_init = init_fit["k"], init_fit["lambda"]
 
-    def neg_log_lik(params):
+    def neg_log_lik(params: np.ndarray) -> float:
         k, lam = params
         if k <= 0 or lam <= 0:
             return 1e18
@@ -157,7 +162,7 @@ def _fit_weibull_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     return {"k": k_opt, "lambda": lam_opt}, log_lik
 
 
-def _ks_weibull(edges_w, F_emp, params) -> float:
+def _ks_weibull(edges_w: np.ndarray, F_emp: np.ndarray, params: dict[str, float]) -> float:
     F_fit = 1.0 - np.exp(-((edges_w[1:] / params["lambda"]) ** params["k"]))
     return float(np.max(np.abs(F_emp - F_fit)))
 
@@ -167,7 +172,9 @@ def _ks_weibull(edges_w, F_emp, params) -> float:
 # =============================================================================
 
 
-def _fit_lognormal_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
+def _fit_lognormal_binned_mle(
+    edges_w: np.ndarray, hist: np.ndarray
+) -> tuple[dict[str, float], float]:
     """Binned MLE for Lognormal(μ, σ) on |w|. Use scipy.stats.lognorm CDF."""
     # Initial guess from log|w| moments
     midpoints_log = 0.5 * (np.log(edges_w[:-1] + 1e-30) + np.log(edges_w[1:] + 1e-30))
@@ -175,7 +182,7 @@ def _fit_lognormal_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     mu_init = float(np.sum(weights * midpoints_log))
     sigma_init = float(np.sqrt(np.sum(weights * (midpoints_log - mu_init) ** 2)))
 
-    def neg_log_lik(params):
+    def neg_log_lik(params: np.ndarray) -> float:
         mu, sigma = params
         if sigma <= 0:
             return 1e18
@@ -195,7 +202,7 @@ def _fit_lognormal_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     return {"mu": mu_opt, "sigma": sigma_opt}, -float(res.fun)
 
 
-def _ks_lognormal(edges_w, F_emp, params) -> float:
+def _ks_lognormal(edges_w: np.ndarray, F_emp: np.ndarray, params: dict[str, float]) -> float:
     F_fit = stats.norm.cdf(
         (np.log(np.maximum(edges_w[1:], 1e-30)) - params["mu"]) / params["sigma"]
     )
@@ -207,7 +214,7 @@ def _ks_lognormal(edges_w, F_emp, params) -> float:
 # =============================================================================
 
 
-def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
+def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple[dict[str, float], float]:
     """Binned MLE for Gamma(α=shape, β=scale) on |w|. Use scipy.stats.gamma CDF."""
     # Initial guess from method-of-moments
     midpoints = 0.5 * (edges_w[:-1] + edges_w[1:])
@@ -219,7 +226,7 @@ def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     alpha_init = mean_w * mean_w / var_w
     beta_init = var_w / mean_w
 
-    def neg_log_lik(params):
+    def neg_log_lik(params: np.ndarray) -> float:
         alpha, beta = params
         if alpha <= 0 or beta <= 0:
             return 1e18
@@ -238,6 +245,6 @@ def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     return {"alpha": a_opt, "beta": b_opt}, -float(res.fun)
 
 
-def _ks_gamma(edges_w, F_emp, params) -> float:
+def _ks_gamma(edges_w: np.ndarray, F_emp: np.ndarray, params: dict[str, float]) -> float:
     F_fit = stats.gamma.cdf(edges_w[1:], a=params["alpha"], scale=params["beta"])
     return float(np.max(np.abs(F_emp - F_fit)))

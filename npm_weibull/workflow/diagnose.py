@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import statistics
 from pathlib import Path
+from typing import Any
 
 from npm_weibull.core.architecture import classify_attention_arch
 from npm_weibull.core.classify import classify_k
@@ -27,9 +28,9 @@ def diagnose_model(
     model_id_or_path: str,
     histograms_dir: str | Path | None = None,
     derived_dir: str | Path | None = None,
-    training_config: dict | None = None,
-    arch_config: dict | None = None,
-) -> dict:
+    training_config: dict[str, Any] | None = None,
+    arch_config: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     """One-shot Layer A diagnostic — chain F1 + F2 + F4 + F5 + F6 + F7 + F8 + F6_extension.
 
     **NO benchmark coupling** — universal applicable to any transformer.
@@ -79,8 +80,8 @@ def diagnose_model(
         )
 
     # Step 3: load fits (either pre-computed from derived_dir OR fresh from histograms_dir)
-    per_layer_fits = {}
-    distfree = {}
+    per_layer_fits: dict[str, list[dict[str, Any]]] = {}
+    distfree: dict[str, list[dict[str, Any]]] = {}
 
     if derived_dir is not None:
         # Use pre-computed cascade v3 fits
@@ -117,9 +118,10 @@ def diagnose_model(
         for npz_fp in sorted(hist_path.glob("*.npz")):
             d = np.load(npz_fp)
             param_name = str(d.get("param_name", ""))
-            kind = _infer_kind_from_param_name(param_name)
-            if kind is None:
+            inferred = _infer_kind_from_param_name(param_name)
+            if inferred is None:
                 continue
+            kind = inferred
             block_idx = _infer_block_idx_from_param_name(param_name)
             fit = weibull_fit({"edges": d["edges"], "hist": d["hist"]}, trim="mid_80")
             entry = {

@@ -8,6 +8,7 @@ Spec: B2_Framework_实施Spec_v2 §1 F1 input + §5 utility 2.
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 
@@ -16,11 +17,11 @@ CASCADE_V3_N_BINS = 1024
 
 
 def extract_to_histogram(
-    weight,  # torch.Tensor | np.ndarray
+    weight: Any,  # torch.Tensor | np.ndarray (typed Any to avoid hard torch dep)
     n_bins: int = CASCADE_V3_N_BINS,
-    log_w_range: tuple = CASCADE_V3_RANGE,
+    log_w_range: tuple[float, float] = CASCADE_V3_RANGE,
     save_path: str | Path | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Compute log10|w| histogram from weight matrix using cascade v3 standard binning.
 
     Parameters
@@ -73,10 +74,10 @@ def extract_to_histogram(
         save_path.parent.mkdir(parents=True, exist_ok=True)
         np.savez_compressed(
             save_path,
-            edges=result["edges"],
-            hist=result["hist"],
+            edges=np.asarray(result["edges"]),
+            hist=np.asarray(result["hist"]),
             shape=np.array(result["shape"], dtype=np.int64),
-            param_name=result["param_name"],
+            param_name=str(result["param_name"]),
         )
 
     return result

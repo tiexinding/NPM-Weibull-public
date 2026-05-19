@@ -11,16 +11,21 @@ Source: F156 paper §A.8.2 verify (paired r=0.9967 across saturated state).
 
 from __future__ import annotations
 
+from collections.abc import Sequence
+from typing import Any
+
 import numpy as np
 
 from npm_weibull.utils.closed_form import sigma_from_k_lambda
 
+TrajInput = Sequence[float] | np.ndarray
+
 
 def sigma_decompose(
-    k_traj,  # list[float] | np.ndarray
-    lambda_traj,  # list[float] | np.ndarray
-    paired_lambda_traj=None,  # list[float] | None — for paired correlation r
-) -> dict:
+    k_traj: TrajInput,
+    lambda_traj: TrajInput,
+    paired_lambda_traj: TrajInput | None = None,
+) -> dict[str, Any]:
     """Decompose σ growth across step trajectory: λ-dominated vs k-dominated vs mixed.
 
     Parameters
@@ -88,7 +93,7 @@ def sigma_decompose(
     }
 
 
-def k_drift_severity(k_init: float, k_trained: float) -> dict:
+def k_drift_severity(k_init: float, k_trained: float) -> dict[str, Any]:
     """Classify k drift severity (F5 selection signal).
 
     Returns

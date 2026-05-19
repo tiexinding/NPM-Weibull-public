@@ -9,9 +9,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 
-def load_cascade_v3(derived_dir: str | Path) -> dict:
+def load_cascade_v3(derived_dir: str | Path) -> dict[str, list[dict[str, Any]]]:
     """Auto-parse all fit_per_component_v3.json files in a derived/ dir.
 
     Parameters
@@ -29,11 +30,12 @@ def load_cascade_v3(derived_dir: str | Path) -> dict:
     if not p.is_dir():
         raise FileNotFoundError(f"derived_dir not found: {derived_dir}")
 
-    out = {}
+    out: dict[str, list[dict[str, Any]]] = {}
     for fp in sorted(p.glob("*_fit_per_component_v3.json")):
         key = fp.stem.replace("_fit_per_component_v3", "")
         try:
-            d = json.load(open(fp))
+            with open(fp) as f:
+                d = json.load(f)
             pc = d.get("per_component", [])
             if pc:
                 out[key] = pc
@@ -43,10 +45,10 @@ def load_cascade_v3(derived_dir: str | Path) -> dict:
 
 
 def filter_per_component(
-    per_component: list[dict],
+    per_component: list[dict[str, Any]],
     kind: str | None = None,
-    block_range: tuple | None = None,
-) -> list[dict]:
+    block_range: tuple[int, int] | None = None,
+) -> list[dict[str, Any]]:
     """Filter per_component list by kind and/or block_idx range.
 
     Parameters

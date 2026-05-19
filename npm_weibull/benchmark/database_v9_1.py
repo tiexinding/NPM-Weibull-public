@@ -6,8 +6,10 @@ Companion to paper §3-§5 (see DATABASE_v9_1.csv for the full table).
 
 from __future__ import annotations
 
+from typing import Any
+
 # 12 model × architectural metadata (cascade v3 reference)
-DATABASE_v9_1 = {
+DATABASE_v9_1: dict[str, dict[str, Any]] = {
     # MHA family (separate Q/K/V/O storage, no QK-Norm)
     "olmo-7b-hf": {
         "arch": "MHA",
@@ -144,11 +146,11 @@ DATABASE_v9_1 = {
 
 
 def compare_to_benchmark(
-    user_diagnosis: dict,
-    benchmark: dict | None = None,
+    user_diagnosis: dict[str, Any],
+    benchmark: dict[str, Any] | None = None,
     family_filter: str | None = None,
     model_filter: str | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Compare user model diagnosis to benchmark database, find nearest neighbor.
 
     **Layer B utility — independent from diagnose_model (Layer A).**
@@ -242,14 +244,15 @@ def compare_to_benchmark(
     }
 
 
-def _extract_user_median_k(diagnosis: dict) -> dict:
+def _extract_user_median_k(diagnosis: dict[str, Any]) -> dict[str, Any]:
     """Extract per-kind median k from diagnose_model() output OR manual dict."""
     # Format A: dict with per-kind median already
     if "per_component_summary" in diagnosis:
-        return diagnosis["per_component_summary"]
+        result: dict[str, Any] = diagnosis["per_component_summary"]
+        return result
     # Format B: from per_layer_fits
     if "per_layer_fits" in diagnosis:
-        out = {}
+        out: dict[str, Any] = {}
         import statistics
 
         for kind, fits in diagnosis["per_layer_fits"].items():
@@ -259,13 +262,16 @@ def _extract_user_median_k(diagnosis: dict) -> dict:
         return out
     # Format C: direct user input
     if "median_k_per_kind" in diagnosis:
-        return diagnosis["median_k_per_kind"]
+        result_c: dict[str, Any] = diagnosis["median_k_per_kind"]
+        return result_c
     raise ValueError(
         "diagnosis must contain 'per_component_summary' OR 'per_layer_fits' OR 'median_k_per_kind'"
     )
 
 
-def _benchmark_distance(user_med_k: dict, bench_meta: dict, weights: dict) -> float | None:
+def _benchmark_distance(
+    user_med_k: dict[str, Any], bench_meta: dict[str, Any], weights: dict[str, float]
+) -> float | None:
     """Weighted L1 distance over per-kind median k."""
     total_w = 0.0
     total_d = 0.0
@@ -294,7 +300,7 @@ def _benchmark_distance(user_med_k: dict, bench_meta: dict, weights: dict) -> fl
     return total_d / total_w
 
 
-def _classify_family(user_arch: str, user_med_k: dict, nearest_arch: str) -> str:
+def _classify_family(user_arch: str, user_med_k: dict[str, Any], nearest_arch: str) -> str:
     """Descriptive family class label."""
     q_k = user_med_k.get("q", user_med_k.get("qkv"))
     if q_k is None:

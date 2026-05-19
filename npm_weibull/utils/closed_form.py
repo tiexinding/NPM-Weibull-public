@@ -8,11 +8,12 @@ Spec: B2_Framework_实施Spec_v2 §5 API utility 4-5.
 from __future__ import annotations
 
 import math
+from typing import Any
 
 from scipy.special import gamma as gamma_func
 
 
-def sigma_from_k_lambda(k: float, lam: float) -> dict:
+def sigma_from_k_lambda(k: float, lam: float) -> dict[str, Any]:
     """Closed-form σ from Weibull (k, λ).
 
     σ = λ × √[Γ(1+2/k) - Γ²(1+1/k)]   (Weibull std dev)

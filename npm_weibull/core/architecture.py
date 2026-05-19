@@ -10,6 +10,8 @@ Spec: B2_Framework_实施Spec_v2 §1 F8 + §3.2 architecture-aware thresholds.
 
 from __future__ import annotations
 
+from typing import Any
+
 # Expected post-train q/k median k drift range per architecture
 # (cap stone finding 5-8 23:10: 7 model 100% MHA/GQA dichotomy verified)
 _DRIFT_RANGE = {
@@ -19,7 +21,7 @@ _DRIFT_RANGE = {
 }
 
 
-def classify_attention_arch(n_q: int, n_kv: int) -> dict:
+def classify_attention_arch(n_q: int, n_kv: int) -> dict[str, Any]:
     """Classify attention architecture from head counts.
 
     Parameters
