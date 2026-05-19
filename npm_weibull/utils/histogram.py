@@ -4,17 +4,19 @@ cascade v3 standard binning: log10|w| range [-12, 2], 1024 bins.
 
 Spec: B2_Framework_实施Spec_v2 §1 F1 input + §5 utility 2.
 """
-from __future__ import annotations
-from pathlib import Path
-import numpy as np
 
+from __future__ import annotations
+
+from pathlib import Path
+
+import numpy as np
 
 CASCADE_V3_RANGE = (-12.0, 2.0)
 CASCADE_V3_N_BINS = 1024
 
 
 def extract_to_histogram(
-    weight,                                     # torch.Tensor | np.ndarray
+    weight,  # torch.Tensor | np.ndarray
     n_bins: int = CASCADE_V3_N_BINS,
     log_w_range: tuple = CASCADE_V3_RANGE,
     save_path: str | Path | None = None,

@@ -7,10 +7,12 @@ Algorithm: weighted lstsq on log-log Weibull plot
 Spec: B2_Framework_实施Spec_v2 §1 F1 + §5 API 1.
 Source: cascade v3 weibull_v3.py weibull_fit_from_hist (5-7 起 verified).
 """
-from __future__ import annotations
-from pathlib import Path
-import numpy as np
 
+from __future__ import annotations
+
+from pathlib import Path
+
+import numpy as np
 
 _VALID_TRIM = {"mid_80", "mid_90", "full_range"}
 
@@ -116,7 +118,7 @@ def _weibull_fit_core(hist: np.ndarray, edges: np.ndarray, trim: str) -> dict:
     r2 = 1.0 - ss_res / max(ss_tot, 1e-12)
 
     # KS statistic (max |F_emp - F_fit|)
-    bc_w = 10.0 ** bc_log10  # convert back to |w| domain
+    bc_w = 10.0**bc_log10  # convert back to |w| domain
     F_fit = 1.0 - np.exp(-((bc_w / lam) ** k))
     ks = float(np.abs(cdf_upper - F_fit).max())
 

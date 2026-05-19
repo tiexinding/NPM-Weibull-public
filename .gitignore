@@ -47,6 +47,18 @@ Thumbs.db
 *.tar.gz
 *.zip
 
+# Coverage / pytest artifacts
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# ruff
+.ruff_cache/
+
 # Large raw data (not committed; only derived JSON should be tracked)
 *.npz
 raw_histograms/

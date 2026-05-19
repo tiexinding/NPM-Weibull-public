@@ -8,9 +8,10 @@ B) to find the nearest neighbor by per-component k distance.
 Run:
     python examples/02_compare_to_benchmark.py
 """
+
 from __future__ import annotations
 
-from npm_weibull import DATABASE_v9_1, compare_to_benchmark, classify_attention_arch
+from npm_weibull import DATABASE_v9_1, classify_attention_arch, compare_to_benchmark
 
 
 def show_benchmark_overview():
@@ -22,19 +23,21 @@ def show_benchmark_overview():
         nkv = meta.get("n_kv", "-")
         qkn = "yes" if meta.get("QK_Norm") else "no"
         tok = meta.get("training_tokens_T", "-")
-        print(f"  {model_id:<28} {meta.get('arch','-'):<6} "
-              f"{f'{nq}/{nkv}':<10} {qkn:<8} {tok}")
+        print(f"  {model_id:<28} {meta.get('arch', '-'):<6} {f'{nq}/{nkv}':<10} {qkn:<8} {tok}")
 
 
 def main():
     show_benchmark_overview()
 
     print("\n=== F8 attention architecture classification ===")
-    for n_q, n_kv, label in [(40, 8, "Qwen2.5 14B"), (32, 8, "Llama-3 8B"),
-                             (32, 32, "OLMo-1 7B"), (32, 1, "hypothetical MQA")]:
+    for n_q, n_kv, label in [
+        (40, 8, "Qwen2.5 14B"),
+        (32, 8, "Llama-3 8B"),
+        (32, 32, "OLMo-1 7B"),
+        (32, 1, "hypothetical MQA"),
+    ]:
         c = classify_attention_arch(n_q, n_kv)
-        print(f"  {label:<22} (n_q={n_q}, n_kv={n_kv}): "
-              f"arch={c['arch']}, ratio={c['ratio']}:1")
+        print(f"  {label:<22} (n_q={n_q}, n_kv={n_kv}): arch={c['arch']}, ratio={c['ratio']}:1")
 
     # Mock a diagnosis on a GQA 4:1 model with k values in the Transmission band
     user_diagnosis = {

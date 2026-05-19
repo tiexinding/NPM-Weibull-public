@@ -11,12 +11,13 @@ Algorithm:
   3. KS = max |F_emp - F_fit| at all bin edges
   4. Rank by AIC ascending, report ΔAIC vs best
 """
+
 from __future__ import annotations
+
 from pathlib import Path
 
 import numpy as np
-from scipy import stats, optimize
-
+from scipy import optimize, stats
 
 _VALID_CANDIDATES = ("weibull", "lognormal", "gamma")
 
@@ -123,11 +124,13 @@ def _load_histogram(h):
 # Weibull binned MLE
 # =============================================================================
 
+
 def _fit_weibull_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     """Binned MLE for Weibull(k, λ) on |w| domain. Reuse weibull_fit weighted lstsq as init,
     then optimize log-likelihood."""
     # Initial guess from weighted lstsq (same as F1)
     from npm_weibull.core.weibull import _weibull_fit_core
+
     edges_log10 = np.log10(np.maximum(edges_w, 1e-30))
     init_fit = _weibull_fit_core(hist, edges_log10, "mid_80")
     if not init_fit["ok"]:
@@ -144,8 +147,10 @@ def _fit_weibull_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
         return -float(np.sum(hist * np.log(p_bin)))
 
     res = optimize.minimize(
-        neg_log_lik, x0=[k_init, lam_init],
-        method="Nelder-Mead", options={"xatol": 1e-6, "fatol": 1e-6, "maxiter": 1000},
+        neg_log_lik,
+        x0=[k_init, lam_init],
+        method="Nelder-Mead",
+        options={"xatol": 1e-6, "fatol": 1e-6, "maxiter": 1000},
     )
     k_opt, lam_opt = float(res.x[0]), float(res.x[1])
     log_lik = -float(res.fun)
@@ -160,6 +165,7 @@ def _ks_weibull(edges_w, F_emp, params) -> float:
 # =============================================================================
 # Lognormal binned MLE
 # =============================================================================
+
 
 def _fit_lognormal_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     """Binned MLE for Lognormal(μ, σ) on |w|. Use scipy.stats.lognorm CDF."""
@@ -180,21 +186,26 @@ def _fit_lognormal_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
         return -float(np.sum(hist * np.log(p_bin)))
 
     res = optimize.minimize(
-        neg_log_lik, x0=[mu_init, sigma_init],
-        method="Nelder-Mead", options={"xatol": 1e-6, "fatol": 1e-6, "maxiter": 1000},
+        neg_log_lik,
+        x0=[mu_init, sigma_init],
+        method="Nelder-Mead",
+        options={"xatol": 1e-6, "fatol": 1e-6, "maxiter": 1000},
     )
     mu_opt, sigma_opt = float(res.x[0]), float(res.x[1])
     return {"mu": mu_opt, "sigma": sigma_opt}, -float(res.fun)
 
 
 def _ks_lognormal(edges_w, F_emp, params) -> float:
-    F_fit = stats.norm.cdf((np.log(np.maximum(edges_w[1:], 1e-30)) - params["mu"]) / params["sigma"])
+    F_fit = stats.norm.cdf(
+        (np.log(np.maximum(edges_w[1:], 1e-30)) - params["mu"]) / params["sigma"]
+    )
     return float(np.max(np.abs(F_emp - F_fit)))
 
 
 # =============================================================================
 # Gamma binned MLE
 # =============================================================================
+
 
 def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
     """Binned MLE for Gamma(α=shape, β=scale) on |w|. Use scipy.stats.gamma CDF."""
@@ -218,8 +229,10 @@ def _fit_gamma_binned_mle(edges_w: np.ndarray, hist: np.ndarray) -> tuple:
         return -float(np.sum(hist * np.log(p_bin)))
 
     res = optimize.minimize(
-        neg_log_lik, x0=[alpha_init, beta_init],
-        method="Nelder-Mead", options={"xatol": 1e-6, "fatol": 1e-6, "maxiter": 1000},
+        neg_log_lik,
+        x0=[alpha_init, beta_init],
+        method="Nelder-Mead",
+        options={"xatol": 1e-6, "fatol": 1e-6, "maxiter": 1000},
     )
     a_opt, b_opt = float(res.x[0]), float(res.x[1])
     return {"alpha": a_opt, "beta": b_opt}, -float(res.fun)

@@ -26,30 +26,38 @@ Public API (跟 B2_Framework_实施Spec_v2 §5 严格对应):
 __version__ = "0.4.0"
 
 # Core API
-from npm_weibull.core.weibull import weibull_fit
+# Benchmark
+from npm_weibull.benchmark.database_v9_1 import DATABASE_v9_1, compare_to_benchmark
 from npm_weibull.core.architecture import classify_attention_arch
-from npm_weibull.core.training import compute_T_tau
-from npm_weibull.core.distfree import per_block_metrics
-from npm_weibull.core.trajectory import sigma_decompose, k_drift_severity
 from npm_weibull.core.classify import classify_k
+from npm_weibull.core.distfree import per_block_metrics
+from npm_weibull.core.training import compute_T_tau
+from npm_weibull.core.trajectory import k_drift_severity, sigma_decompose
+from npm_weibull.core.weibull import weibull_fit
+from npm_weibull.utils.cascade_reader import load_cascade_v3
 
 # Utility API
 from npm_weibull.utils.closed_form import sigma_from_k_lambda, weibull_quantile
-from npm_weibull.utils.cascade_reader import load_cascade_v3
 from npm_weibull.utils.histogram import extract_to_histogram
 from npm_weibull.utils.ks_aic import compare_distributions
 
 # Workflow
 from npm_weibull.workflow.diagnose import diagnose_model
 
-# Benchmark
-from npm_weibull.benchmark.database_v9_1 import DATABASE_v9_1, compare_to_benchmark
-
 __all__ = [
-    "weibull_fit", "sigma_decompose", "per_block_metrics",
-    "classify_attention_arch", "compute_T_tau", "classify_k", "k_drift_severity",
-    "load_cascade_v3", "extract_to_histogram", "compare_distributions",
-    "sigma_from_k_lambda", "weibull_quantile",
+    "weibull_fit",
+    "sigma_decompose",
+    "per_block_metrics",
+    "classify_attention_arch",
+    "compute_T_tau",
+    "classify_k",
+    "k_drift_severity",
+    "load_cascade_v3",
+    "extract_to_histogram",
+    "compare_distributions",
+    "sigma_from_k_lambda",
+    "weibull_quantile",
     "diagnose_model",
-    "DATABASE_v9_1", "compare_to_benchmark",
+    "DATABASE_v9_1",
+    "compare_to_benchmark",
 ]

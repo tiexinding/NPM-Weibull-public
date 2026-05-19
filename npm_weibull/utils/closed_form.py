@@ -4,8 +4,11 @@ All paper §A.5 衍生 6 量表 + σ=λC_k computed from these primitives.
 
 Spec: B2_Framework_实施Spec_v2 §5 API utility 4-5.
 """
+
 from __future__ import annotations
+
 import math
+
 from scipy.special import gamma as gamma_func
 
 

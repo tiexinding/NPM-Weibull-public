@@ -3,22 +3,28 @@
 T4: cells_704 sanity (Pythia-410m k_80 偏差<0.5% vs cells_704 baseline 1.1747)
 T5: 3-model integration (OLMo-1 / Llama-3 / Pythia-6.9B end-to-end)
 """
+
 from __future__ import annotations
-import sys
+
 import statistics
+import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from npm_weibull import (
-    diagnose_model, compare_to_benchmark, DATABASE_v9_1,
-    classify_attention_arch, compute_T_tau, classify_k,
+    DATABASE_v9_1,
+    classify_attention_arch,
+    compare_to_benchmark,
+    compute_T_tau,
+    diagnose_model,
 )
-from npm_weibull.utils.cascade_reader import load_cascade_v3, filter_per_component
-
+from npm_weibull.utils.cascade_reader import filter_per_component, load_cascade_v3
 
 # Cascade v3+v2 paths (relative to repo root)
-ROOT = Path("/home/dingdang-ws/wsl-projects/claudecode/NPM_v13_commit_260324/NPM_v13_complete/30_NPM_weibull/cascade_v2_20260502")
+ROOT = Path(
+    "/home/dingdang-ws/wsl-projects/claudecode/NPM_v13_commit_260324/NPM_v13_complete/30_NPM_weibull/cascade_v2_20260502"
+)
 DERIVED_V3 = ROOT / "cascade_v3_pull/data/derived"
 DERIVED_V2 = ROOT / "derived"
 
@@ -34,12 +40,12 @@ def test_T4_cells_704_sanity():
     # Pythia-410m terminal step143000
     target_keys = [k for k in data if "pythia-410m-step143000" in k]
     if not target_keys:
-        print(f"  ⚠️ Pythia-410m step143000 not in derived, SKIP")
+        print("  ⚠️ Pythia-410m step143000 not in derived, SKIP")
         return
     pc = data[target_keys[0]]
     qkv_rows = filter_per_component(pc, kind="qkv")
     if not qkv_rows:
-        print(f"  ⚠️ no qkv rows for Pythia-410m, SKIP")
+        print("  ⚠️ no qkv rows for Pythia-410m, SKIP")
         return
 
     ks = [r["k"] for r in qkv_rows if r.get("k")]
@@ -50,7 +56,7 @@ def test_T4_cells_704_sanity():
     print(f"  cells_704 baseline = {BASELINE}, deviation = {deviation_pct:.3f}%")
     assert deviation_pct < 5.0, f"deviation {deviation_pct:.3f}% > 5% (loose threshold)"
     if deviation_pct < 0.5:
-        print(f"  ✅ PASS (deviation < 0.5% strict)")
+        print("  ✅ PASS (deviation < 0.5% strict)")
     else:
         print(f"  ⚠️ pass loose, but tighter threshold violated ({deviation_pct:.3f}% >= 0.5%)")
 
@@ -59,7 +65,7 @@ def test_T5a_olmo1_mha_strong():
     """T5a: OLMo-1 (MHA, no QK-Norm) → q/k median k strong selection (<0.95)."""
     print("\n=== T5a OLMo-1 (MHA strong selection) ===")
     if not DERIVED_V3.is_dir():
-        print(f"  ⚠️ derived not found, SKIP")
+        print("  ⚠️ derived not found, SKIP")
         return
     report = diagnose_model(
         "olmo-7b-hf",
@@ -68,7 +74,7 @@ def test_T5a_olmo1_mha_strong():
     )
     print(f"  arch = {report['arch']['arch']} (ratio {report['arch']['ratio']})")
     summary = report["per_component_summary"]
-    print(f"  per-component median k:")
+    print("  per-component median k:")
     for kind in ("q", "k", "v", "o"):
         if kind in summary:
             cls = report["classifications"][kind]
@@ -93,7 +99,7 @@ def test_T5b_llama3_gqa_transmission():
     )
     print(f"  arch = {report['arch']['arch']} (ratio {report['arch']['ratio']})")
     summary = report["per_component_summary"]
-    print(f"  per-component median k:")
+    print("  per-component median k:")
     for kind in ("q", "k", "v", "o"):
         if kind in summary:
             print(f"    {kind}: median k = {summary[kind]:.3f}")
@@ -101,7 +107,9 @@ def test_T5b_llama3_gqa_transmission():
     assert report["arch"]["arch"] == "GQA", f"expected GQA, got {report['arch']['arch']}"
     assert report["arch"]["ratio"] == 4
     if "q" in summary:
-        assert 1.10 < summary["q"] < 1.20, f"Llama-3 q should be near-transmission, got {summary['q']:.3f}"
+        assert 1.10 < summary["q"] < 1.20, (
+            f"Llama-3 q should be near-transmission, got {summary['q']:.3f}"
+        )
     print(f"  ✅ PASS (GQA near-transmission, q={summary.get('q', 'N/A')})")
 
 
@@ -114,7 +122,7 @@ def test_T5c_pythia_6_9b_transition():
     assert T_tau["state"] == "transition", f"expected transition, got {T_tau['state']}"
     assert T_tau["warning"] is not None, "transition state should carry warning"
     print(f"  warning baked: {T_tau['warning'][:80]}...")
-    print(f"  ✅ PASS")
+    print("  ✅ PASS")
 
 
 def test_T2_compare_to_benchmark():
@@ -134,14 +142,14 @@ def test_T2_compare_to_benchmark():
     nearest_arch = DATABASE_v9_1[result["nearest_neighbor"]]["arch"]
     assert nearest_arch == "GQA", f"expected GQA neighbor, got {nearest_arch}"
     assert "GQA" in result["family_class"]
-    print(f"  ✅ PASS (matched GQA family)")
+    print("  ✅ PASS (matched GQA family)")
 
     # Test family_filter
     print("\n  test family_filter='qwen':")
     result2 = compare_to_benchmark(fake_diagnosis, DATABASE_v9_1, family_filter="qwen")
     print(f"    nearest: {result2['nearest_neighbor']}")
     assert "qwen" in result2["nearest_neighbor"].lower()
-    print(f"  ✅ PASS (filter works)")
+    print("  ✅ PASS (filter works)")
 
 
 def test_T1_compare_distributions_realdata():
@@ -154,11 +162,12 @@ def test_T1_compare_distributions_realdata():
     # Try to find a Pythia-410m histogram
     candidates = list(raw_dir.glob("pythia-410m-step143000*layer000.npz"))
     if not candidates:
-        print(f"  ⚠️ no Pythia-410m layer 000 NPZ, SKIP")
+        print("  ⚠️ no Pythia-410m layer 000 NPZ, SKIP")
         return
     fp = candidates[0]
     print(f"  using: {fp.name}")
     from npm_weibull.utils.ks_aic import compare_distributions
+
     result = compare_distributions(str(fp))
     print(f"  best: {result['best']}")
     for r in result["aic_ranking"]:
@@ -166,7 +175,7 @@ def test_T1_compare_distributions_realdata():
         print(f"    {r['name']:10s} aic={r['aic']:.0f}  ΔAIC={r['delta_aic']:+.0f}  KS={ks:.4f}")
     # paper §A.7 expects Weibull win
     assert result["best"] == "weibull", f"expected weibull win, got {result['best']}"
-    print(f"  ✅ PASS (Weibull wins, paper §A.7 baseline)")
+    print("  ✅ PASS (Weibull wins, paper §A.7 baseline)")
 
 
 if __name__ == "__main__":

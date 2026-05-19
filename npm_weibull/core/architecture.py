@@ -7,8 +7,8 @@ Classifies attention architecture from model config:
 
 Spec: B2_Framework_实施Spec_v2 §1 F8 + §3.2 architecture-aware thresholds.
 """
-from __future__ import annotations
 
+from __future__ import annotations
 
 # Expected post-train q/k median k drift range per architecture
 # (cap stone finding 5-8 23:10: 7 model 100% MHA/GQA dichotomy verified)
@@ -43,8 +43,7 @@ def classify_attention_arch(n_q: int, n_kv: int) -> dict:
         raise ValueError(f"n_q and n_kv must be positive, got n_q={n_q}, n_kv={n_kv}")
     if n_q % n_kv != 0:
         raise ValueError(
-            f"n_q ({n_q}) must be divisible by n_kv ({n_kv}); "
-            f"non-standard attention configuration"
+            f"n_q ({n_q}) must be divisible by n_kv ({n_kv}); non-standard attention configuration"
         )
 
     if n_kv == 1:

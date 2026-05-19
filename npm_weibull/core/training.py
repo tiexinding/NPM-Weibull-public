@@ -11,8 +11,8 @@ Reference: Wang & Aitchison 2024 (arXiv:2405.13698)
 Spec: B2_Framework_实施Spec_v2 §1 F6 + §3.1 thresholds.
 Critical (老丁 5-8 catch): T/τ < 0.2 = NOT terminal even if step trajectory ends here.
 """
-from __future__ import annotations
 
+from __future__ import annotations
 
 _T_TAU_THRESHOLDS = {
     "saturated": 1.0,

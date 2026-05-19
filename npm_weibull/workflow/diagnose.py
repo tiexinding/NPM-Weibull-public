@@ -8,17 +8,19 @@
 
 Spec: B2_Framework_实施Spec_v2 §5 wrapper (5-9 23:00 老丁 catch 后修正解耦).
 """
+
 from __future__ import annotations
+
 import statistics
 from pathlib import Path
 
-from npm_weibull.core.weibull import weibull_fit
 from npm_weibull.core.architecture import classify_attention_arch
-from npm_weibull.core.training import compute_T_tau
-from npm_weibull.core.distfree import per_block_metrics
 from npm_weibull.core.classify import classify_k
+from npm_weibull.core.distfree import per_block_metrics
+from npm_weibull.core.training import compute_T_tau
 from npm_weibull.core.trajectory import k_drift_severity
-from npm_weibull.utils.cascade_reader import load_cascade_v3, filter_per_component
+from npm_weibull.core.weibull import weibull_fit
+from npm_weibull.utils.cascade_reader import filter_per_component, load_cascade_v3
 
 
 def diagnose_model(
@@ -111,6 +113,7 @@ def diagnose_model(
             raise FileNotFoundError(f"histograms_dir not found: {histograms_dir}")
         # Group NPZ files by inferred kind from param_name
         import numpy as np
+
         for npz_fp in sorted(hist_path.glob("*.npz")):
             d = np.load(npz_fp)
             param_name = str(d.get("param_name", ""))
@@ -134,9 +137,7 @@ def diagnose_model(
                 metrics["block_idx"] = block_idx
                 distfree.setdefault(kind, []).append(metrics)
     else:
-        raise ValueError(
-            "must provide histograms_dir OR derived_dir for diagnose_model"
-        )
+        raise ValueError("must provide histograms_dir OR derived_dir for diagnose_model")
 
     # Step 4: per-component median + classification
     per_component_summary = {}
@@ -208,6 +209,7 @@ def _infer_kind_from_param_name(param_name: str) -> str | None:
 def _infer_block_idx_from_param_name(param_name: str) -> int:
     """Infer transformer block index from parameter name (e.g., 'model.layers.5.self_attn...')."""
     import re
+
     m = re.search(r"layers?\.(\d+)\.", param_name)
     if m:
         return int(m.group(1))

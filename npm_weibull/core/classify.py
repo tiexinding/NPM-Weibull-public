@@ -10,8 +10,8 @@ Thresholds (paper §A.7/A.8.3 一致, A 5-10 早 09:30 确认):
   strong selection:  k < 0.95                        → OLMo-1 (MHA, no QK-Norm)
   init baseline:     |k - 1.205| < 0.01 AND step=0   → all init Half-Normal
 """
-from __future__ import annotations
 
+from __future__ import annotations
 
 _THRESHOLDS = {
     "transmission_low": 1.18,
@@ -75,13 +75,13 @@ def classify_k(
     if arch_type is not None:
         if arch_type == "MHA":
             # OLMo lineage: q/k median k 0.76-0.99 (selection)
-            in_expected = (cls in ("strong_selection", "mild_selection"))
+            in_expected = cls in ("strong_selection", "mild_selection")
         elif arch_type == "GQA":
             # Llama/Mistral/Qwen: q/k median k 1.13-1.16 (transmission)
-            in_expected = (cls == "transmission")
+            in_expected = cls == "transmission"
         elif arch_type == "MQA":
             # No paper#1 data, predicted minimal drift like GQA
-            in_expected = (cls == "transmission")
+            in_expected = cls == "transmission"
 
     return {
         "class": cls,

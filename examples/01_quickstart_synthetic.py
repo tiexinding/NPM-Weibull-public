@@ -7,6 +7,7 @@ throughout the paper (k_0 ~ 1.2054 under mid-80% trim).
 Run:
     python examples/01_quickstart_synthetic.py
 """
+
 from __future__ import annotations
 
 import numpy as np

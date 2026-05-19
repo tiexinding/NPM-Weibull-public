@@ -8,8 +8,9 @@ Spec: B2_Framework_实施Spec_v2 §7.1 — required pre-deploy verification.
 
 Run: python -m tests.test_synthetic  (from npm_weibull_py/v0.4/)
 """
+
 from __future__ import annotations
-import math
+
 import sys
 from pathlib import Path
 
@@ -19,12 +20,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import numpy as np
 
 from npm_weibull import (
-    weibull_fit, per_block_metrics,
-    sigma_from_k_lambda, weibull_quantile,
-    classify_attention_arch, compute_T_tau,
+    classify_attention_arch,
+    compute_T_tau,
+    per_block_metrics,
+    sigma_from_k_lambda,
+    weibull_fit,
 )
-from npm_weibull.utils.histogram import extract_to_histogram
-
 
 # Reproducibility
 RNG = np.random.default_rng(42)
@@ -53,7 +54,7 @@ def test_1_half_normal_init():
     assert res["ok"], f"fit failed: {res.get('reason')}"
     assert abs(res["k"] - 1.205) < 0.02, f"k bias > 0.02: got {res['k']}"
     assert res["R2"] > 0.99, f"R² should be near 1: got {res['R2']}"
-    print(f"  ✅ PASS — k within 0.02 of 1.205, R² > 0.99")
+    print("  ✅ PASS — k within 0.02 of 1.205, R² > 0.99")
 
 
 def test_2_lognormal_rejection():
@@ -86,12 +87,14 @@ def test_3_mixture_fallback():
     res = weibull_fit(h, trim="mid_80")
     metrics = per_block_metrics(h)
     print(f"  Weibull fit: k = {res['k']:.4f}, R² = {res['R2']:.4f}")
-    print(f"  distfree: Q90/Q10 = {metrics['q90_q10']:.2f}, "
-          f"P99.9/P50 = {metrics['p999_p50']:.2f}, Gini = {metrics['gini']:.3f}")
+    print(
+        f"  distfree: Q90/Q10 = {metrics['q90_q10']:.2f}, "
+        f"P99.9/P50 = {metrics['p999_p50']:.2f}, Gini = {metrics['gini']:.3f}"
+    )
 
     # P99.9/P50 should detect heavy tail clearly (F150 cap stone)
     assert metrics["p999_p50"] > 5.0, f"P99.9/P50 should detect outlier: got {metrics['p999_p50']}"
-    print(f"  ✅ PASS — distfree captures outlier signature (P99.9/P50 > 5)")
+    print("  ✅ PASS — distfree captures outlier signature (P99.9/P50 > 5)")
 
 
 def test_closed_form_consistency():
@@ -100,31 +103,33 @@ def test_closed_form_consistency():
     cf = sigma_from_k_lambda(k=1.205, lam=0.018)
     print(f"  k=1.205, λ=0.018 →  σ = {cf['sigma']:.6f}, mean|w| = {cf['mean_abs_w']:.6f}")
     print(f"  C_k = {cf['c_k']:.4f} (paper §A.3 b 题 σ=λ×C_k)")
-    print(f"  Q90/Q10 closed-form for k=1.205:")
+    print("  Q90/Q10 closed-form for k=1.205:")
     from npm_weibull.utils.closed_form import weibull_q90_q10
+
     q_ratio = weibull_q90_q10(k=1.205)
     print(f"    Q90/Q10 = {q_ratio:.2f}  (paper §A.5 衍生 6 量表: ~12.93)")
-    assert abs(q_ratio - 12.93) < 0.5, f"Q90/Q10 should be ≈12.93 for k=1.205"
-    print(f"  ✅ PASS — closed-form Q90/Q10 matches paper §A.5 衍生 6 量表")
+    assert abs(q_ratio - 12.93) < 0.5, "Q90/Q10 should be ≈12.93 for k=1.205"
+    print("  ✅ PASS — closed-form Q90/Q10 matches paper §A.5 衍生 6 量表")
 
 
 def test_arch_classifier():
     """Verify F8 architectural classifier."""
     print("\n=== F8 Architectural classifier ===")
     cases = [
-        (32, 32, "MHA"),       # OLMo-1/2
-        (32, 8,  "GQA"),       # Llama-3, Mistral, Qwen3-8B
-        (40, 8,  "GQA"),       # Qwen2.5-14B (5:1)
-        (28, 4,  "GQA"),       # Qwen2.5-7B (7:1)
-        (32, 1,  "MQA"),       # Falcon (no paper#1 data)
+        (32, 32, "MHA"),  # OLMo-1/2
+        (32, 8, "GQA"),  # Llama-3, Mistral, Qwen3-8B
+        (40, 8, "GQA"),  # Qwen2.5-14B (5:1)
+        (28, 4, "GQA"),  # Qwen2.5-7B (7:1)
+        (32, 1, "MQA"),  # Falcon (no paper#1 data)
     ]
     for n_q, n_kv, expected in cases:
         res = classify_attention_arch(n_q, n_kv)
         ok = res["arch"] == expected
-        print(f"  ({n_q}/{n_kv}) → {res['arch']:5s} ratio={res['ratio']:2d}  "
-              f"{'✅' if ok else '❌'}")
+        print(
+            f"  ({n_q}/{n_kv}) → {res['arch']:5s} ratio={res['ratio']:2d}  {'✅' if ok else '❌'}"
+        )
         assert ok, f"expected {expected} for n_q={n_q}, n_kv={n_kv}; got {res['arch']}"
-    print(f"  ✅ PASS — 5/5 architectural classifications correct")
+    print("  ✅ PASS — 5/5 architectural classifications correct")
 
 
 def test_T_tau():
@@ -140,7 +145,7 @@ def test_T_tau():
     print(f"  Pythia-6.9B equivalent: T/τ = {res2['T_tau']:.2f}, state = {res2['state']}")
     assert res2["state"] == "transition", f"expected transition; got {res2['state']}"
     assert res2["warning"] is not None, "transition state should carry warning"
-    print(f"  ✅ PASS — T/τ thresholds aligned with Pythia §A.8.2 T3")
+    print("  ✅ PASS — T/τ thresholds aligned with Pythia §A.8.2 T3")
 
 
 if __name__ == "__main__":

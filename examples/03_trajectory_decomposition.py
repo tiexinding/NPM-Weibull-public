@@ -12,9 +12,10 @@ Selection k around [0.76, 0.99]).
 Run:
     python examples/03_trajectory_decomposition.py
 """
+
 from __future__ import annotations
 
-from npm_weibull import sigma_decompose, k_drift_severity
+from npm_weibull import k_drift_severity, sigma_decompose
 
 
 def main():
@@ -51,11 +52,13 @@ def main():
     # ---- Paired correlation: F156 cap stone (paper §5) ----
     # When two Transmission Class components share the same residual stream input,
     # their lambda trajectories track each other (paper §5: paired r ~ 0.99).
-    lam_traj_wffn_out = [0.0091, 0.0152, 0.0223, 0.0275, 0.0298]   # synthetic paired
+    lam_traj_wffn_out = [0.0091, 0.0152, 0.0223, 0.0275, 0.0298]  # synthetic paired
     res = sigma_decompose(k_traj_wo, lam_traj_wo, paired_lambda_traj=lam_traj_wffn_out)
-    print(f"=== Paired-component correlation (W_o vs W_FFN_out) ===")
-    print(f"  paired r (log-log lambda): {res['paired_r']:.4f}    "
-          f"(expected: ~0.99 within Transmission Class)")
+    print("=== Paired-component correlation (W_o vs W_FFN_out) ===")
+    print(
+        f"  paired r (log-log lambda): {res['paired_r']:.4f}    "
+        f"(expected: ~0.99 within Transmission Class)"
+    )
 
 
 if __name__ == "__main__":

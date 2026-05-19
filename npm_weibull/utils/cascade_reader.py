@@ -4,7 +4,9 @@ Loads cascade benchmark data into unified dict for downstream analysis.
 
 Spec: B2_Framework_实施Spec_v2 §5 utility 1 + §6 数据库 reader.
 """
+
 from __future__ import annotations
+
 import json
 from pathlib import Path
 

@@ -3,14 +3,18 @@
 Source: cascade v3 per-component Weibull fit (mid-80% trim).
 Companion to paper §3-§5 (see DATABASE_v9_1.csv for the full table).
 """
-from __future__ import annotations
 
+from __future__ import annotations
 
 # 12 model × architectural metadata (cascade v3 reference)
 DATABASE_v9_1 = {
     # MHA family (separate Q/K/V/O storage, no QK-Norm)
     "olmo-7b-hf": {
-        "arch": "MHA", "n_q": 32, "n_kv": 32, "ratio": 1, "QK_Norm": False,
+        "arch": "MHA",
+        "n_q": 32,
+        "n_kv": 32,
+        "ratio": 1,
+        "QK_Norm": False,
         "trajectory": False,
         "expected_q_med_k": (0.76, 0.85),  # cascade v3 verify: 0.81
         "expected_k_med_k": (0.70, 0.80),  # 0.76
@@ -18,7 +22,11 @@ DATABASE_v9_1 = {
         "training_tokens_T": 2.5,
     },
     "olmo2-7b-final": {
-        "arch": "MHA", "n_q": 32, "n_kv": 32, "ratio": 1, "QK_Norm": True,
+        "arch": "MHA",
+        "n_q": 32,
+        "n_kv": 32,
+        "ratio": 1,
+        "QK_Norm": True,
         "trajectory": False,
         "expected_q_med_k": (0.95, 1.05),  # 0.99 (QK-Norm mitigator)
         "expected_k_med_k": (0.92, 1.00),  # 0.97
@@ -27,63 +35,105 @@ DATABASE_v9_1 = {
     },
     # Pythia family (MHA, W_qkv merged tensor — V dilute)
     "pythia-70m-step143000": {
-        "arch": "MHA", "n_q": 8, "n_kv": 8, "ratio": 1, "QK_Norm": False,
-        "trajectory": True, "merged_qkv": True,
-        "T_tau_iter": 1.43, "physical_state": "saturated",
+        "arch": "MHA",
+        "n_q": 8,
+        "n_kv": 8,
+        "ratio": 1,
+        "QK_Norm": False,
+        "trajectory": True,
+        "merged_qkv": True,
+        "T_tau_iter": 1.43,
+        "physical_state": "saturated",
         "expected_qkv_med_k": (1.04, 1.10),  # 1.05
     },
     "pythia-160m-step143000": {
-        "arch": "MHA", "n_q": 12, "n_kv": 12, "merged_qkv": True,
-        "T_tau_iter": 1.0, "physical_state": "saturated",
+        "arch": "MHA",
+        "n_q": 12,
+        "n_kv": 12,
+        "merged_qkv": True,
+        "T_tau_iter": 1.0,
+        "physical_state": "saturated",
         "expected_qkv_med_k": (1.08, 1.12),
     },
     "pythia-410m-step143000": {
-        "arch": "MHA", "n_q": 16, "n_kv": 16, "merged_qkv": True,
-        "T_tau_iter": 0.7, "physical_state": "approaching",
+        "arch": "MHA",
+        "n_q": 16,
+        "n_kv": 16,
+        "merged_qkv": True,
+        "T_tau_iter": 0.7,
+        "physical_state": "approaching",
         "expected_qkv_med_k": (1.13, 1.17),
     },
     "pythia-1b-step143000": {
-        "arch": "MHA", "n_q": 8, "n_kv": 8, "merged_qkv": True,
-        "T_tau_iter": 0.43, "physical_state": "approaching",
+        "arch": "MHA",
+        "n_q": 8,
+        "n_kv": 8,
+        "merged_qkv": True,
+        "T_tau_iter": 0.43,
+        "physical_state": "approaching",
         "expected_qkv_med_k": (1.15, 1.19),
     },
     "pythia-6.9b-step143000": {
-        "arch": "MHA", "n_q": 32, "n_kv": 32, "merged_qkv": True,
-        "T_tau_iter": 0.17, "physical_state": "transition",
+        "arch": "MHA",
+        "n_q": 32,
+        "n_kv": 32,
+        "merged_qkv": True,
+        "T_tau_iter": 0.17,
+        "physical_state": "transition",
         "expected_qkv_med_k": (1.15, 1.19),
         "warning": "T/τ=0.17, NOT physical terminal — apparent stability is budget artifact",
     },
     # GQA family (separate Q/K/V/O, K shared across Q heads)
     "llama-3-8b": {
-        "arch": "GQA", "n_q": 32, "n_kv": 8, "ratio": 4, "QK_Norm": False,
+        "arch": "GQA",
+        "n_q": 32,
+        "n_kv": 8,
+        "ratio": 4,
+        "QK_Norm": False,
         "trajectory": False,
         "expected_q_med_k": (1.13, 1.16),  # 1.14
         "expected_k_med_k": (1.13, 1.17),  # 1.15
         "expected_v_o_med_k": (1.17, 1.19),
     },
     "mistral-7b": {
-        "arch": "GQA", "n_q": 32, "n_kv": 8, "ratio": 4, "QK_Norm": False,
+        "arch": "GQA",
+        "n_q": 32,
+        "n_kv": 8,
+        "ratio": 4,
+        "QK_Norm": False,
         "trajectory": False,
         "expected_q_med_k": (1.14, 1.16),
         "expected_k_med_k": (1.12, 1.14),
         "expected_v_o_med_k": (1.17, 1.19),
     },
     "qwen2.5-7b": {
-        "arch": "GQA", "n_q": 28, "n_kv": 4, "ratio": 7, "QK_Norm": False,
+        "arch": "GQA",
+        "n_q": 28,
+        "n_kv": 4,
+        "ratio": 7,
+        "QK_Norm": False,
         "trajectory": False,
         "expected_q_med_k": (1.13, 1.16),
         "expected_k_med_k": (1.10, 1.14),
         "expected_v_o_med_k": (1.16, 1.20),
     },
     "qwen2.5-14b": {
-        "arch": "GQA", "n_q": 40, "n_kv": 8, "ratio": 5, "QK_Norm": False,
+        "arch": "GQA",
+        "n_q": 40,
+        "n_kv": 8,
+        "ratio": 5,
+        "QK_Norm": False,
         "trajectory": False,
         "expected_q_med_k": (1.15, 1.17),
         "expected_k_med_k": (1.12, 1.15),
         "expected_v_o_med_k": (1.16, 1.19),
     },
     "qwen3-8b-base": {
-        "arch": "GQA", "n_q": 32, "n_kv": 8, "ratio": 4, "QK_Norm": True,
+        "arch": "GQA",
+        "n_q": 32,
+        "n_kv": 8,
+        "ratio": 4,
+        "QK_Norm": True,
         "trajectory": False,
         "expected_q_med_k": (1.15, 1.18),
         "expected_k_med_k": (1.14, 1.17),
@@ -155,8 +205,9 @@ def compare_to_benchmark(
             distances[model_id] = d
 
     if not distances:
-        raise ValueError("Could not compute distance to any benchmark entry "
-                         "(check user_diagnosis schema)")
+        raise ValueError(
+            "Could not compute distance to any benchmark entry (check user_diagnosis schema)"
+        )
 
     nearest = min(distances.items(), key=lambda kv: kv[1])
     nearest_id, k_distance = nearest
@@ -184,7 +235,9 @@ def compare_to_benchmark(
         "nearest_neighbor": nearest_id,
         "k_distance": float(k_distance),
         "family_class": family_class,
-        "per_neighbor_distances": {k: float(v) for k, v in sorted(distances.items(), key=lambda kv: kv[1])},
+        "per_neighbor_distances": {
+            k: float(v) for k, v in sorted(distances.items(), key=lambda kv: kv[1])
+        },
         "alerts": alerts,
     }
 
@@ -198,6 +251,7 @@ def _extract_user_median_k(diagnosis: dict) -> dict:
     if "per_layer_fits" in diagnosis:
         out = {}
         import statistics
+
         for kind, fits in diagnosis["per_layer_fits"].items():
             ks = [f["k"] for f in fits if f.get("ok") and f.get("k")]
             if ks:

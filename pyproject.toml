@@ -38,7 +38,7 @@ dependencies = [
 [project.optional-dependencies]
 torch = ["torch>=2.0", "transformers>=4.35", "safetensors>=0.4"]
 plot = ["matplotlib>=3.7"]
-dev = ["pytest>=7.0"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0", "ruff>=0.5", "mypy>=1.10"]
 all = ["npm-weibull-py[torch,plot,dev]"]
 
 [project.urls]
@@ -51,3 +51,59 @@ Paper = "https://arxiv.org/abs/2605.XXXXX"
 where = ["."]
 include = ["npm_weibull*"]
 exclude = ["tests*", "examples*", "database_v9_1*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+# Default rules (E, F, W) + import sorting (I) + bugbear (B) + pyupgrade (UP)
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "UP007", # X | Y in 3.9 needs `from __future__ import annotations` (already imported)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]      # allow late imports in tests
+"examples/*" = ["E402"]
+
+[tool.mypy]
+python_version = "3.9"
+# Strict on the public surface; relaxed on internal helpers (where dynamic
+# numpy/scipy types make `--strict` flag dozens of false positives).
+warn_return_any = true
+warn_unused_configs = true
+warn_unreachable = true
+no_implicit_optional = true
+ignore_missing_imports = true        # numpy / scipy / torch stubs vary
+
+[[tool.mypy.overrides]]
+# Public API modules: stronger checks
+module = [
+    "npm_weibull",
+    "npm_weibull.core.*",
+    "npm_weibull.workflow.*",
+    "npm_weibull.benchmark.*",
+]
+disallow_untyped_defs = false        # opt-in once public functions fully typed
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra -q"
+
+[tool.coverage.run]
+branch = true
+source = ["npm_weibull"]
+omit = ["*/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+show_missing = true
+skip_covered = false

@@ -8,15 +8,18 @@ Decomposes σ growth into λ-dominated vs k-dominated contributions:
 Spec: B2_Framework_实施Spec_v2 §1 F3+F5 + §5 API 2.
 Source: F156 paper §A.8.2 verify (paired r=0.9967 across saturated state).
 """
+
 from __future__ import annotations
+
 import numpy as np
+
 from npm_weibull.utils.closed_form import sigma_from_k_lambda
 
 
 def sigma_decompose(
-    k_traj,                                 # list[float] | np.ndarray
-    lambda_traj,                            # list[float] | np.ndarray
-    paired_lambda_traj=None,                # list[float] | None — for paired correlation r
+    k_traj,  # list[float] | np.ndarray
+    lambda_traj,  # list[float] | np.ndarray
+    paired_lambda_traj=None,  # list[float] | None — for paired correlation r
 ) -> dict:
     """Decompose σ growth across step trajectory: λ-dominated vs k-dominated vs mixed.
 
