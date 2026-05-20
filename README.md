@@ -21,17 +21,17 @@ This repository hosts the open-source artifacts described in the paper:
 
 ## Status
 
-**Phase 2 release** (May 2026): library source, benchmark database, examples, and tests are now available.
+**v0.4.0 released** (May 2026): library, benchmark database, examples, tests, and pip-install all available.
 
 | Component | Status |
 |---|---|
-| Paper information and citation | ✅ Available |
+| Paper information and citation | ✅ Available ([arXiv:2605.18898](https://arxiv.org/abs/2605.18898)) |
 | `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
 | `DATABASE_v9_1` benchmark (12 entries) | ✅ Available (Python module + CSV) |
-| Quickstart examples | ✅ Available (`examples/`) |
-| Tests | ✅ Available (`tests/`, 12 passing) |
-| Pip-installable release on PyPI | 🚧 Planned |
-| API reference documentation | 🚧 Planned |
+| Quickstart examples | ✅ Available (`examples/`, 3 runnable scripts) |
+| Tests | ✅ Available (`tests/`, 47 passing, 82% coverage) |
+| Pip-installable release on PyPI | ✅ Available ([pypi.org/project/npm-weibull-py](https://pypi.org/project/npm-weibull-py/)) |
+| API reference documentation | 🚧 Planned (in-code docstrings + paper Appendix B already cover the F1–F8 spec) |
 
 ## Install
 
