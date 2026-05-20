@@ -31,7 +31,7 @@ This repository hosts the open-source artifacts described in the paper:
 | Quickstart examples | ✅ Available (`examples/`, 3 runnable scripts) |
 | Tests | ✅ Available (`tests/`, 47 passing, 82% coverage) |
 | Pip-installable release on PyPI | ✅ Available ([pypi.org/project/npm-weibull-py](https://pypi.org/project/npm-weibull-py/)) |
-| API reference documentation | 🚧 Planned (in-code docstrings + paper Appendix B already cover the F1–F8 spec) |
+| API reference documentation | ✅ Available ([`docs/F1_F8_API.md`](docs/F1_F8_API.md)) |
 
 ## Install
 
@@ -70,7 +70,7 @@ user = {
 print(compare_to_benchmark(user)["nearest_neighbor"])
 ```
 
-See `examples/` for three runnable demos covering F1 fit, benchmark comparison, and F3/F5 trajectory decomposition.
+See `examples/` for three runnable demos covering F1 fit, benchmark comparison, and F3/F5 trajectory decomposition. For the full API surface (15 entries: F1–F8 core + 5 utilities + workflow + benchmark), see [`docs/F1_F8_API.md`](docs/F1_F8_API.md).
 
 ## Repository layout
 
