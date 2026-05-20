@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "npm-weibull-py"
 version = "0.4.0"
-description = "Two-parameter Weibull diagnostic framework for transformer weight distributions (companion library for arXiv:2605.XXXXX)"
+description = "Two-parameter Weibull diagnostic framework for transformer weight distributions (companion library for arXiv:2605.18898)"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "CC-BY-4.0"
@@ -45,7 +45,7 @@ all = ["npm-weibull-py[torch,plot,dev]"]
 Homepage = "https://github.com/tiexinding/NPM-Weibull-public"
 Repository = "https://github.com/tiexinding/NPM-Weibull-public"
 Issues = "https://github.com/tiexinding/NPM-Weibull-public/issues"
-Paper = "https://arxiv.org/abs/2605.XXXXX"
+Paper = "https://arxiv.org/abs/2605.18898"
 
 [tool.setuptools.packages.find]
 where = ["."]

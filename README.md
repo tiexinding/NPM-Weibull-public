@@ -1,10 +1,15 @@
 # NPM-Weibull
 
+[![arXiv](https://img.shields.io/badge/arXiv-2605.18898-b31b1b.svg)](https://arxiv.org/abs/2605.18898)
+[![PyPI](https://img.shields.io/pypi/v/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
+[![Python](https://img.shields.io/pypi/pyversions/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
+[![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](LICENSE)
+
 Companion code and benchmark database for the paper:
 
 > **A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions**
 > Tiexin Ding (Independent Researcher)
-> arXiv:2605.XXXXX (link to be updated after announcement; submission ID 7603867)
+> [arXiv:2605.18898](https://arxiv.org/abs/2605.18898) ([doi:10.48550/arXiv.2605.18898](https://doi.org/10.48550/arXiv.2605.18898))
 
 ## Overview
 
@@ -31,14 +36,19 @@ This repository hosts the open-source artifacts described in the paper:
 ## Install
 
 ```bash
-git clone https://github.com/tiexinding/NPM-Weibull-public.git
-cd NPM-Weibull-public
-pip install -e .
+pip install npm-weibull-py
 
 # Optional extras
-pip install -e ".[torch]"   # transformers + safetensors for checkpoint extraction
-pip install -e ".[plot]"    # matplotlib for plotting helpers
-pip install -e ".[dev]"     # pytest for running tests
+pip install "npm-weibull-py[torch]"   # transformers + safetensors for checkpoint extraction
+pip install "npm-weibull-py[plot]"    # matplotlib for plotting helpers
+```
+
+For a development install (clone the repository, edit source, run tests):
+
+```bash
+git clone https://github.com/tiexinding/NPM-Weibull-public.git
+cd NPM-Weibull-public
+pip install -e ".[dev]"   # adds pytest, pytest-cov, ruff, mypy
 ```
 
 Requires Python ≥ 3.9. Core dependencies are `numpy` and `scipy` only.
@@ -108,17 +118,16 @@ Directionally consistent with the AdamW steady-state scaling analysis of Fan et 
 
 ```bibtex
 @misc{ding2026weibull,
-  title={A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions},
-  author={Ding, Tiexin},
-  year={2026},
-  eprint={2605.XXXXX},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG},
-  url={https://arxiv.org/abs/2605.XXXXX}
+  title         = {A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions},
+  author        = {Ding, Tiexin},
+  year          = {2026},
+  eprint        = {2605.18898},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2605.18898},
+  url           = {https://arxiv.org/abs/2605.18898}
 }
 ```
-
-(BibTeX entry will be finalized with the final arXiv ID once the paper is announced.)
 
 ## License
 
