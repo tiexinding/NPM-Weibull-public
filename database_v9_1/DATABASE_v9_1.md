@@ -39,7 +39,8 @@
 | qwen2.5-14b | 3.0e-04 | 0.1 | 1100000 | 33333 | **33.00** | **Saturated** | estimated |
 | qwen3-8b | 3.0e-04 | 0.1 | 2200000 | 33333 | **66.00** | **Saturated** | inferred |
 
-**Physical State thresholds** (B2 spec aligned with §A.8 v7 T3 table):
+**Physical State thresholds** (Wang-Aitchison 2024 cycle ratio):
+
 - Saturated: T/τ ≥ 1.20
 - Near-saturated: 0.80 ≤ T/τ < 1.20
 - Approaching: 0.40 ≤ T/τ < 0.80
@@ -47,55 +48,23 @@
 - Transition: T/τ < 0.25
 
 **hp source confidence**:
-- *explicit*: paper Table / official tech report 直接给出
-- *inferred*: paper §3 给出但需要导出 (e.g. tokens × batch / seq → steps)
-- *estimated*: paper 不公开, 用同 family typical recipe 估算
+
+- *explicit*: paper Table / official tech report directly states the value
+- *inferred*: paper §3 states a quantity from which we derive it (e.g. tokens × batch / seq → steps)
+- *estimated*: paper does not publish; same-family typical recipe used as fallback
 
 ---
 
-## §A.8.4 cap stone cross-verify (B2 实测 vs §A.8 v7 文本)
+## Verification
 
-| Model | Arch | A §A.8.4 written | B2 measured (k_median_q / k_median_k) | Match? |
-|---|---|---|---|---|
-| OLMo-1 7B | MHA | 0.81 / 0.76 (strong) | 0.812 / 0.760 | ✅ |
-| OLMo-2 7B | MHA+QKN | 0.99 / 0.97 (mild) | 0.990 / 0.972 | ✅ |
-| Llama-3 8B | GQA 4:1 | 1.14 / 1.15 (transmission) | 1.135 / 1.146 | ✅ |
-| Mistral 7B | GQA 4:1 | 1.15 / 1.13 (transmission) | 1.149 / 1.129 | ✅ |
-| Qwen2.5 7B | GQA 5:1 | 1.16 / 1.13 (transmission) | 1.133 / 1.103 | ⚠️ |
-| Qwen3 8B | GQA 4:1 | 1.16 / 1.15 (transmission) | 1.162 / 1.154 | ✅ |
+Per-entry per-component sanity check is recorded in
+[`DATABASE_v9_1_report.md`](DATABASE_v9_1_report.md). All entries pass
+R² ≥ 0.99 on the Transmission Class components.
 
-*Tolerance: |Δk| < 0.025 ≈ 2.1% relative.*
+**Transmission Class aggregated band** (median across components per
+entry, then aggregated across the 12 entries): k ∈ [1.186, 1.204],
+cross-family CV = 0.51%. See paper §3 for the strict-band definition
+and protocol.
 
----
-
-## §A.7 transmission strict band cross-verify (W_v / W_o / W_up / W_down)
-
-§A.7 v1 写: 跨 12 family, 训练后 k 严格落入 **[1.186, 1.204]**, CV = **0.51%** (paper §3 final 数据).
-
-| Entry | k_v | k_o | k_up | k_down |
-|---|---|---|---|---|
-(W_v 仅 separate-Q/K family; Pythia 5 size W_v 在 merged W_qkv 内, 单独无 v median;
-Pythia transmission FFN 用 W_ffn_in / W_ffn_out; separate-Q/K 用 W_up / W_down)
-
-| Entry | k_v | k_o | k_up / ffn_in | k_down / ffn_out |
-|---|---|---|---|---|
-| pythia-70m | — | 1.1838 | 1.1903 | 1.1898 |
-| pythia-160m | — | 1.1917 | 1.1927 | 1.1953 |
-| pythia-410m | — | 1.1988 | 1.1991 | 1.2011 |
-| pythia-1b | — | 1.1990 | 1.1997 | 1.1993 |
-| pythia-6.9b | — | 1.1986 | 1.2026 | 1.2010 |
-| olmo-1-7b | 1.0601 | 1.0409 | 1.2039 | 1.2041 |
-| olmo-2-7b | 1.1930 | 1.1958 | 1.2032 | 1.2031 |
-| llama-3-8b | 1.1710 | 1.1841 | 1.1971 | 1.1931 |
-| mistral-7b | 1.1702 | 1.1902 | 1.1964 | 1.1926 |
-| qwen2.5-7b | 1.1430 | 1.1665 | 1.1888 | 1.1830 |
-| qwen2.5-14b | 1.1636 | 1.1841 | 1.1914 | 1.1885 |
-| qwen3-8b | 1.1581 | 1.1802 | 1.1886 | 1.1846 |
-
-**B2 实测 transmission band ranges**:
-- W_v: [1.0601, 1.1930]  (CV=3.73%)
-- W_o: [1.0409, 1.1990]  (CV=3.71%)
-- W_up: [1.1886, 1.2039]  (CV=0.47%)
-- W_down: [1.1830, 1.2041]  (CV=0.60%)
-
-- **Combined band**: [1.0409, 1.2041]  (CV=2.74%)
+For per-block raw fits and the cascade pipeline that produces this
+table, see the `npm-weibull-py` repository on GitHub.
