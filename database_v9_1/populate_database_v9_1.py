@@ -31,12 +31,17 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import statistics
 from pathlib import Path
 
-ROOT = Path(
-    "/home/dingdang-ws/wsl-projects/claudecode/NPM_v13_commit_260324/NPM_v13_complete/30_NPM_weibull/cascade_v2_20260502"
+# Override via env var when running on a different machine, e.g.
+#   NPM_CASCADE_ROOT=/path/to/cascade_v2_20260502 python populate_database_v9_1.py
+_DEFAULT_ROOT = (
+    "/home/dingdang-ws/wsl-projects/claudecode/NPM_v13_commit_260324/"
+    "NPM_v13_complete/30_NPM_weibull/cascade_v2_20260502"
 )
+ROOT = Path(os.environ.get("NPM_CASCADE_ROOT", _DEFAULT_ROOT))
 CV3 = ROOT / "cascade_v3_pull" / "data" / "derived"
 CV2_DERIVED = ROOT / "derived"
 # Output goes next to this script (release dir under NPM-Weibull-public/database_v9_1/).
