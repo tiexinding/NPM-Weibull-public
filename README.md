@@ -3,6 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2605.18898-b31b1b.svg)](https://arxiv.org/abs/2605.18898)
 [![PyPI](https://img.shields.io/pypi/v/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![Python](https://img.shields.io/pypi/pyversions/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
+[![HF Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-NPM--Weibull--DATABASE--v9__1-yellow.svg)](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)
 [![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](LICENSE)
 
 Companion code and benchmark database for the paper:
@@ -16,7 +17,8 @@ Companion code and benchmark database for the paper:
 This repository hosts the open-source artifacts described in the paper:
 
 - **`npm-weibull-py` v0.4**: A pip-installable Python library for fitting and benchmarking Weibull `(k, λ)` parameters on transformer weight matrices. Eight diagnostic functions (F1--F8) for cross-family comparison, body--tail ablation, paired-correlation analysis, and architecture classification.
-- **`DATABASE_v9_1`**: Per-component Weibull fits for **12 model entries** across **7 architectural families** (Pythia 70M/160M/410M/1B/6.9B, OLMo-1, OLMo-2, LLaMA-3, Mistral, Qwen2.5-7B/14B, Qwen3-8B), with per-layer and per-component breakdowns.
+- **`DATABASE_v9_1`** (main cohort): Per-component Weibull fits for **12 model entries** across **7 architectural families** (Pythia 70M/160M/410M/1B/6.9B, OLMo-1, OLMo-2, LLaMA-3, Mistral, Qwen2.5-7B/14B, Qwen3-8B), with per-layer and per-component breakdowns. Also published on the [Hugging Face Hub](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1) as a `datasets`-loadable artifact for streaming / `load_dataset()` workflows.
+- **`DATABASE_v9_1` Qwen-cohort companion**: 11-entry Qwen-family cohort (Qwen2 / Qwen2.5 / Qwen3, sizes 1.5B–14B, depths 28L/36L/48L, includes 4 base-vs-Math-CPT pairs) used in the diagnostic application case (Appendix C). Surfaces the shallow-FFN bimodal anomaly characteristic of 7B+ Qwen entries. See [`database_v9_1/DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md).
 - **Reproducibility examples** (planned): Jupyter notebooks reproducing key paper figures.
 
 ## Status
@@ -27,7 +29,9 @@ This repository hosts the open-source artifacts described in the paper:
 |---|---|
 | Paper information and citation | ✅ Available ([arXiv:2605.18898](https://arxiv.org/abs/2605.18898)) |
 | `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
-| `DATABASE_v9_1` benchmark (12 entries) | ✅ Available (Python module + CSV) |
+| `DATABASE_v9_1` main cohort (12 entries) | ✅ Available (Python module + CSV) |
+| `DATABASE_v9_1` Qwen-cohort companion (11 entries) | ✅ Available ([`database_v9_1/DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md)) |
+| `DATABASE_v9_1` on Hugging Face Hub | ✅ Available ([`TiexinDing/NPM-Weibull-DATABASE-v9_1`](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)) |
 | Quickstart examples | ✅ Available (`examples/`, 3 runnable scripts) |
 | Tests | ✅ Available (`tests/`, 47 passing, 82% coverage) |
 | Pip-installable release on PyPI | ✅ Available ([pypi.org/project/npm-weibull-py](https://pypi.org/project/npm-weibull-py/)) |
