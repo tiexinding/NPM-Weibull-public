@@ -3,7 +3,7 @@
 import json,numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-PF="paper_figures/"
+PF=""
 def load_budget(f):  # seed1/2: align_pct直接
     r=[json.loads(l) for l in open(f)]; return np.array([x['step'] for x in r]),np.array([x['align_pct'] for x in r])
 def load_spline(f):  # seed3/4: 从force算
@@ -11,10 +11,10 @@ def load_spline(f):  # seed3/4: 从force算
     for x in r:
         a,i,d=abs(x['true_align_full']),x['inj_full'],x['dec_full']; st.append(x['step']); ap.append(100*a/(a+i+d))
     return np.array(st),np.array(ap)
-seeds=[('seed 1',load_budget(PF+'figwork_mirror/cloud_20260606/v1b_budget/v1b_budget_seed1.jsonl')),
-       ('seed 2',load_budget(PF+'figwork_mirror/cloud_20260606/v1b_budget/v1b_budget_seed2.jsonl')),
-       ('seed 3',load_spline(PF+'cloud_revision/seed_3/v1b_spline_true.jsonl')),
-       ('seed 4',load_spline(PF+'cloud_revision/seed_4/v1b_spline_true.jsonl'))]
+seeds=[('seed 1',load_budget('derived_data/self_train/v1b_budget_seed1.jsonl')),
+       ('seed 2',load_budget('derived_data/self_train/v1b_budget_seed2.jsonl')),
+       ('seed 3',load_spline('derived_data/revision/seed_3/v1b_spline_true.jsonl')),
+       ('seed 4',load_spline('derived_data/revision/seed_4/v1b_spline_true.jsonl'))]
 cols=['#c0392b','#e67e22','#2980b9','#16a085']
 fig,ax=plt.subplots(figsize=(7.5,5))
 ax.axhspan(88,94,color='#7fcdbb',alpha=0.22,zorder=0,label='rise-phase band 88-94%')

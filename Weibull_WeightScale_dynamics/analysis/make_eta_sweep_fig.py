@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
-PF="paper_figures/"
+PF=""
 eta=np.array([3e-4,1e-3,3e-3]); peak=np.array([0.0313,0.0763,0.1874])
 al_lo=np.array([85.1,88.3,82.4]); al_hi=np.array([93.7,93.8,93.9])  # rise align% range
 fig=plt.figure(figsize=(11,4.3)); gs=gridspec.GridSpec(1,2,wspace=0.27)

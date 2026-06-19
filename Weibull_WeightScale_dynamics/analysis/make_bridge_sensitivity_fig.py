@@ -1,20 +1,19 @@
-"""桥敏感性图. 3-panel:
-(a) Γ桥比 vs k (k-lock敏感性) (b) σ→λ 3曲线(observed/fixed-k/per-ckpt-k) (c) closed-loop误差时间分布.
+"""Bridge sensitivity figure. 3-panel:
+(a) Gamma bridge ratio vs k (k-lock sensitivity) (b) sigma->lambda three curves (observed /
+fixed-k / per-checkpoint-k) (c) closed-loop error over time.
 """
-import json,numpy as np,glob,re
+import json,numpy as np
 from math import gamma,sqrt
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
-PF="paper_figures/"
+PF=""
 def ratio(k): return 1/sqrt(gamma(1+2/k))
-c=json.load(open(PF+"cloud_realpythia/realpythia_closure.json"))
+c=json.load(open("derived_data/real_pythia/realpythia_closure.json"))
 step=np.array([x['step'] for x in c]); lo=np.array([x['lambda_obs'] for x in c])
 so=np.array([x['sigma_obs'] for x in c]); lp=np.array([x['lambda_pred'] for x in c])
-kby={}
-for f in glob.glob(PF+"cloud_realpythia/cache/cache_step*.npz"):
-    st=int(re.search(r'step(\d+)',f).group(1)); kby[st]=float(np.load(f,allow_pickle=True)['k'])
-ks=np.array([kby.get(s,np.nan) for s in c[0:0]] or [kby.get(x['step'],1.16) for x in c])
+kby={int(s): v for s, v in json.load(open("derived_data/real_pythia/realpythia_k_by_step.json")).items()}
+ks=np.array([kby.get(x['step'],1.16) for x in c])
 
 fig=plt.figure(figsize=(15,4.3)); gs=gridspec.GridSpec(1,3,wspace=0.28)
 # (a) Γ桥比 vs k

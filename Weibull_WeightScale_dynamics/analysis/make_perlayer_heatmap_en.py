@@ -1,11 +1,17 @@
-"""C2 per-layer λ heatmap 4-size 英文干净版. 无DRAFT标题.
-真Pythia 70m/160m/410m/1b: per-block transmission λ(step×layer) → overshoot-in-time + deep-higher."""
-import json,glob,re,numpy as np
+"""Per-layer lambda heatmap (4 sizes) for the real Pythia models.
+
+Real Pythia 70M/160M/410M/1B: per-block transmission lambda over (step x layer), showing
+overshoot-in-time and the deeper-layers-higher pattern.
+
+NOTE: this figure consumes the per-block Weibull fits from Paper #1's dense-checkpoint cascade
+(`pythia-<size>-step*_fit_per_block_v3.json`), which are produced from the Paper #1 DATABASE
+pipeline and are not bundled in this Paper #2 companion. Set NPM_PERBLOCK_ROOTS (colon-separated)
+to the directory holding those fits to regenerate this figure.
+"""
+import os,json,glob,re,numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-BASE='/home/dingdang-ws/wsl-projects/claudecode/NPM_v13_commit_260324/NPM_v13_complete'
-ROOTS=[BASE+'/40_Dynamics/lambda_dense/data/derived',
-       BASE+'/30_NPM_weibull/cascade_v2_20260502/cascade_v3_pull/data/derived']
+ROOTS=[p for p in os.environ.get("NPM_PERBLOCK_ROOTS", "").split(":") if p]
 TRANS=('o','ffn_in','ffn_out')
 SIZES=[('70m',6),('160m',12),('410m',24),('1b',16)]
 
@@ -39,7 +45,7 @@ for ax,(sz,nl) in zip(axes.ravel(),SIZES):
     yt=range(0,len(layers),max(1,len(layers)//6)); ax.set_yticks(list(yt)); ax.set_yticklabels([layers[i] for i in yt],fontsize=8)
     plt.colorbar(im,ax=ax,label='$\\lambda\\times 10^{3}$',fraction=0.046,pad=0.04)
 plt.tight_layout()
-fig.savefig('paper_figures/F_perlayer_heatmap_4size_EN.png',dpi=150,bbox_inches='tight'); print('saved F_perlayer_heatmap_4size_EN.png')
+fig.savefig('F_perlayer_heatmap_4size_EN.png',dpi=150,bbox_inches='tight'); print('saved F_perlayer_heatmap_4size_EN.png')
 for sz,_ in SIZES:
     steps,layers,M=load(sz); pj=np.nanargmax(np.nanmean(M,axis=0))
     print(f'pythia-{sz}: peak step~{steps[pj]}, λ range {np.nanmin(M):.1f}-{np.nanmax(M):.1f}, deep/shallow {np.nanmax(M[-1])/np.nanmax(M[0]):.2f}x')

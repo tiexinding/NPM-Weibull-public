@@ -7,7 +7,7 @@ from matplotlib.patches import FancyArrowPatch, Circle
 from scipy.interpolate import PchipInterpolator
 RED,BLUE,GREEN='#c0392b','#2980b9','#27ae60'
 # 数据源: realpythia_closure (aggregate transmission λ_obs) — 与§6/F8/MASTER一致(峰0.0352@30k), 
-RP=json.load(open('paper_figures/cloud_realpythia/realpythia_closure.json'))
+RP=json.load(open('derived_data/real_pythia/realpythia_closure.json'))
 pc={x['step']:x['lambda_obs'] for x in RP if x['step']>=1}
 _st=[s for s in sorted(pc) if s>=1]; steps=np.array(_st); obs=np.array([pc[s] for s in _st])*1e3
 sx=np.clip(steps,1,None); xs=np.logspace(0,math.log10(sx.max()),400)
@@ -81,5 +81,5 @@ axk.text(0.165,0.13,phs[1][0],ha='left',fontsize=10.3,color=phs[1][1])
 axk.text(0.585,0.13,phs[3][0],ha='left',fontsize=10.3,color=phs[3][1])
 
 fig.subplots_adjust(left=0.045,right=0.93,top=0.95,bottom=0.04,hspace=0.30,wspace=0.14)
-fig.savefig('paper_figures/F_HERO_three_force_EN.png',dpi=145,bbox_inches='tight'); print('saved F_HERO_three_force_EN.png')
+fig.savefig('F_HERO_three_force_EN.png',dpi=145,bbox_inches='tight'); print('saved F_HERO_three_force_EN.png')
 print(f'data: {len(_st)} real Pythia-70m steps, λ range {obs.min():.1f}-{obs.max():.1f} (×0.001)')

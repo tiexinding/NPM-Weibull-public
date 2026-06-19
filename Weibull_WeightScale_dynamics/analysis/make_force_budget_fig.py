@@ -5,8 +5,8 @@ import json, numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
-PF = "paper_figures/"
-F = PF+"figwork_mirror/cloud_20260606/v1b_spline/v1b_spline_true.jsonl"
+PF = ""
+F = "derived_data/self_train/baseline_force.jsonl"
 rows = [json.loads(l) for l in open(F)]
 step = np.array([r["step"] for r in rows])
 al = np.array([abs(r["true_align_full"]) for r in rows])   # |F_align|

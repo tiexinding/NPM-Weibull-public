@@ -10,9 +10,9 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--true", default="cloud_20260607_llama/llama_spline/v1b_spline_true.jsonl")
-ap.add_argument("--lam", default="lambda_trajectory_llama.json")
-ap.add_argument("--out", default="cloud_20260607_llama/F_force_decomp_error.png")
+ap.add_argument("--true", default="derived_data/self_train/v1b_spline_true_llama.jsonl")
+ap.add_argument("--lam", default="derived_data/self_train/lambda_trajectory_llama.json")
+ap.add_argument("--out", default="F_force_decomp_error.png")
 ap.add_argument("--label", default="Llama-70m")
 ap.add_argument("--lwd", type=float, default=0.01)
 a = ap.parse_args()

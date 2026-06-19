@@ -5,9 +5,9 @@ import json, numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
-PF = "paper_figures/"
+PF = ""
 def traj(f):
-    r = json.load(open(PF+f)); k="lambda_obs" if "lambda_obs" in r[0] else "lambda"
+    r = json.load(open(f)); k="lambda_obs" if "lambda_obs" in r[0] else "lambda"
     return np.array([x["step"] for x in r]), np.array([x[k] for x in r])
 
 fig = plt.figure(figsize=(12,4.8))
@@ -27,7 +27,7 @@ axa.set_title("(a) Data distribution sets absolute $\\lambda$", fontsize=11, pad
 
 # ---- (b) continue-train 因果轨迹 ----
 axb = fig.add_subplot(gs[1])
-sc, lc = traj("cloud_continue/lambda_trajectory_continue.json")
+sc, lc = traj("derived_data/self_train/lambda_trajectory_continue.json")
 axb.plot(sc, lc, "-o", ms=3.2, c="#1b7837", lw=1.8, label="Continue: real Pythia + wikitext", zorder=5)
 axb.axhline(0.0352, ls="--", c="#2c7fb8", lw=1.3, label="Real Pythia (Pile) peak = 0.035")
 axb.axhline(0.0688, ls="--", c="#fec44f", lw=1.3, label="Scratch wikitext 118M = 0.069")

@@ -1,6 +1,10 @@
 #!/usr/bin/env python
-"""真 Pythia-70m per-block k. 本地下ckpt per-matrix Weibull k → median.
-缓存sub是池化子采样算不出per-block; 本脚本per-matrix重抽证per-block k~1.20 in-band(vs aggregate1.162混合假象)。"""
+"""Per-block Weibull k for the real Pythia-70M final checkpoint (regeneration tool).
+
+Downloads the public Pythia-70M weights and fits a middle-80% Weibull k per transmission matrix,
+taking the median — showing per-block k ~ 1.20 (in-band), versus the aggregate-pooled 1.162.
+Writes derived_data/real_pythia/realpythia_perblock_k.json (the shipped output of this script).
+"""
 import os, subprocess, numpy as np, torch
 
 def weibull_k(w, lo=0.1, hi=0.9):
@@ -13,8 +17,8 @@ def weibull_k(w, lo=0.1, hi=0.9):
     k, b = np.polyfit(x, y, 1)
     return k, float(np.exp(-b / k))  # k, lambda
 
-# 下真 Pythia-70m final (main=step143000), non-xet, hf-mirror
-binf = "paper_figures/cloud_realpythia/pythia70m_main.bin"
+# Download real Pythia-70M final weights (main = step 143000)
+binf = "pythia70m_main.bin"
 if not os.path.exists(binf) or os.path.getsize(binf) < 1e8:
     print("[dl] 下 pythia-70m main pytorch_model.bin (~158MB)", flush=True)
     subprocess.run(["curl","-L","--connect-timeout","20","-m","400","--retry","3","-C","-","-s","-o",binf,
@@ -44,5 +48,5 @@ import json
 json.dump({"per_matrix":[(n,float(k),float(l),int(s)) for n,k,l,s in per_matrix],
            "per_block_k_median":float(np.median(ks)),"per_block_k_range":[float(ks.min()),float(ks.max())],
            "per_block_lam_median":float(np.median(lams)),"aggregate_k":1.162},
-          open("paper_figures/cloud_realpythia/realpythia_perblock_k.json","w"), indent=1)
+          open("derived_data/real_pythia/realpythia_perblock_k.json","w"), indent=1)
 print("→ 存 realpythia_perblock_k.json (给B1)")

@@ -4,7 +4,7 @@
 实测 λ: ckpt 上 Paper#1 Weibull 拟合 (独立测量, lambda_trajectory).
 画两条 + 残差 + logRMSE。诚实: 预测用实测力积分(主方程恒等式), 实测λ是独立Weibull拟合 →
 误差=数值积分离散化 + k锁桥近似 (端到端), 非纯记账。
-用法(云端 figwork): python make_predicted_lambda_fig.py --true cloud_20260607_llama/llama_spline/v1b_spline_true.jsonl --lam lambda_trajectory_llama.json --out cloud_20260607_llama/F_lambda_pred_vs_obs.png
+Usage: python make_predicted_lambda_fig.py --true <v1b_spline_true.jsonl> --lam <lambda_trajectory.json> --out F.png
 """
 import json, argparse, math
 import numpy as np
@@ -12,9 +12,9 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--true", default="cloud_20260607_llama/llama_spline/v1b_spline_true.jsonl")
-ap.add_argument("--lam", default="lambda_trajectory_llama.json")
-ap.add_argument("--out", default="cloud_20260607_llama/F_lambda_pred_vs_obs.png")
+ap.add_argument("--true", default="derived_data/self_train/v1b_spline_true_llama.jsonl")
+ap.add_argument("--lam", default="derived_data/self_train/lambda_trajectory_llama.json")
+ap.add_argument("--out", default="F_lambda_pred_vs_obs.png")
 ap.add_argument("--label", default="Llama-70m")
 ap.add_argument("--lwd", type=float, default=0.01)
 a = ap.parse_args()

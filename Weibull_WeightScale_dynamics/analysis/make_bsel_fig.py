@@ -3,8 +3,8 @@
 import json,numpy as np
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-PF="paper_figures/"
-rows=[json.loads(l) for l in open(PF+'cloud_revision/bsel/v1b_spline_true.jsonl')]
+PF=""
+rows=[json.loads(l) for l in open('derived_data/revision/bsel/v1b_spline_true.jsonl')]
 st=np.array([r['step'] for r in rows])
 def pct(al,inj,dec): a=np.abs(al); return 100*a/(a+inj+dec)
 ta=np.array([pct(r['true_align_full'],r['inj_full'],r['dec_full']) for r in rows])
