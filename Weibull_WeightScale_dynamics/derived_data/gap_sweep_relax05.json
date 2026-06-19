@@ -1,0 +1,1 @@
+[{"gap": 1000, "n_ckpt": 20, "n_eval": 380, "recovery_median": 0.9572516936475322}, {"gap": 2000, "n_ckpt": 10, "n_eval": 360, "recovery_median": 0.9501426872996968}, {"gap": 5000, "n_ckpt": 4, "n_eval": 300, "recovery_median": 0.9613911879946877}]

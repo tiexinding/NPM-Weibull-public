@@ -1,6 +1,7 @@
 # NPM-Weibull
 
-[![arXiv](https://img.shields.io/badge/arXiv-2605.18898-b31b1b.svg)](https://arxiv.org/abs/2605.18898)
+[![arXiv (Paper 1)](https://img.shields.io/badge/arXiv-2605.18898-b31b1b.svg)](https://arxiv.org/abs/2605.18898)
+[![arXiv (Paper 2)](https://img.shields.io/badge/arXiv-2606.19367-b31b1b.svg)](https://arxiv.org/abs/2606.19367)
 [![PyPI](https://img.shields.io/pypi/v/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![Python](https://img.shields.io/pypi/pyversions/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![HF Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-NPM--Weibull--DATABASE--v9__1-yellow.svg)](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)
@@ -11,6 +12,14 @@ Companion code and benchmark database for the paper:
 > **A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions**
 > Tiexin Ding (Independent Researcher)
 > [arXiv:2605.18898](https://arxiv.org/abs/2605.18898) ([doi:10.48550/arXiv.2605.18898](https://doi.org/10.48550/arXiv.2605.18898))
+
+This repository also hosts the companion code and derived data for the follow-up paper:
+
+> **Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics**
+> Tiexin Ding (Independent Researcher)
+> [arXiv:2606.19367](https://arxiv.org/abs/2606.19367) ([doi:10.48550/arXiv.2606.19367](https://doi.org/10.48550/arXiv.2606.19367))
+>
+> Code + derived data: [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) — a leading-order **three-force decomposition** (alignment / injection / decay) explaining why the Weibull scale `λ` rises, overshoots, and relaxes during AdamW training, plus a **spline-displacement** method that recovers the alignment force from sparse public checkpoints. Reuses the `npm_weibull` library below for the Weibull fit.
 
 ## Overview
 
@@ -28,6 +37,7 @@ This repository hosts the open-source artifacts described in the paper:
 | Component | Status |
 |---|---|
 | Paper information and citation | ✅ Available ([arXiv:2605.18898](https://arxiv.org/abs/2605.18898)) |
+| Paper #2 companion (three-force + spline) | ✅ Available ([`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/), [arXiv:2606.19367](https://arxiv.org/abs/2606.19367)) |
 | `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
 | `DATABASE_v9_1` main cohort (12 entries) | ✅ Available (Python module + CSV) |
 | `DATABASE_v9_1` Qwen-cohort companion (11 entries) | ✅ Available ([`database_v9_1/DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md)) |
@@ -130,6 +140,17 @@ Directionally consistent with the AdamW steady-state scaling analysis of Fan et 
   primaryClass  = {cs.LG},
   doi           = {10.48550/arXiv.2605.18898},
   url           = {https://arxiv.org/abs/2605.18898}
+}
+
+@misc{ding2026weibulldynamics,
+  title         = {Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics},
+  author        = {Ding, Tiexin},
+  year          = {2026},
+  eprint        = {2606.19367},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2606.19367},
+  url           = {https://arxiv.org/abs/2606.19367}
 }
 ```
 
