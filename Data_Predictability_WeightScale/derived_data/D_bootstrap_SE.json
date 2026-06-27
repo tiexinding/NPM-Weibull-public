@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "method": "disjoint K-chunk subsampling + moving-block bootstrap",
+    "N_tokens_per_estimate": 2400000,
+    "block_len": 512,
+    "B_boot": 200,
+    "K_chunks": 12,
+    "V": 50304
+  },
+  "levels": {
+    "rho000": {
+      "D": 6.1807,
+      "SE_disjoint": 0.011,
+      "SE_block_boot": 0.0048,
+      "boot_mean": 5.9509,
+      "n_disjoint_chunks": 12
+    },
+    "rho010": {
+      "D": 6.7329,
+      "SE_disjoint": 0.0075,
+      "SE_block_boot": 0.005,
+      "boot_mean": 6.4476,
+      "n_disjoint_chunks": 12
+    },
+    "rho020": {
+      "D": 7.1412,
+      "SE_disjoint": 0.0052,
+      "SE_block_boot": 0.0048,
+      "boot_mean": 6.8141,
+      "n_disjoint_chunks": 12
+    },
+    "rho030": {
+      "D": 7.4486,
+      "SE_disjoint": 0.0032,
+      "SE_block_boot": 0.005,
+      "boot_mean": 7.0889,
+      "n_disjoint_chunks": 12
+    },
+    "rho040": {
+      "D": 7.6655,
+      "SE_disjoint": 0.0025,
+      "SE_block_boot": 0.0053,
+      "boot_mean": 7.2812,
+      "n_disjoint_chunks": 12
+    },
+    "rho050": {
+      "D": 7.8206,
+      "SE_disjoint": 0.0028,
+      "SE_block_boot": 0.0055,
+      "boot_mean": 7.4184,
+      "n_disjoint_chunks": 12
+    },
+    "rho060": {
+      "D": 7.9189,
+      "SE_disjoint": 0.0027,
+      "SE_block_boot": 0.0059,
+      "boot_mean": 7.5038,
+      "n_disjoint_chunks": 12
+    },
+    "rho070": {
+      "D": 7.9753,
+      "SE_disjoint": 0.0033,
+      "SE_block_boot": 0.0053,
+      "boot_mean": 7.5514,
+      "n_disjoint_chunks": 12
+    },
+    "rho080": {
+      "D": 8.0023,
+      "SE_disjoint": 0.0034,
+      "SE_block_boot": 0.0054,
+      "boot_mean": 7.5733,
+      "n_disjoint_chunks": 12
+    },
+    "rho090": {
+      "D": 8.0072,
+      "SE_disjoint": 0.0033,
+      "SE_block_boot": 0.0054,
+      "boot_mean": 7.5777,
+      "n_disjoint_chunks": 12
+    },
+    "rho100": {
+      "D": 8.0096,
+      "SE_disjoint": 0.0036,
+      "SE_block_boot": 0.0052,
+      "boot_mean": 7.5785,
+      "n_disjoint_chunks": 12
+    },
+    "code": {
+      "D": 5.3032,
+      "SE_disjoint": 0.0935,
+      "SE_block_boot": 0.0083,
+      "boot_mean": 5.1756,
+      "n_disjoint_chunks": 12
+    },
+    "wikitext": {
+      "D": 6.1807,
+      "SE_disjoint": 0.011,
+      "SE_block_boot": 0.005,
+      "boot_mean": 5.951,
+      "n_disjoint_chunks": 12
+    },
+    "c4": {
+      "D": 6.5347,
+      "SE_disjoint": 0.0076,
+      "SE_block_boot": 0.0056,
+      "boot_mean": 6.2542,
+      "n_disjoint_chunks": 12
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "note": "Pre-computed data-side statistics (bigram conditional entropy D, struct-retain fraction S) per corruption level / corpus, so figures reproduce without raw token files. Hr=8.0 = matched-budget shuffle baseline; D over 2.4M tokens.",
+  "corruption_levels": {
+    "0.00": {
+      "D": 6.1807,
+      "S": 1.0
+    },
+    "0.10": {
+      "D": 6.7329,
+      "S": 0.8159
+    },
+    "0.20": {
+      "D": 7.1412,
+      "S": 0.6475
+    },
+    "0.30": {
+      "D": 7.4486,
+      "S": 0.4957
+    },
+    "0.40": {
+      "D": 7.6655,
+      "S": 0.3665
+    },
+    "0.50": {
+      "D": 7.8206,
+      "S": 0.2568
+    },
+    "0.60": {
+      "D": 7.9189,
+      "S": 0.1666
+    },
+    "0.70": {
+      "D": 7.9753,
+      "S": 0.0958
+    },
+    "0.80": {
+      "D": 8.0023,
+      "S": 0.0437
+    },
+    "0.90": {
+      "D": 8.0072,
+      "S": 0.0122
+    },
+    "1.00": {
+      "D": 8.0096,
+      "S": 0.0002
+    }
+  },
+  "natural_corpora": {
+    "wikitext": {
+      "D": 6.1807
+    },
+    "c4": {
+      "D": 6.5347
+    },
+    "code": {
+      "D": 5.3032
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{"_note":"η=3e-4 L3角向(n=3,B2 6-16). step2000→8000传输权重float64.",
+ "net_rotation_deg":{"c4":11.8,"code":13.5,"wikitext":12.4},
+ "angular_pct":{"c4":98.9,"code":99.5,"wikitext":99.0},
+ "cross_corpus_cos_dW_n3":{"code_c4":[0.0448,0.0473,0.0474],"code_wikitext":[0.0396,0.0424,0.0417],"wikitext_c4":[0.1115,0.1106,0.1115]}}
