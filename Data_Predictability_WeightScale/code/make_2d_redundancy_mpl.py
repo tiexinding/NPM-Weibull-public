@@ -10,7 +10,7 @@ from matplotlib.lines import Line2D
 from matplotlib.cm import ScalarMappable
 from matplotlib.colors import Normalize
 from p3_style import apply_style, PALETTE
-V = 50304; Hr = 8.0
+V = 50304; Hr = 8.0; EXPO = 0.59   # convex-law exponent (=1/p), consistent with main law / Fig 3 (老丁 6-27 fix: within-corpus law was linear)
 
 def feats(t, n=2400000):
     t = t[:n].astype(np.int64); prev = t[:-1]; nxt = t[1:]
@@ -35,14 +35,14 @@ for nm, tk, jf in [("code","tokens/code_30M.npy","_tmp_L3_code_s0.json"),
     if os.path.exists(tk) and os.path.exists(jf):
         D, rep = feats(np.load(tk)); P.append((nm, D, Y2_json(jf), rep, "natural"))
 sh = [p for p in P if p[4] == "shuffle"]; Ds = np.array([p[1] for p in sh]); Ys = np.array([p[2] for p in sh])
-k, C0 = np.polyfit(Hr - Ds, Ys, 1)
+k, C0 = np.polyfit(np.clip(Hr - Ds, 0, None)**EXPO, Ys, 1)   # clip tiny negative margin at full shuffle (D~=Hr) before fractional power
 reps = np.array([p[3] for p in P]); norm = Normalize(reps.min(), reps.max()); cmap = "viridis"  # magnitude -> viridis, unified with arch-lam-maps (Fig 16)
 
 apply_style()
 fig, ax = plt.subplots(figsize=(6.6, 4.4))
 xr = np.linspace(min(p[1] for p in P) - 0.1, Hr, 50)
-ax.plot(xr, C0 + k * (Hr - xr), "--", color=PALETTE["NEUTRAL"], lw=1.6,
-        label=fr"within-corpus law (shuffle): $\lambda^2{{-}}\lambda_0^2{{=}}{C0:.2f}{{+}}{k:.2f}(H_r{{-}}D)$")
+ax.plot(xr, C0 + k * (Hr - xr)**EXPO, "--", color=PALETTE["NEUTRAL"], lw=1.6,
+        label=fr"within-corpus law (shuffle): $\lambda^2{{-}}\lambda_0^2{{=}}{C0:.2f}{{+}}{k:.2f}(H_r{{-}}D)^{{{EXPO}}}$")
 MARK = {"shuffle": "o", "repeat": "X", "natural": "*"}; SZ = {"shuffle": 55, "repeat": 90, "natural": 230}
 for grp in ["shuffle", "repeat", "natural"]:
     g = [p for p in P if p[4] == grp]
