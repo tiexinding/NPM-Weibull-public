@@ -2,7 +2,7 @@
 
 Companion code documentation for the paper
 [*A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions*](https://arxiv.org/abs/2605.18898).
-This reference consolidates the eight diagnostic functions (F1–F8) introduced in
+This reference consolidates the seven exported core diagnostics (F-numbering F1–F8, with F4 and F7 merged) introduced in
 paper Section 2 and Appendix B, plus the supporting utilities, workflow wrapper,
 and benchmark database that ship with the library.
 
