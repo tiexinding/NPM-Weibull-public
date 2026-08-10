@@ -66,12 +66,12 @@
   k_median(gate)=1.1904, k_median(up)=1.1888, k_median(down)=1.1830
 
 ### qwen2.5-14b (Qwen2.5 14B, GQA-5:1)
-  records: 189; tokens: 18T; QK-Norm: False
-  k_median(q)  = 1.1598, R2(q)  = 0.9989, low-R2: 0/27
-  k_median(k)  = 1.1346, R2(k)  = 0.9993, low-R2: 0/27
-  k_median(v)  = 1.1636, R2(v)  = 0.9985
-  k_median(o)  = 1.1841, R2(o)  = 0.9985
-  k_median(gate)=1.1909, k_median(up)=1.1914, k_median(down)=1.1885
+  records: 336; tokens: 18T; QK-Norm: False
+  k_median(q)  = 1.1638, R2(q)  = 0.9988, low-R2: 0/48
+  k_median(k)  = 1.1413, R2(k)  = 0.9993, low-R2: 0/48
+  k_median(v)  = 1.1628, R2(v)  = 0.9986
+  k_median(o)  = 1.1903, R2(o)  = 0.9983
+  k_median(gate)=1.1929, k_median(up)=1.1926, k_median(down)=1.1897
 
 ### qwen3-8b (Qwen3 8B, GQA-4:1)
   records: 252; tokens: 36T; QK-Norm: True
