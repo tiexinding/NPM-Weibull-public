@@ -1,6 +1,6 @@
 # `DATABASE_v9_1` Qwen Cohort — Application Case (Appendix C)
 
-11-entry Qwen-family cohort used in the diagnostic application case (Appendix C of arXiv:2605.18898). Surfaces the shallow-FFN bimodal anomaly in 7B+ Qwen entries.
+11-entry Qwen-family cohort used in the diagnostic application case (Appendix C of arXiv:2605.18898). Surfaces the shallow-FFN secondary-population anomaly in 3B-and-above Qwen entries.
 
 ## Schema
 

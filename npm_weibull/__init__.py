@@ -1,6 +1,6 @@
 """npm-weibull-py v0.4 — NPM-Weibull Diagnostic Framework Python Toolkit.
 
-Public API (15 entries, aligned with paper Appendix B F1-F8 function spec):
+Public API (15 entries, aligned with the paper's API appendix: seven core diagnostics, historical F-numbering, F4/F7 merged):
 
   Core diagnostics (7):
     weibull_fit             — F1 Weibull (k, λ, R², KS) fit from histogram

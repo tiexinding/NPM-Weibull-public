@@ -31,7 +31,7 @@ def diagnose_model(
     training_config: dict[str, Any] | None = None,
     arch_config: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """One-shot Layer A diagnostic — chain F1 + F2 + F4 + F5 + F6 + F7 + F8 + F6_extension.
+    """One-shot Layer A diagnostic — chain F1 + F2 + F5 + F6 + F6_ext + F8 (historical F4/F7 merged).
 
     **NO benchmark coupling** — universal applicable to any transformer.
     For benchmark comparison, use compare_to_benchmark() separately.
