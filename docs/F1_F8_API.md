@@ -1,5 +1,8 @@
 # `npm-weibull-py` v0.4 — F1–F8 API Reference
 
+> **Section numbering note.** Paper section references in this document (Appendix B, §A.7, §A.8, …) follow the arXiv v1 numbering this API guide was written against; in the current TMLR revision the software appendix is Appendix C and the Qwen application case is Appendix D.
+
+
 Companion code documentation for the paper
 [*A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions*](https://arxiv.org/abs/2605.18898).
 This reference consolidates the seven exported core diagnostics (F-numbering F1–F8, with F4 and F7 merged) introduced in
