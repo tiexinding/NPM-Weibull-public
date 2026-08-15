@@ -62,7 +62,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 # LLaMA-3: Meta Llama 3 paper (arXiv:2407.21783) §3.4
 # Mistral: tech report partial; estimates inferred from typical 7B recipe
 # Qwen2.5: Qwen2.5 paper (arXiv:2412.15115)
-# Qwen3:   Qwen3 paper (arXiv:2505.xxxxx)
+# Qwen3:   Qwen3 Technical Report (arXiv:2505.09388)
 #
 # (entry_id, json_path, family, size, arch, n_q, n_kv, qk_norm, training_tokens,
 #  eta_peak, lambda_wd, T_steps, hp_confidence)
@@ -170,10 +170,10 @@ ENTRIES = [
         32,
         32,
         True,
-        "5T",
+        "~4T",
         3.0e-4,
         0.1,
-        600000,
+        480000,
         "inferred",
     ),
     # Llama-3 8B: Meta Llama 3 paper — peak LR ~3e-4, wd 0.1, 15T tokens, batch ~16M tokens → ~1M steps
@@ -186,7 +186,7 @@ ENTRIES = [
         32,
         8,
         False,
-        "15T",
+        ">15T",
         3.0e-4,
         0.1,
         1000000,
@@ -251,7 +251,7 @@ ENTRIES = [
         8,
         True,
         "36T",
-        3.0e-4,
+        5.0e-4,   # Qwen3 TR does not publish pretraining LR; inferred, aligned with paper Table 4
         0.1,
         2200000,
         "inferred",

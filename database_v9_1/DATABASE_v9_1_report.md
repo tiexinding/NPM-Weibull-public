@@ -34,7 +34,7 @@
   k_median(gate)=1.2010, k_median(up)=1.2039, k_median(down)=1.2041
 
 ### olmo-2-7b (OLMo-2 7B, MHA-separate)
-  records: 224; tokens: 5T; QK-Norm: True
+  records: 224; tokens: ~4T; QK-Norm: True
   k_median(q)  = 0.9895, R2(q)  = 0.9909, low-R2: 2/32
   k_median(k)  = 0.9716, R2(k)  = 0.9936, low-R2: 7/32
   k_median(v)  = 1.1930, R2(v)  = 0.9981
@@ -42,7 +42,7 @@
   k_median(gate)=1.1976, k_median(up)=1.2032, k_median(down)=1.2031
 
 ### llama-3-8b (Llama-3 8B, GQA-4:1)
-  records: 224; tokens: 15T; QK-Norm: False
+  records: 224; tokens: >15T; QK-Norm: False
   k_median(q)  = 1.1352, R2(q)  = 0.9995, low-R2: 0/32
   k_median(k)  = 1.1462, R2(k)  = 0.9994, low-R2: 0/32
   k_median(v)  = 1.1710, R2(v)  = 0.9985
