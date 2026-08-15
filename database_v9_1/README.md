@@ -113,7 +113,7 @@ Each component has four columns: `k_median_*`, `lambda_median_*`, `R2_median_*`,
 
 ## Key findings (paper §3)
 
-1. **Transmission Class** (FFN + W_o): the **median terminal k across components per entry**, then aggregated across the 12 entries, falls in **[1.186, 1.204]** with cross-family CV = **0.51%**. Shared across SwiGLU and GeLU activations, Pre-LN and QK-Norm placements, and model sizes 70M → 14B.
+1. **FFN reference band**: the **median terminal k across the FFN matrices per entry**, aggregated across the 12 entries, falls in **[1.186, 1.204]** with cross-family CV = **0.51%** — the paper's strict band estimand ($W_v$/$W_o$ behave similarly in most entries but are not part of the band; see paper Section 3). Shared across SwiGLU and GeLU activations, Pre-LN and QK-Norm placements, and model sizes 70M → 14B.
 
 2. **Selection Class** (W_q, W_k): k departs from initialization anchor (k_init ≈ 1.205), severity tracks attention storage architecture — **separately-stored MHA** (OLMo-1/2) deepest at k ∈ [0.76, 0.99], **GQA** (LLaMA-3, Mistral, Qwen2.5/3) milder at [1.10, 1.16], **Pythia merged W_qkv** transitional at [1.05, 1.18].
 
@@ -125,7 +125,7 @@ Each component has four columns: `k_median_*`, `lambda_median_*`, `R2_median_*`,
 
 | File | Purpose |
 |---|---|
-| `DATABASE_v9_1.csv` | Machine-readable dataset (55 columns × 12 entries) |
+| `DATABASE_v9_1.csv` | Machine-readable dataset (56 columns × 12 entries) |
 | `DATABASE_v9_1.md` | Human-readable reference table |
 | `DATABASE_v9_1_report.md` | Per-entry sanity verification |
 | `populate_database_v9_1.py` | Internal regeneration script (dev-only; requires cascade v3 raw per-block fits not shipped here — see GitHub repo for the cascade pipeline) |

@@ -5,20 +5,22 @@
 
 ## 12 entries (5 Pythia size + 7 cross-family) — k median per component
 
-| Entry | Family | Size | Architecture | n_q/n_kv | QK-Norm | tokens | k_q | k_k | k_v | k_o | k_gate | k_up | k_down | low-R²(q) |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| pythia-70m | Pythia | 70m | MHA-merged | merged | no | 300B | 1.0488 | — | — | 1.1838 | 0.0000 | 0.0000 | 0.0000 | 1/6 |
-| pythia-160m | Pythia | 160m | MHA-merged | merged | no | 300B | 1.0982 | — | — | 1.1917 | 0.0000 | 0.0000 | 0.0000 | 0/12 |
-| pythia-410m | Pythia | 410m | MHA-merged | merged | no | 300B | 1.1466 | — | — | 1.1988 | 0.0000 | 0.0000 | 0.0000 | 0/24 |
-| pythia-1b | Pythia | 1B | MHA-merged | merged | no | 300B | 1.1758 | — | — | 1.1990 | 0.0000 | 0.0000 | 0.0000 | 0/16 |
-| pythia-6.9b | Pythia | 6.9B | MHA-merged | merged | no | 300B | 1.1726 | — | — | 1.1986 | 0.0000 | 0.0000 | 0.0000 | 0/32 |
-| olmo-1-7b | OLMo-1 | 7B | MHA-separate | 32/32 | no | 2.5T | 0.8123 | 0.7601 | 1.0601 | 1.0409 | 1.2010 | 1.2039 | 1.2041 | 12/32 |
-| olmo-2-7b | OLMo-2 | 7B | MHA-separate | 32/32 | yes | 5T | 0.9895 | 0.9716 | 1.1930 | 1.1958 | 1.1976 | 1.2032 | 1.2031 | 2/32 |
-| llama-3-8b | Llama-3 | 8B | GQA-4:1 | 32/8 | no | 15T | 1.1352 | 1.1462 | 1.1710 | 1.1841 | 1.1890 | 1.1971 | 1.1931 | 0/32 |
-| mistral-7b | Mistral | 7B | GQA-4:1 | 32/8 | no | 8T | 1.1485 | 1.1291 | 1.1702 | 1.1902 | 1.1947 | 1.1964 | 1.1926 | 1/32 |
-| qwen2.5-7b | Qwen2.5 | 7B | GQA-7:1 | 28/4 | no | 18T | 1.1328 | 1.1033 | 1.1430 | 1.1665 | 1.1904 | 1.1888 | 1.1830 | 0/28 |
-| qwen2.5-14b | Qwen2.5 | 14B | GQA-5:1 | 40/8 | no | 18T | 1.1638 | 1.1413 | 1.1628 | 1.1903 | 1.1929 | 1.1926 | 1.1897 | 0/48 |
-| qwen3-8b | Qwen3 | 8B | GQA-4:1 | 32/8 | yes | 36T | 1.1623 | 1.1539 | 1.1581 | 1.1802 | 1.1872 | 1.1886 | 1.1846 | 0/36 |
+| Entry | Family | Size | Arch | n_q/n_kv | QK-Norm | tokens | k_qkv† | k_q | k_k | k_v | k_o | k_ffn_in | k_ffn_out | k_gate | k_up | k_down | low-R²(q\|qkv) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| pythia-70m | Pythia | 70m | MHA-merged | merged | no | 300B | 1.0488 | — | — | — | 1.1838 | 1.1903 | 1.1898 | — | — | — | 1/6 |
+| pythia-160m | Pythia | 160m | MHA-merged | merged | no | 300B | 1.0982 | — | — | — | 1.1917 | 1.1927 | 1.1953 | — | — | — | 0/12 |
+| pythia-410m | Pythia | 410m | MHA-merged | merged | no | 300B | 1.1466 | — | — | — | 1.1988 | 1.1991 | 1.2011 | — | — | — | 0/24 |
+| pythia-1b | Pythia | 1B | MHA-merged | merged | no | 300B | 1.1758 | — | — | — | 1.1990 | 1.1997 | 1.1993 | — | — | — | 0/16 |
+| pythia-6.9b | Pythia | 6.9B | MHA-merged | merged | no | 300B | 1.1726 | — | — | — | 1.1986 | 1.2026 | 1.2010 | — | — | — | 0/32 |
+| olmo-1-7b | OLMo-1 | 7B | MHA-separate | 32/32 | no | 2.5T | — | 0.8123 | 0.7601 | 1.0601 | 1.0409 | — | — | 1.2010 | 1.2039 | 1.2041 | 12/32 |
+| olmo-2-7b | OLMo-2 | 7B | MHA-separate | 32/32 | yes | ~4T | — | 0.9895 | 0.9716 | 1.1930 | 1.1958 | — | — | 1.1976 | 1.2032 | 1.2031 | 2/32 |
+| llama-3-8b | Llama-3 | 8B | GQA-4:1 | 32/8 | no | >15T | — | 1.1352 | 1.1462 | 1.1710 | 1.1841 | — | — | 1.1890 | 1.1971 | 1.1931 | 0/32 |
+| mistral-7b | Mistral | 7B | GQA-4:1 | 32/8 | no | 8T | — | 1.1485 | 1.1291 | 1.1702 | 1.1902 | — | — | 1.1947 | 1.1964 | 1.1926 | 1/32 |
+| qwen2.5-7b | Qwen2.5 | 7B | GQA-7:1 | 28/4 | no | 18T | — | 1.1328 | 1.1033 | 1.1430 | 1.1665 | — | — | 1.1904 | 1.1888 | 1.1830 | 0/28 |
+| qwen2.5-14b | Qwen2.5 | 14B | GQA-5:1 | 40/8 | no | 18T | — | 1.1638 | 1.1413 | 1.1628 | 1.1903 | — | — | 1.1929 | 1.1926 | 1.1897 | 0/48 |
+| qwen3-8b | Qwen3 | 8B | GQA-4:1 | 32/8 | yes | 36T | — | 1.1623 | 1.1539 | 1.1581 | 1.1802 | — | — | 1.1872 | 1.1886 | 1.1846 | 0/36 |
+
+† k_qkv: Pythia stores Q/K/V as one fused tensor, fitted as a single matrix — a mixed-class value, not a separately fitted k_q. Components absent from an architecture (gate/up/down in GeLU models; ffn_in/ffn_out in SwiGLU models; separate q/k/v under fused storage) are shown as —.
 
 ## Training hyperparameters + T/τ + Physical State (Wang-Aitchison 2024 cycle ratio)
 
@@ -59,6 +61,6 @@
 
 Per-entry per-component sanity check is recorded in [`DATABASE_v9_1_report.md`](DATABASE_v9_1_report.md). All entries pass R² ≥ 0.99 on the Transmission Class components.
 
-**Transmission Class aggregated band** (median across components per entry, then aggregated across the 12 entries): k ∈ [1.1859, 1.2025], cross-family CV = 0.49%.
+**FFN reference band** (per-entry median across the FFN matrices at the terminal checkpoint, aggregated across the 12 entries): k ∈ [1.186, 1.204], cross-family CV = 0.51% — the paper's strict band estimand (Section 3). Earlier releases reported a component-aggregated Transmission statistic in this line; the FFN entry median is the estimand the paper's band claim is defined on.
 
 See paper §3 for the strict-band definition and trim protocol. For per-block raw fits and the cascade pipeline that produces this table, see the `npm-weibull-py` repository on GitHub.

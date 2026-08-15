@@ -1,7 +1,8 @@
 """Populate DATABASE_v9_1_qwen_cohort.csv + .md for the 11-entry Qwen-family cohort.
 
 Companion to populate_database_v9_1.py (which generates the 12-entry main cohort).
-Generates the Qwen application-case cohort used in Appendix C of the paper:
+Generates the Qwen application-case cohort used in Appendix C of the paper
+(arXiv:2605.18898 numbering; Appendix D / Table 14 in the revised manuscript):
 "A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions"
 (arXiv:2605.18898).
 
