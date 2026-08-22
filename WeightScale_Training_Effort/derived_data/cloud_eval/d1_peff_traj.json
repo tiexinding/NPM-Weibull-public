@@ -1,0 +1,70 @@
+{
+ "pairs": [
+  {
+   "cell": "f000_r01",
+   "tag_full": "p4d1_f000_r01_const_e3e4",
+   "tag_half": "p4d1_f000_r01_const_e15e4",
+   "peff_t": {
+    "1000": 1.8203,
+    "2000": 1.7675,
+    "3000": 1.7554,
+    "4000": 1.7794,
+    "6000": 1.8163,
+    "8000": 1.8389,
+    "12000": 1.8508,
+    "16000": 1.8552,
+    "20000": 1.8401,
+    "24000": 1.8216,
+    "28000": 1.8167,
+    "32000": 1.7959
+   },
+   "dlam2_full_end": 12.537606411489389,
+   "dlam2_half_end": 3.6106961694114204,
+   "p_eff_8k": 1.8389,
+   "p_eff_end": 1.7959,
+   "drift": -0.043,
+   "kendall_tau_anchors": -0.619
+  },
+  {
+   "cell": "f100_r64",
+   "tag_full": "p4d1_f100_r64_const_e3e4",
+   "tag_half": "p4d1_f100_r64_const_e15e4",
+   "peff_t": {
+    "1000": 2.2911,
+    "2000": 2.1317,
+    "3000": 1.7609,
+    "4000": 1.5599,
+    "6000": 1.5469,
+    "8000": 1.6037,
+    "12000": 1.6688,
+    "16000": 1.702,
+    "20000": 1.714,
+    "24000": 1.7184,
+    "28000": 1.7133,
+    "32000": 1.7089
+   },
+   "dlam2_full_end": 12.252343071291945,
+   "dlam2_half_end": 3.7477846472364154,
+   "p_eff_8k": 1.6037,
+   "p_eff_end": 1.7089,
+   "drift": 0.1053,
+   "kendall_tau_anchors": 0.524
+  }
+ ],
+ "verdict": "INCONCLUSIVE",
+ "rule": {
+  "thr_confirm": -0.06,
+  "thr_refute": -0.03,
+  "tau_confirm": -0.5,
+  "t8": 8000,
+  "tend": 32000
+ },
+ "amendment_20260711": {
+  "status": "registered_verdict_superseded",
+  "note": "Same-t ratio statistic phase-confounded (tau_wd=1/(eta*lambda_wd) depends on eta; window t/tau<=0.48 unequilibrated). Operative reading = phase-matched pairing: p_sync 1.04\u00b10.01 (noise, collapse 0.484\u00b10.004), clean rises to 1.06, consistent with equilibrium p=1; grade preliminary (post-hoc, single seed). Registered verdict kept below unchanged for the record.",
+  "refs": [
+   "../01_share_temp/260706_laoding_D1_\u9884\u767b\u8bb0v2_\u6052\u5b9aeta.md \u00a79",
+   "p4_phase1_summary.json d1_const_eta.amendment_20260711"
+  ]
+ }
+}

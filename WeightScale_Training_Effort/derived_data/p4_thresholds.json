@@ -1,0 +1,775 @@
+{
+ "theta_gap": 1.1842383857248555,
+ "theta_lam_rel": 0.7020343694020116,
+ "robust_interval_gap": [
+  0.6674663925170896,
+  4.225488880634308
+ ],
+ "robust_interval_lam": [
+  0.49545858953109106,
+  0.7627650535046816
+ ],
+ "method": "2-component 1D GMM decision boundary; gap in log1p space on 48 main runs; lam_rel in log space on non-memorized runs; reference cell = cleanest structured cell of same corpus & eta (main/eta: f000_r01; corners: f000_r04, +6% bias noted)",
+ "runs": [
+  {
+   "set": "main",
+   "cell": "f000_r01",
+   "seed": 1,
+   "dlam2": 2.1261792035781446,
+   "gap": 0.22216171026229858,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r01",
+   "seed": 2,
+   "dlam2": 2.121707937367563,
+   "gap": 0.22145053100585965,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r01",
+   "seed": 0,
+   "dlam2": 2.1171667020895644,
+   "gap": 0.2339066386222841,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r04",
+   "seed": 1,
+   "dlam2": 2.2785300899990006,
+   "gap": 0.6674663925170896,
+   "lam_rel": 1.0716547721680585,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r04",
+   "seed": 2,
+   "dlam2": 2.2369828938567156,
+   "gap": 0.647708282470703,
+   "lam_rel": 1.0543312085791487,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r04",
+   "seed": 0,
+   "dlam2": 2.2356795983223825,
+   "gap": 0.6528592796325685,
+   "lam_rel": 1.0559771207982114,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r16",
+   "seed": 1,
+   "dlam2": 2.7778000390184787,
+   "gap": 4.312452212333679,
+   "lam_rel": 1.3064750301121006,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r16",
+   "seed": 2,
+   "dlam2": 2.7503605600992764,
+   "gap": 4.22858269238472,
+   "lam_rel": 1.296295551173595,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r16",
+   "seed": 0,
+   "dlam2": 2.7674551133223773,
+   "gap": 4.225488880634308,
+   "lam_rel": 1.3071503111167404,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r64",
+   "seed": 1,
+   "dlam2": 2.5448255238393367,
+   "gap": 9.510444974228738,
+   "lam_rel": 1.196900769021093,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r64",
+   "seed": 2,
+   "dlam2": 2.5325265900638203,
+   "gap": 9.542590025290847,
+   "lam_rel": 1.1936263919557029,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f000_r64",
+   "seed": 0,
+   "dlam2": 2.560133901920062,
+   "gap": 9.55020967425406,
+   "lam_rel": 1.2092264153754666,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r01",
+   "seed": 1,
+   "dlam2": 2.072096279340365,
+   "gap": 0.15837070846557566,
+   "lam_rel": 0.9745633274247235,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r01",
+   "seed": 2,
+   "dlam2": 2.055346591060751,
+   "gap": 0.14440945434570285,
+   "lam_rel": 0.9687226761336684,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r01",
+   "seed": 0,
+   "dlam2": 2.056974652806992,
+   "gap": 0.16478194999694828,
+   "lam_rel": 0.9715695276979535,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r04",
+   "seed": 1,
+   "dlam2": 2.2599919847293033,
+   "gap": 0.5564103507995606,
+   "lam_rel": 1.0629357962517765,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r04",
+   "seed": 2,
+   "dlam2": 2.2574713467846927,
+   "gap": 0.5588338537216186,
+   "lam_rel": 1.063987793525236,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r04",
+   "seed": 0,
+   "dlam2": 2.236722013680974,
+   "gap": 0.5546184864044186,
+   "lam_rel": 1.056469484180633,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r16",
+   "seed": 1,
+   "dlam2": 3.0836231230629836,
+   "gap": 4.899562794685364,
+   "lam_rel": 1.4503119576532202,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r16",
+   "seed": 2,
+   "dlam2": 3.074950844706665,
+   "gap": 4.928159862041474,
+   "lam_rel": 1.4492809262531232,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r16",
+   "seed": 0,
+   "dlam2": 3.0687445577935173,
+   "gap": 4.860427907943725,
+   "lam_rel": 1.4494581625361769,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r64",
+   "seed": 1,
+   "dlam2": 3.0227630527973575,
+   "gap": 13.096688478603959,
+   "lam_rel": 1.4216878086806384,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r64",
+   "seed": 2,
+   "dlam2": 3.028657386347855,
+   "gap": 13.0413599229455,
+   "lam_rel": 1.4274619673174993,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f025_r64",
+   "seed": 0,
+   "dlam2": 3.0381206838599844,
+   "gap": 13.085860727354884,
+   "lam_rel": 1.4349936076651275,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r01",
+   "seed": 1,
+   "dlam2": 1.6354706918732362,
+   "gap": 0.06715806007385261,
+   "lam_rel": 0.7692064192523869,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r01",
+   "seed": 2,
+   "dlam2": 1.6275881129862142,
+   "gap": 0.061501840591430934,
+   "lam_rel": 0.7671122327070091,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r01",
+   "seed": 0,
+   "dlam2": 1.6149007727976767,
+   "gap": 0.07494794178009023,
+   "lam_rel": 0.7627650535046816,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r04",
+   "seed": 1,
+   "dlam2": 1.9269167585360842,
+   "gap": 0.37707811546325676,
+   "lam_rel": 0.9062814438657278,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r04",
+   "seed": 2,
+   "dlam2": 1.9159823781496246,
+   "gap": 0.3746531438827514,
+   "lam_rel": 0.9030377576504779,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r04",
+   "seed": 0,
+   "dlam2": 1.9156044360631321,
+   "gap": 0.3924612979888913,
+   "lam_rel": 0.904796223260314,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r16",
+   "seed": 1,
+   "dlam2": 3.1484099760604467,
+   "gap": 4.855726788520813,
+   "lam_rel": 1.480782979516492,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r16",
+   "seed": 2,
+   "dlam2": 3.1038689007228797,
+   "gap": 4.80032846736908,
+   "lam_rel": 1.4629105382779024,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r16",
+   "seed": 0,
+   "dlam2": 3.1575883096627546,
+   "gap": 4.857027387142182,
+   "lam_rel": 1.4914216752730585,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r64",
+   "seed": 1,
+   "dlam2": 3.2162733173908893,
+   "gap": 14.49655136230588,
+   "lam_rel": 1.5127009576512773,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r64",
+   "seed": 2,
+   "dlam2": 3.2110818758273982,
+   "gap": 14.520576709747314,
+   "lam_rel": 1.513441986653186,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f050_r64",
+   "seed": 0,
+   "dlam2": 3.22363307623121,
+   "gap": 14.578681004285812,
+   "lam_rel": 1.5226165578032211,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r01",
+   "seed": 1,
+   "dlam2": 0.14413132340120807,
+   "gap": 0.0015926952362059765,
+   "lam_rel": 0.06778888776573942,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r01",
+   "seed": 2,
+   "dlam2": 0.13646183370634077,
+   "gap": 0.0022748460769657086,
+   "lam_rel": 0.0643169737469386,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r01",
+   "seed": 0,
+   "dlam2": 0.1252371516406633,
+   "gap": 0.0010431947708129385,
+   "lam_rel": 0.05915318407240153,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r04",
+   "seed": 1,
+   "dlam2": 0.9293412135951041,
+   "gap": 0.24184417724609375,
+   "lam_rel": 0.43709448951015833,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r04",
+   "seed": 2,
+   "dlam2": 0.9237645874734417,
+   "gap": 0.23239537906646657,
+   "lam_rel": 0.4353872515646858,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r04",
+   "seed": 0,
+   "dlam2": 0.9115188619614634,
+   "gap": 0.2319400329589847,
+   "lam_rel": 0.4305371235348772,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r16",
+   "seed": 1,
+   "dlam2": 2.99810269722173,
+   "gap": 4.474940780639648,
+   "lam_rel": 1.4100893716654863,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r16",
+   "seed": 2,
+   "dlam2": 2.9886239605526534,
+   "gap": 4.427573982238769,
+   "lam_rel": 1.4085934769423012,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r16",
+   "seed": 0,
+   "dlam2": 2.988926860682456,
+   "gap": 4.456228342056275,
+   "lam_rel": 1.4117579204946389,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r64",
+   "seed": 1,
+   "dlam2": 3.313113037047728,
+   "gap": 14.797985616058112,
+   "lam_rel": 1.5582473158763352,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r64",
+   "seed": 2,
+   "dlam2": 3.319871796831277,
+   "gap": 14.804841657966376,
+   "lam_rel": 1.5647166786538467,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "main",
+   "cell": "f100_r64",
+   "seed": 0,
+   "dlam2": 3.3014795242375805,
+   "gap": 14.812208375692368,
+   "lam_rel": 1.5593857210106052,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f000_r04",
+   "seed": 0,
+   "dlam2": 2.072104146710826,
+   "gap": 0.5330998449325568,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f000_r04",
+   "seed": 1,
+   "dlam2": 2.148038035886203,
+   "gap": 0.5339045228958135,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f000_r04",
+   "seed": 2,
+   "dlam2": 2.1581199451652315,
+   "gap": 0.5472783622741693,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f000_r64",
+   "seed": 0,
+   "dlam2": 2.5675290394986825,
+   "gap": 10.821113413885236,
+   "lam_rel": 1.239092660267233,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f000_r64",
+   "seed": 1,
+   "dlam2": 2.6027112628730698,
+   "gap": 10.777038525566459,
+   "lam_rel": 1.2116690763342488,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f000_r64",
+   "seed": 2,
+   "dlam2": 2.582815633746364,
+   "gap": 10.834993121355772,
+   "lam_rel": 1.1967896592274978,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f100_r04",
+   "seed": 0,
+   "dlam2": 1.0266417978908708,
+   "gap": 0.327631880760193,
+   "lam_rel": 0.49545858953109106,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f100_r04",
+   "seed": 1,
+   "dlam2": 1.0372685619347979,
+   "gap": 0.3309349117279057,
+   "lam_rel": 0.4828911521144728,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f100_r04",
+   "seed": 2,
+   "dlam2": 1.0586164471792125,
+   "gap": 0.32700613594055117,
+   "lam_rel": 0.4905271597859043,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f100_r64",
+   "seed": 0,
+   "dlam2": 3.1613591380569175,
+   "gap": 15.018535196751357,
+   "lam_rel": 1.5256757934079377,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f100_r64",
+   "seed": 1,
+   "dlam2": 3.186695699417736,
+   "gap": 15.062000568449497,
+   "lam_rel": 1.4835378360062512,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "c4",
+   "cell": "f100_r64",
+   "seed": 2,
+   "dlam2": 3.2126461623448246,
+   "gap": 14.964210583180188,
+   "lam_rel": 1.4886318851470768,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f000_r04",
+   "seed": 0,
+   "dlam2": 1.9043695164766696,
+   "gap": 0.6243023612499237,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f000_r04",
+   "seed": 1,
+   "dlam2": 1.880029225116696,
+   "gap": 0.6538366450071338,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f000_r04",
+   "seed": 2,
+   "dlam2": 1.929596590606122,
+   "gap": 0.6385542829036712,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f000_r64",
+   "seed": 0,
+   "dlam2": 1.9697950497450878,
+   "gap": 6.978241583690048,
+   "lam_rel": 1.034355482327539,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f000_r64",
+   "seed": 1,
+   "dlam2": 1.9621453549049175,
+   "gap": 6.92733970913291,
+   "lam_rel": 1.0436781134522655,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f000_r64",
+   "seed": 2,
+   "dlam2": 1.9886335918240006,
+   "gap": 6.937845377922058,
+   "lam_rel": 1.0305955148891168,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f100_r04",
+   "seed": 0,
+   "dlam2": 0.5968314703892752,
+   "gap": 0.1861034746170045,
+   "lam_rel": 0.31340108378414433,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f100_r04",
+   "seed": 1,
+   "dlam2": 0.6132154233568654,
+   "gap": 0.19886134624481144,
+   "lam_rel": 0.32617334622487176,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f100_r04",
+   "seed": 2,
+   "dlam2": 0.6735370647232534,
+   "gap": 0.20028608036041273,
+   "lam_rel": 0.349055894896499,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f100_r64",
+   "seed": 0,
+   "dlam2": 3.4734487134382745,
+   "gap": 14.152139285743235,
+   "lam_rel": 1.8239363124571564,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f100_r64",
+   "seed": 1,
+   "dlam2": 3.4262578113309377,
+   "gap": 14.139526558101176,
+   "lam_rel": 1.8224492287444443,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "code",
+   "cell": "f100_r64",
+   "seed": 2,
+   "dlam2": 3.4842238867867104,
+   "gap": 14.238916709959506,
+   "lam_rel": 1.8056747735505954,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "eta15",
+   "cell": "f000_r01",
+   "seed": 0,
+   "dlam2": 0.6579569601226806,
+   "gap": 0.19704391765594487,
+   "lam_rel": 1.0,
+   "label": "LEARNED",
+   "borderline": false
+  },
+  {
+   "set": "eta15",
+   "cell": "f000_r64",
+   "seed": 0,
+   "dlam2": 0.9114385617253989,
+   "gap": 9.035037654399872,
+   "lam_rel": 1.385255597198113,
+   "label": "MEMORIZED",
+   "borderline": false
+  },
+  {
+   "set": "eta15",
+   "cell": "f100_r01",
+   "seed": 0,
+   "dlam2": 0.02515876560601907,
+   "gap": 0.0017589130401605146,
+   "lam_rel": 0.03823770722225972,
+   "label": "NOTHING",
+   "borderline": false
+  },
+  {
+   "set": "eta15",
+   "cell": "f100_r64",
+   "seed": 0,
+   "dlam2": 1.134386463265107,
+   "gap": 13.421012329041957,
+   "lam_rel": 1.72410435943043,
+   "label": "MEMORIZED",
+   "borderline": false
+  }
+ ]
+}
