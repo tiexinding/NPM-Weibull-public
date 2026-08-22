@@ -38,6 +38,8 @@ This repository hosts the open-source artifacts described in the paper:
 |---|---|
 | Paper information and citation | ✅ Available ([arXiv:2605.18898](https://arxiv.org/abs/2605.18898)) |
 | Paper #2 companion (three-force + spline) | ✅ Available ([`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/), [arXiv:2606.19367](https://arxiv.org/abs/2606.19367)) |
+| Paper #3 companion (data-predictability law) | ✅ Available ([`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/), [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013)) |
+| Paper #4 companion (training-effort grid, 76 runs) | ✅ Available ([`WeightScale_Training_Effort/`](WeightScale_Training_Effort/)) |
 | `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
 | `DATABASE_v9_1` main cohort (12 entries) | ✅ Available (Python module + CSV) |
 | `DATABASE_v9_1` Qwen-cohort companion (11 entries) | ✅ Available ([`database_v9_1/DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md)) |
