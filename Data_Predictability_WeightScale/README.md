@@ -3,7 +3,7 @@
 Companion code and derived data for the paper:
 
 > **Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training**
-> Tiexin Ding (Independent Researcher). arXiv:XXXX.XXXXX.
+> Tiexin Ding (Independent Researcher). [arXiv:2608.23573](https://arxiv.org/abs/2608.23573).
 
 This is the Paper #3 companion in the unified `NPM-Weibull-public` repository (see the
 top-level README for the Paper #1 framework `arXiv:2605.18898` and Paper #2 training

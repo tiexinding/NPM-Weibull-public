@@ -2,6 +2,7 @@
 
 [![arXiv (Paper 1)](https://img.shields.io/badge/arXiv-2605.18898-b31b1b.svg)](https://arxiv.org/abs/2605.18898)
 [![arXiv (Paper 2)](https://img.shields.io/badge/arXiv-2606.19367-b31b1b.svg)](https://arxiv.org/abs/2606.19367)
+[![arXiv (Paper 3)](https://img.shields.io/badge/arXiv-2608.23573-b31b1b.svg)](https://arxiv.org/abs/2608.23573)
 [![PyPI](https://img.shields.io/pypi/v/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![Python](https://img.shields.io/pypi/pyversions/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![HF Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-NPM--Weibull--DATABASE--v9__1-yellow.svg)](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)
@@ -38,7 +39,7 @@ This repository hosts the open-source artifacts described in the paper:
 |---|---|
 | Paper information and citation | ✅ Available ([arXiv:2605.18898](https://arxiv.org/abs/2605.18898)) |
 | Paper #2 companion (three-force + spline) | ✅ Available ([`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/), [arXiv:2606.19367](https://arxiv.org/abs/2606.19367)) |
-| Paper #3 companion (data-predictability law) | ✅ Available ([`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/), [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013)) |
+| Paper #3 companion (data-predictability law) | ✅ Available ([`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/), [arXiv:2608.23573](https://arxiv.org/abs/2608.23573), [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013)) |
 | Paper #4 companion (training-effort grid, 76 runs) | ✅ Available ([`WeightScale_Training_Effort/`](WeightScale_Training_Effort/)) |
 | `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
 | `DATABASE_v9_1` main cohort (12 entries) | ✅ Available (Python module + CSV) |
@@ -153,6 +154,17 @@ Directionally consistent with the AdamW steady-state scaling analysis of Fan et 
   primaryClass  = {cs.LG},
   doi           = {10.48550/arXiv.2606.19367},
   url           = {https://arxiv.org/abs/2606.19367}
+}
+
+@misc{ding2026datapredictability,
+  title         = {Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training},
+  author        = {Ding, Tiexin},
+  year          = {2026},
+  eprint        = {2608.23573},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2608.23573},
+  url           = {https://arxiv.org/abs/2608.23573}
 }
 ```
 
