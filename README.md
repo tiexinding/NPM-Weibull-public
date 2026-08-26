@@ -22,6 +22,22 @@ This repository also hosts the companion code and derived data for the follow-up
 >
 > Code + derived data: [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) — a leading-order **three-force decomposition** (alignment / injection / decay) explaining why the Weibull scale `λ` rises, overshoots, and relaxes during AdamW training, plus a **spline-displacement** method that recovers the alignment force from sparse public checkpoints. Reuses the `npm_weibull` library below for the Weibull fit.
 
+The third paper in the series asks where the scale growth comes from on the data side:
+
+> **Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training**
+> Tiexin Ding (Independent Researcher)
+> [arXiv:2608.23573](https://arxiv.org/abs/2608.23573) ([doi:10.48550/arXiv.2608.23573](https://doi.org/10.48550/arXiv.2608.23573))
+>
+> Code + derived data: [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) — a quantitative link between **corpus predictability** (bigram conditional entropy) and the training-induced growth of the Weibull scale `λ`, held across learning rates and architectures; snapshot archived at [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013).
+
+The fourth paper asks what the growth means:
+
+> **Weight-Scale Growth Tracks Training Effort, Not Learning Quality**
+> Tiexin Ding (Independent Researcher)
+> Submitted to arXiv.
+>
+> Code + derived data: [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) — a 4×4 **predictability × repetition** factorial grid on Pythia-70M (76 runs) showing that the paired signals `(Δλ², gap)` separate LEARNED / MEMORIZED / NOTHING-TO-LEARN regimes: scale growth alone can mistake fitting repeated unstructured data for learning, so it tracks **training effort**, not learning quality.
+
 ## Overview
 
 This repository hosts the open-source artifacts described in the paper:
