@@ -1,6 +1,6 @@
 # Data provenance for *A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields*
 
-Release location: <https://github.com/tiexinding/NPM-Weibull-public/scale_field> (tag to be set at posting).
+Release location: <https://github.com/tiexinding/NPM-Weibull-public>, directory `scale_field/` (tag to be set at posting).
 
 Every figure, table and load-bearing number in the paper traces through three layers: **raw runs and checkpoints → read-out JSON (extraction script) → figure or table (plotting script)**. Layers 2 and 3 are released with the paper; layer 1 is released by size tier. In this release directory: `DATA/` holds the read-out JSON files (the four read-outs that lived outside the draft folder are under `DATA/external/` with their original file names), `scripts/` the extraction scripts, `FS/` the figure and table scripts; `PC/` refers to the manuscript compile folder, which is not part of the release. Raw-source paths in §1 are the author's working layout. MD5 sums of every released file are in `MANIFEST.txt`.
 

@@ -43,7 +43,7 @@ e52946954459c050a8f3ce240974457a        8103  DATA/p5v3_gain_edit_eval_v1.json
 bf430d3c7c86b1571d6ab5301a821ec2       14807  DATA/p5v3_gain_edit_matched_controls_v1.json
 78713e9b13c6619c4fe45ed9e81054fe       11783  DATA/p5v3_gain_edit_perturbation_v1.json
 993835bf554e525763c443c5212448d4      119203  DATA/p5v3_lambda_scale_equivariance_v1.json
-b9cfe683846d7f7cc4aacff87cc443a7       14703  DATA_PROVENANCE.md
+ec0dbfbf2d4534b60d21bbd590ccc696       14717  DATA_PROVENANCE.md
 12d469356a3d13ac0c1d822b420ca1f1        6866  FS/p5t1_factor_matrix_timeline_v6.py
 32f214fad37fa1224a574c5c10077d65        6239  FS/p5v2_field_distribution_plot_v4.py
 b7c56e9e4944a33dfc1ee79fd32447ed        6514  FS/p5v2_figS11_timing_plot_v6.py
