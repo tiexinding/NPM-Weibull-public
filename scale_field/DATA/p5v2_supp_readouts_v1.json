@@ -1,0 +1,237 @@
+{
+ "S1": {
+  "runs": [
+   "ea_gaussian_s1",
+   "ea_gaussian_s2",
+   "ea_gaussian_s3",
+   "ea_laplace_s1",
+   "ea_laplace_s2",
+   "ea_laplace_s3",
+   "ea_uniform_s1",
+   "ea_uniform_s2",
+   "ea_uniform_s3"
+  ],
+  "q": {
+   "cross_run_pearson_median": 0.9732838492394412,
+   "range": [
+    0.945705605178653,
+    0.9897633233777468
+   ]
+  },
+  "k": {
+   "cross_run_pearson_median": 0.9771300646041855,
+   "range": [
+    0.9428089933525917,
+    0.9884134932994664
+   ]
+  },
+  "v": {
+   "cross_run_pearson_median": 0.07398295817473868,
+   "range": [
+    -0.25446944005883915,
+    0.41789925276268697
+   ]
+  },
+  "source": "06_hrow/t123_structure_v1.json freq_profiles (pair-averaged, layer+head controlled, 0->30k)"
+ },
+ "S2": {
+  "arms": {
+   "base": {
+    "q_proj": {
+     "k_before": 1.1925597794618432,
+     "k_after_row": 1.2070440330198156,
+     "k_after_col": 1.193631209645532
+    },
+    "k_proj": {
+     "k_before": 1.1746652984592136,
+     "k_after_row": 1.204457696951259,
+     "k_after_col": 1.1791563651175965
+    },
+    "v_proj": {
+     "k_before": 1.1817239205937824,
+     "k_after_row": 1.1902799926911944,
+     "k_after_col": 1.1968221200654376
+    },
+    "o_proj": {
+     "k_before": 1.1962319561063404,
+     "k_after_row": 1.1976631377915121,
+     "k_after_col": 1.202941973905336
+    },
+    "gate_proj": {
+     "k_before": 1.2039415116603185,
+     "k_after_row": 1.2057723262872775,
+     "k_after_col": 1.2046048420381874
+    },
+    "up_proj": {
+     "k_before": 1.2034197614155921,
+     "k_after_row": 1.2040455919230197,
+     "k_after_col": 1.2054567468000021
+    },
+    "down_proj": {
+     "k_before": 1.203209437434086,
+     "k_after_row": 1.2037904184359844,
+     "k_after_col": 1.2045935305115485
+    }
+   },
+   "flatv": {
+    "q_proj": {
+     "k_before": 1.1874054115633903,
+     "k_after_row": 1.2044519260121185,
+     "k_after_col": 1.1917390087581077
+    },
+    "k_proj": {
+     "k_before": 1.1748945816478455,
+     "k_after_row": 1.2055560853879914,
+     "k_after_col": 1.1818888045860758
+    },
+    "v_proj": {
+     "k_before": 1.1976490749214692,
+     "k_after_row": 1.2039799067141241,
+     "k_after_col": 1.200005359511926
+    },
+    "o_proj": {
+     "k_before": 1.1801179191552351,
+     "k_after_row": 1.1815026828065838,
+     "k_after_col": 1.204381094326619
+    },
+    "gate_proj": {
+     "k_before": 1.2001153209949134,
+     "k_after_row": 1.2025362946826885,
+     "k_after_col": 1.204942163634441
+    },
+    "up_proj": {
+     "k_before": 1.1998753667355735,
+     "k_after_row": 1.2018746759987815,
+     "k_after_col": 1.2035153146773248
+    },
+    "down_proj": {
+     "k_before": 1.19941553827663,
+     "k_after_row": 1.2006455448693765,
+     "k_after_col": 1.2041255141835046
+    }
+   },
+   "nomom": {
+    "q_proj": {
+     "k_before": 1.191181128591924,
+     "k_after_row": 1.2086383990558658,
+     "k_after_col": 1.1947598358543652
+    },
+    "k_proj": {
+     "k_before": 1.1818333063265918,
+     "k_after_row": 1.207236342777761,
+     "k_after_col": 1.1857653494252511
+    },
+    "v_proj": {
+     "k_before": 1.1757005411528416,
+     "k_after_row": 1.187402250202763,
+     "k_after_col": 1.1863006126405624
+    },
+    "o_proj": {
+     "k_before": 1.1916096597870323,
+     "k_after_row": 1.1952544644651464,
+     "k_after_col": 1.2028326081495953
+    },
+    "gate_proj": {
+     "k_before": 1.19926795390022,
+     "k_after_row": 1.2036318617756123,
+     "k_after_col": 1.2002382642239313
+    },
+    "up_proj": {
+     "k_before": 1.201169554569421,
+     "k_after_row": 1.2034262114325278,
+     "k_after_col": 1.2034562980816337
+    },
+    "down_proj": {
+     "k_before": 1.2018304567253204,
+     "k_after_row": 1.2024452293776868,
+     "k_after_col": 1.2021714735039408
+    }
+   },
+   "ropeperm": {
+    "q_proj": {
+     "k_before": 1.1885551940638897,
+     "k_after_row": 1.2068684483860295,
+     "k_after_col": 1.1891336898107405
+    },
+    "k_proj": {
+     "k_before": 1.1762938828382308,
+     "k_after_row": 1.2054129022749116,
+     "k_after_col": 1.1780676068030762
+    },
+    "v_proj": {
+     "k_before": 1.1787165481608592,
+     "k_after_row": 1.1858409457236085,
+     "k_after_col": 1.1973362418090576
+    },
+    "o_proj": {
+     "k_before": 1.1968408065042486,
+     "k_after_row": 1.198915828899001,
+     "k_after_col": 1.2036645991024755
+    },
+    "gate_proj": {
+     "k_before": 1.203771524074917,
+     "k_after_row": 1.2063417039585578,
+     "k_after_col": 1.2050841348369348
+    },
+    "up_proj": {
+     "k_before": 1.2037235587314115,
+     "k_after_row": 1.2055512616171464,
+     "k_after_col": 1.2064868709537082
+    },
+    "down_proj": {
+     "k_before": 1.2034692895458816,
+     "k_after_row": 1.2033425288449273,
+     "k_after_col": 1.204023737337148
+    }
+   }
+  },
+  "reference_k0": 1.204,
+  "source": "05_ivn_runs/ivn_prereg_readouts_v1.json row_rescue (terminal window, 6-layer median)"
+ },
+ "S3": {
+  "arms": {
+   "D1": {
+    "share_med": {
+     "base": 0.8904760629241918,
+     "high": -0.06278382203475547,
+     "pair": 0.11934808429062849
+    },
+    "pair_pos": "35/36",
+    "d_pair_med": 0.0027019061246053022,
+    "d_actual_med": 0.020419856373736722
+   },
+   "D2": {
+    "share_med": {
+     "base": 0.8842258565742138,
+     "high": -0.10678169989401909,
+     "pair": 0.18514086515239148
+    },
+    "pair_pos": "27/36",
+    "d_pair_med": 0.001361555823833016,
+    "d_actual_med": 0.004535175672091385
+   },
+   "D3": {
+    "share_med": {
+     "base": 0.7247952154925066,
+     "high": 0.01855702422479781,
+     "pair": 0.2790833481439402
+    },
+    "pair_pos": "34/36",
+    "d_pair_med": 0.0177622469046467,
+    "d_actual_med": 0.07101816803483924
+   },
+   "D4": {
+    "share_med": {
+     "base": 0.8472400443117429,
+     "high": -0.013467207834858502,
+     "pair": 0.15908042534838712
+    },
+    "pair_pos": "36/36",
+    "d_pair_med": 0.0035380582570070426,
+    "d_actual_med": 0.020068440078330474
+   }
+  },
+  "pair_positive_total": "132/144",
+  "source": "06_hrow/kmix_bridge_v1_2.json partD_decomposition (q/k, 6 layers x 3 seeds x 4 arms @5000, 10 stable permutations each)"
+ }
+}

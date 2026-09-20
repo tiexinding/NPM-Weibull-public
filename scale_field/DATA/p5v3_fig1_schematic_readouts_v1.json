@@ -1,0 +1,15 @@
+{
+  "ckpt": "04_ea_runs/ckpt_key/ea_gaussian_s1/ckpt/step30000.pt",
+  "key": "model.layers.3.self_attn.q_proj.weight",
+  "shape": [
+    512,
+    512
+  ],
+  "s": 0.07090601789791122,
+  "H_row": 0.15449894142283627,
+  "H_col": 0.05795960208679204,
+  "block": 8,
+  "Z_row_sd": 3.26256625126485e-08,
+  "Z_col_sd": 4.464807207370177e-16,
+  "recon_max_err": 2.220446049250313e-16
+}
