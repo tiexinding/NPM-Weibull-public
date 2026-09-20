@@ -3,7 +3,7 @@
 Companion data and code for the paper:
 
 > **A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields**
-> Tiexin Ding (Independent Researcher). arXiv: to be added at posting.
+> Tiexin Ding. arXiv: to be added at posting.
 
 This is the Paper #5 companion in the unified `NPM-Weibull-public` repository (Paper #1 framework
 `arXiv:2605.18898`, Paper #2 training dynamics `arXiv:2606.19367`, Paper #3 data predictability

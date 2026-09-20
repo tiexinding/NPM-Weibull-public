@@ -11,13 +11,13 @@
 Companion code and benchmark database for the paper:
 
 > **A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions**
-> Tiexin Ding (Independent Researcher)
+> Tiexin Ding
 > [arXiv:2605.18898](https://arxiv.org/abs/2605.18898) ([doi:10.48550/arXiv.2605.18898](https://doi.org/10.48550/arXiv.2605.18898))
 
 This repository also hosts the companion code and derived data for the follow-up paper:
 
 > **Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics**
-> Tiexin Ding (Independent Researcher)
+> Tiexin Ding
 > [arXiv:2606.19367](https://arxiv.org/abs/2606.19367) ([doi:10.48550/arXiv.2606.19367](https://doi.org/10.48550/arXiv.2606.19367))
 >
 > Code + derived data: [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) — a leading-order **three-force decomposition** (alignment / injection / decay) explaining why the Weibull scale `λ` rises, overshoots, and relaxes during AdamW training, plus a **spline-displacement** method that recovers the alignment force from sparse public checkpoints. Reuses the `npm_weibull` library below for the Weibull fit.
@@ -25,7 +25,7 @@ This repository also hosts the companion code and derived data for the follow-up
 The third paper in the series asks where the scale growth comes from on the data side:
 
 > **Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training**
-> Tiexin Ding (Independent Researcher)
+> Tiexin Ding
 > [arXiv:2608.23573](https://arxiv.org/abs/2608.23573) ([doi:10.48550/arXiv.2608.23573](https://doi.org/10.48550/arXiv.2608.23573))
 >
 > Code + derived data: [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) — a quantitative link between **corpus predictability** (bigram conditional entropy) and the training-induced growth of the Weibull scale `λ`, held across learning rates and architectures; snapshot archived at [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013).
@@ -33,7 +33,7 @@ The third paper in the series asks where the scale growth comes from on the data
 The fourth paper asks what the growth means:
 
 > **Weight-Scale Growth Tracks Training Effort, Not Learning Quality**
-> Tiexin Ding (Independent Researcher)
+> Tiexin Ding
 > Submitted to arXiv.
 >
 > Code + derived data: [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) — a 4×4 **predictability × repetition** factorial grid on Pythia-70M (76 runs) showing that the paired signals `(Δλ², gap)` separate LEARNED / MEMORIZED / NOTHING-TO-LEARN regimes: scale growth alone can mistake fitting repeated unstructured data for learning, so it tracks **training effort**, not learning quality.
@@ -41,7 +41,7 @@ The fourth paper asks what the growth means:
 This repository also hosts the companion data and code for the fifth paper:
 
 > **A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields**
-> Tiexin Ding (Independent Researcher)
+> Tiexin Ding
 > arXiv: to be added at posting
 >
 > Data + code: [`scale_field/`](scale_field/) — every projection written exactly as a global scale, two diagonal **row and column scale fields**, and a normalized core; read-out JSON files, extraction scripts, figure scripts and a full data-provenance index.
