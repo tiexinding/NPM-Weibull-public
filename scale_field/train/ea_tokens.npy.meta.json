@@ -1,0 +1,15 @@
+{
+ "file": "data/ea_tokens.npy",
+ "shape": [
+  100000000
+ ],
+ "dtype": "int32",
+ "min": 3,
+ "max_token_id": 50276,
+ "sha256": "e27650ed34b629353107a7285c5c177dadded7f8d2ae46f345493253b8df642a",
+ "shards_used": [
+  "data/wt103_train0.parquet",
+  "data/wt103_train1.parquet"
+ ],
+ "n_tok_requested": 100000000
+}

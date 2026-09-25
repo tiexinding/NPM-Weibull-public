@@ -1,0 +1,32 @@
+\begin{table}[H]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}l rrr rrr rrr@{}}
+\toprule
+& \multicolumn{3}{c}{$q/k$} & \multicolumn{3}{c}{$v/o$} & \multicolumn{3}{c}{up/down} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+edit & size & slice 1 & slice 2 & size & slice 1 & slice 2 & size & slice 1 & slice 2 \\
+\midrule
+flatten (reference) & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\
+\midrule
+log-gain doubled ($\tau=-1$) & 1.23 & 3.64 & 3.48 & 1.20 & 1.48 & 1.16 & 0.99 & 1.59 & 0.64 \\
+log-gain $\times1.5$ ($\tau=-0.5$) & 0.29 & 1.30 & 1.31 & 0.30 & 0.38 & 0.28 & 0.25 & 0.45 & 0.10 \\
+shuffle, size-matched (5 draws) & 0.98 & 0.64 & 0.66 & 1.00 & 0.87 & 0.85 & 1.00 & 0.65 & 0.69 \\
+Gaussian direction (5 draws) & 0.94 & 0.29 & 0.29 & 0.87 & 0.62 & 0.54 & 1.01 & 0.50 & 0.33 \\
+random signs (5 draws) & 1.23 & 1.47 & 1.43 & 1.52 & 1.01 & 0.81 & 0.99 & 1.03 & 0.78 \\
+\midrule
+shuffle at the histogram's width (5 draws) & 1.96 & 1.13 & 1.14 & 1.98 & 1.82 & 1.76 & 1.99 & 1.45 & 1.31 \\
+\midrule
+\multicolumn{10}{@{}l}{\textbf{Read-outs of the 63-condition set (cost relative to the flatten unless stated)}} \\
+\midrule
+flatten cost, nats & 1.00 & 0.143 & 0.164 & 1.00 & 0.071 & 0.084 & 1.00 & 0.010 & 0.016 \\
+gain reversed ($\tau=2$) & 3.71 & 2.73 & 2.78 & 3.40 & 3.32 & 3.43 & 4.05 & 5.35 & 4.14 \\
+most amplified decile alone & 0.50 & 0.79 & 0.82 & 0.63 & 0.48 & 0.48 & 0.28 & 0.24 & 0.28 \\
+most suppressed decile alone & 0.22 & 0.13 & 0.11 & 0.13 & 0.06 & 0.08 & 0.38 & 0.47 & 0.53 \\
+sum of the ten deciles & -- & 0.96 & 0.99 & -- & 0.68 & 0.70 & -- & 0.82 & 0.90 \\
+flatten cost / squared gain width & -- & 1.9 & 2.2 & -- & 1.6 & 1.9 & -- & 2.2 & 3.4 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Control-edit displacements and loss responses.} Unless marked as an absolute quantity, the slice columns report the change in loss of the edit relative to flattening the gain ($\tau=1$) on the same path and slice, averaged over the five random draws where marked; size is the squared displacement ratio $\dF/\dF^{\mathrm{flat}}$ of Appendix~\ref{app:gainedit}. The shuffle at the histogram's width is the unscaled permutation of the edit table in Appendix~\ref{app:gainedit}. The lower block reads the 63-condition set of the same two slices: the flatten cost in nats (base loss 3.347 on slice 1, 3.093 on slice 2), and, relative to it, the reversal $\tau=2$, the two extreme deciles of $g$ edited alone, the sum of all ten decile edits, and the flatten cost divided by the squared gain width (0.275, 0.209, 0.068 on the three paths).}
+\label{tab:gainedit_matched}
+\end{table}

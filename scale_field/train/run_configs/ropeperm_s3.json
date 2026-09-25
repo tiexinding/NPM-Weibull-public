@@ -1,0 +1,233 @@
+{
+ "s4_rel_by_matrix": {
+  "model.layers.0.mlp.down_proj.weight": 1.3957370365752248e-05,
+  "model.layers.0.mlp.gate_proj.weight": 7.143713474903994e-06,
+  "model.layers.0.mlp.up_proj.weight": 7.719669818547651e-06,
+  "model.layers.0.self_attn.k_proj.weight": 2.704280254638778e-06,
+  "model.layers.0.self_attn.o_proj.weight": 2.3305105447232375e-05,
+  "model.layers.0.self_attn.q_proj.weight": 3.3541634446539564e-06,
+  "model.layers.0.self_attn.v_proj.weight": 1.498907397125191e-05,
+  "model.layers.1.mlp.down_proj.weight": 1.2734482605360387e-05,
+  "model.layers.1.mlp.gate_proj.weight": 1.1571584463742642e-05,
+  "model.layers.1.mlp.up_proj.weight": 1.0375504456035219e-05,
+  "model.layers.1.self_attn.k_proj.weight": 4.063112807892734e-06,
+  "model.layers.1.self_attn.o_proj.weight": 1.833639583981734e-05,
+  "model.layers.1.self_attn.q_proj.weight": 3.4985077119564143e-06,
+  "model.layers.1.self_attn.v_proj.weight": 7.829015225302917e-06,
+  "model.layers.2.mlp.down_proj.weight": 1.4605161130936608e-05,
+  "model.layers.2.mlp.gate_proj.weight": 6.9007517087194035e-06,
+  "model.layers.2.mlp.up_proj.weight": 7.870781737655314e-06,
+  "model.layers.2.self_attn.k_proj.weight": 4.08838674435071e-06,
+  "model.layers.2.self_attn.o_proj.weight": 2.5646305421272743e-05,
+  "model.layers.2.self_attn.q_proj.weight": 4.573573860367292e-06,
+  "model.layers.2.self_attn.v_proj.weight": 1.4373967806348066e-05,
+  "model.layers.3.mlp.down_proj.weight": 1.076435406498824e-05,
+  "model.layers.3.mlp.gate_proj.weight": 5.522213402345987e-06,
+  "model.layers.3.mlp.up_proj.weight": 5.699997761911601e-06,
+  "model.layers.3.self_attn.k_proj.weight": 3.3957422039825284e-06,
+  "model.layers.3.self_attn.o_proj.weight": 1.1203716192511147e-05,
+  "model.layers.3.self_attn.q_proj.weight": 3.672950544678713e-06,
+  "model.layers.3.self_attn.v_proj.weight": 9.229837924843952e-06,
+  "model.layers.4.mlp.down_proj.weight": 8.179825802842579e-06,
+  "model.layers.4.mlp.gate_proj.weight": 4.141822436869152e-06,
+  "model.layers.4.mlp.up_proj.weight": 5.575216542843753e-06,
+  "model.layers.4.self_attn.k_proj.weight": 2.6970901391131995e-06,
+  "model.layers.4.self_attn.o_proj.weight": 8.240467340133212e-06,
+  "model.layers.4.self_attn.q_proj.weight": 3.2535905702236573e-06,
+  "model.layers.4.self_attn.v_proj.weight": 1.1559252567967111e-05,
+  "model.layers.5.mlp.down_proj.weight": 9.76361924047243e-06,
+  "model.layers.5.mlp.gate_proj.weight": 6.414994647972796e-06,
+  "model.layers.5.mlp.up_proj.weight": 5.913319302301968e-06,
+  "model.layers.5.self_attn.k_proj.weight": 4.638440981933227e-06,
+  "model.layers.5.self_attn.o_proj.weight": 7.590239503699682e-06,
+  "model.layers.5.self_attn.q_proj.weight": 5.285549414502124e-06,
+  "model.layers.5.self_attn.v_proj.weight": 1.098597874058442e-05
+ },
+ "s4_tol": 0.0005,
+ "arm": "ropeperm",
+ "family": "gaussian",
+ "seed": 3,
+ "config": "llama70m_config.json",
+ "rope_theta": 10000.0,
+ "hidden_size": 512,
+ "num_hidden_layers": 6,
+ "steps": 30000,
+ "horizon": 30000,
+ "warm": 200,
+ "emin": 0.1,
+ "beta1": 0.9,
+ "beta2": 0.999,
+ "eta_peak": 0.001,
+ "lwd": 0.1,
+ "bs": 24,
+ "seq": 512,
+ "sigma": 0.02,
+ "sum_lr": 16.490050000000004,
+ "cum_decay_exposure": 1.6490050000000005,
+ "sum_log1m_eta_lambda": -1.649065495441531,
+ "zero_grad_decay_check": {
+  "pass": true,
+  "max_dev": 0.0
+ },
+ "s3_ropeperm": {
+  "loss_identity": 10.92403793334961,
+  "loss_perm": 10.924034118652344,
+  "loss_diff": 3.814697265625e-06,
+  "logit_maxdiff": 0.3138958811759949,
+  "s3b_pass": true,
+  "layers_applied": 1,
+  "inv_freq_after_layer0": [
+   0.003162277862429619,
+   0.007498942315578461,
+   0.23713736236095428,
+   0.017782794311642647,
+   0.0003162277862429619,
+   0.00042169648804701865,
+   0.3162277638912201,
+   0.01333521492779255,
+   0.5623413324356079,
+   0.005623413249850273,
+   0.009999999776482582,
+   0.7498942017555237,
+   0.0013335214462131262,
+   0.000562341301701963,
+   0.1333521455526352,
+   0.0237137358635664,
+   0.03162277862429619,
+   0.0002371373848291114,
+   0.17782793939113617,
+   0.0017782794311642647,
+   0.07498941570520401,
+   0.04216964915394783,
+   0.0001333521504420787,
+   0.0042169648222625256,
+   0.0023713738191872835,
+   1.0,
+   0.10000000149011612,
+   0.00017782794020604342,
+   0.4216965138912201,
+   0.0007498941849917173,
+   0.0010000000474974513,
+   0.05623412877321243
+  ]
+ },
+ "s5_nope": null,
+ "s6_freqscale": null,
+ "pi": [
+  20,
+  17,
+  5,
+  14,
+  28,
+  27,
+  4,
+  15,
+  2,
+  18,
+  16,
+  1,
+  23,
+  26,
+  7,
+  13,
+  12,
+  29,
+  6,
+  22,
+  9,
+  11,
+  31,
+  19,
+  21,
+  0,
+  8,
+  30,
+  3,
+  25,
+  24,
+  10
+ ],
+ "alpha": null,
+ "corpus": null,
+ "held_log": [],
+ "full_snapshots": {
+  "enabled": true,
+  "dtype": "float16",
+  "dir": "full/",
+  "steps": [
+   {
+    "step": 0,
+    "sha256_16": "da8955b115aae0f6"
+   },
+   {
+    "step": 200,
+    "sha256_16": "2b64b27ee3ddb6ae"
+   },
+   {
+    "step": 400,
+    "sha256_16": "5e76b202f761446b"
+   },
+   {
+    "step": 800,
+    "sha256_16": "ecfcbec51c5f3877"
+   },
+   {
+    "step": 1600,
+    "sha256_16": "ab0e45145fdacf1a"
+   },
+   {
+    "step": 3200,
+    "sha256_16": "8fc088b1740296b2"
+   },
+   {
+    "step": 5000,
+    "sha256_16": "d5fe6c57954f47af"
+   },
+   {
+    "step": 10000,
+    "sha256_16": "915e2268b3eb968f"
+   },
+   {
+    "step": 30000,
+    "sha256_16": "a06b33358c771111"
+   }
+  ]
+ },
+ "batch_hashes_first5": [
+  "5e09e4d82dda",
+  "d8fdc23560d7",
+  "56b3bb2e697c",
+  "b7184b74babb",
+  "da3003a8bb7d"
+ ],
+ "batch_hashes_first20": [
+  "5e09e4d82dda",
+  "d8fdc23560d7",
+  "56b3bb2e697c",
+  "b7184b74babb",
+  "da3003a8bb7d"
+ ],
+ "logger": {
+  "enabled": false
+ },
+ "step_time_plain_s": 0.1452884487390518,
+ "step_time_logger_window_s": null,
+ "ckpt_steps": [
+  0,
+  200,
+  400,
+  800,
+  1600,
+  3200,
+  5000,
+  10000,
+  30000
+ ],
+ "resumed_from": null,
+ "script_sha256_16": {
+  "ivn_train_v2.py": "3f9a01cc370beab1",
+  "scalefield_logger.py": "020e8fbb61b6a080"
+ },
+ "wall_sec": 4371.608023405075,
+ "max_vram_gb": 14.947704792022705
+}

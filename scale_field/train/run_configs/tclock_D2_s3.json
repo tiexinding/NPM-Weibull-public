@@ -1,0 +1,33 @@
+{
+ "arm": "D2",
+ "seed": 3,
+ "steps": 5000,
+ "horizon": 30000,
+ "warm": 200,
+ "eta": 0.001,
+ "lwd": 0.1,
+ "beta1": 0.9,
+ "beta2": 0.999,
+ "bs": 24,
+ "seq": 512,
+ "sigma": 0.02,
+ "corpus": {
+  "arm": "D2",
+  "f_shuffle": 1.0,
+  "rho": 1,
+  "U": 61440000,
+  "T_tok": 61440000,
+  "unique_frac_measured": null,
+  "stream_sha256_16": "f8eb839a491ccbf4",
+  "held_sha256_16": "a939b7dfe1360702",
+  "mother_sha256_16": "01b8d82d7ca74069",
+  "leak_blocks_1024": 0,
+  "f_semantics": "f=token \u6253\u4e71\u6bd4\u4f8b; f000=\u7ed3\u6784\u5b8c\u6574/\u53ef\u9884\u6d4b\u6027\u9ad8, f100=\u5168\u6253\u4e71",
+  "measured_moved_frac": 0.992023
+ },
+ "init_sha_16": "debaa1957a2a1085",
+ "sched_hash": "836eabd2aba2",
+ "sum_lr": 4.809461586749673,
+ "wall_sec": 745.3283350467682,
+ "max_vram_gb": 13.090030193328857
+}

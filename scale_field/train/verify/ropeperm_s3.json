@@ -1,0 +1,82 @@
+{
+ "script": "ivn_v2/ivn_train_v2.py",
+ "script_sha256_16": "bff0f26e70398675",
+ "recorded_script_sha256_16": {
+  "ivn_train_v2.py": "3f9a01cc370beab1",
+  "scalefield_logger.py": "020e8fbb61b6a080"
+ },
+ "args": [
+  "--arm",
+  "ropeperm",
+  "--family",
+  "gaussian",
+  "--seed",
+  "3",
+  "--steps",
+  "30000",
+  "--ckpt_steps",
+  "0,200,400,800,1600,3200,5000,10000,30000"
+ ],
+ "step0_ckpt": {
+  "n_matrices": 42,
+  "keys_match": true,
+  "n_bitwise_equal": 42,
+  "max_abs_diff": 0.0
+ },
+ "preflight_forward": {
+  "step0_loss": 10.924039840698242,
+  "recorded_step0_loss": 10.92403793334961,
+  "abs_diff_loss": 1.9073486328125e-06,
+  "max_rel_diff_hidden_rms": 5.653548603234282e-07
+ },
+ "non_analysis_tensors": [
+  "lm_head.weight",
+  "model.embed_tokens.weight",
+  "model.layers.0.input_layernorm.weight",
+  "model.layers.0.post_attention_layernorm.weight",
+  "model.layers.1.input_layernorm.weight",
+  "model.layers.1.post_attention_layernorm.weight",
+  "model.layers.2.input_layernorm.weight",
+  "model.layers.2.post_attention_layernorm.weight",
+  "model.layers.3.input_layernorm.weight",
+  "model.layers.3.post_attention_layernorm.weight",
+  "model.layers.4.input_layernorm.weight",
+  "model.layers.4.post_attention_layernorm.weight",
+  "model.layers.5.input_layernorm.weight",
+  "model.layers.5.post_attention_layernorm.weight",
+  "model.norm.weight"
+ ],
+ "rope": {
+  "pi_equal_record": true,
+  "inv_freq_equal_record": true,
+  "inv_freq_max_abs_diff": 0.0
+ },
+ "batch_hashes": {
+  "got": [
+   "5e09e4d82dda",
+   "d8fdc23560d7",
+   "56b3bb2e697c",
+   "b7184b74babb",
+   "da3003a8bb7d"
+  ],
+  "recorded": [
+   "5e09e4d82dda",
+   "d8fdc23560d7",
+   "56b3bb2e697c",
+   "b7184b74babb",
+   "da3003a8bb7d"
+  ],
+  "equal": true
+ },
+ "full_snapshot_step0": {
+  "got_sha256_16": "ee6a53d8edd6e5f5",
+  "recorded_sha256_16": "da8955b115aae0f6",
+  "equal": false,
+  "n_tensors": 57
+ },
+ "env": {
+  "torch": "2.11.0+cu130",
+  "transformers": "5.5.0",
+  "device": "cpu"
+ }
+}

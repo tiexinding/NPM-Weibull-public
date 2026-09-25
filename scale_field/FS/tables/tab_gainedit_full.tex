@@ -1,0 +1,35 @@
+\begin{table}[H]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l rrr rrr rrr@{}}
+\toprule
+& \multicolumn{3}{c}{$q/k$} & \multicolumn{3}{c}{$v/o$} & \multicolumn{3}{c}{up/down} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+edit & $\dF/\dF^{\mathrm{flat}}$ & slice 1 & slice 2 & $\dF/\dF^{\mathrm{flat}}$ & slice 1 & slice 2 & $\dF/\dF^{\mathrm{flat}}$ & slice 1 & slice 2 \\
+\midrule
+balance $b$ & 0.05 & 0.0001 & 0.0001 & 0.02 & 0.0001 & 0.0000 & 0.08 & 0.0000 & 0.0000 \\
+\midrule
+flatten $\tau=0.25$ & 0.07 & 14.94 & 17.36 & 0.07 & 4.21 & 5.96 & 0.06 & 0.061 & 1.52 \\
+flatten $\tau=0.5$ & 0.26 & 50.45 & 60.59 & 0.27 & 18.51 & 22.49 & 0.25 & 1.65 & 4.57 \\
+flatten $\tau=1$ & 1.00 & 142.68 & 164.39 & 1.00 & 70.95 & 84.12 & 1.00 & 9.85 & 15.69 \\
+flatten $\tau=1.5$ & 2.16 & 252.61 & 290.80 & 2.07 & 145.13 & 175.56 & 2.26 & 26.05 & 34.88 \\
+flatten $\tau=2$ & 3.71 & 390.02 & 456.61 & 3.40 & 235.52 & 288.95 & 4.05 & 52.72 & 64.95 \\
+\midrule
+shuffle, mean of 5 & 1.96 & 161.35 & 187.99 & 1.98 & 129.02 & 147.94 & 1.99 & 14.28 & 20.51 \\
+shuffle, min--max &  & 145--177 & 176--195 &  & 118--145 & 139--165 &  & 12--17 & 18--23 \\
+\midrule
+decile 1 (lowest $g$) & 0.22 & 18.80 & 18.64 & 0.13 & 4.33 & 6.52 & 0.38 & 4.59 & 8.32 \\
+decile 2 & 0.07 & 2.79 & 4.56 & 0.04 & 1.59 & 2.15 & 0.09 & 0.51 & 0.73 \\
+decile 3 & 0.03 & 0.88 & 1.34 & 0.01 & 0.67 & 0.96 & 0.04 & 0.070 & 0.049 \\
+decile 4 & 0.01 & 0.102 & 0.141 & 0.00 & 0.205 & 0.349 & 0.01 & 0.014 & -0.018 \\
+decile 5 & 0.00 & 0.063 & -0.033 & 0.00 & -0.121 & 0.114 & 0.00 & 0.008 & -0.020 \\
+decile 6 & 0.00 & 0.030 & 0.144 & 0.00 & 0.142 & 0.084 & 0.00 & -0.027 & -0.023 \\
+decile 7 & 0.01 & 0.222 & 0.311 & 0.01 & 0.349 & 0.55 & 0.01 & 0.079 & -0.112 \\
+decile 8 & 0.02 & 0.94 & 0.494 & 0.03 & 1.22 & 1.36 & 0.03 & 0.196 & 0.438 \\
+decile 9 & 0.05 & 1.35 & 1.32 & 0.15 & 5.78 & 6.11 & 0.07 & 0.348 & 0.244 \\
+decile 10 (highest $g$) & 0.50 & 112.42 & 135.53 & 0.63 & 34.14 & 40.66 & 0.28 & 2.33 & 4.45 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{All 63 checkpoint edits on two disjoint token slices.} Change in mean loss relative to the unedited model on the same tokens, in units of $10^{-3}$ nats; base loss 3.347 on slice 1 (offset $9\times10^7$, Figure~\ref{fig:gainedit}) and 3.093 on slice 2 (offset $6\times10^7$); 48 sequences of 512 tokens each. The balance row is the absolute value. $\dF/\dF^{\mathrm{flat}}$ is the squared relative Frobenius displacement of the edit divided by that of the flatten at $\tau=1$ on the same path. Deciles are of the gain $g$ within each layer, lowest first.}
+\label{tab:gainedit_full}
+\end{table}

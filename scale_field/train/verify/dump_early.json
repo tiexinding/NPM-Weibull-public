@@ -1,0 +1,75 @@
+{
+ "script": "ivn_v3_260912/ivn_train_v3.py",
+ "script_sha256_16": "3bbb7defb0dde2d0",
+ "recorded_script_sha256_16": {
+  "ivn_train_v3.py": "3bbb7defb0dde2d0",
+  "scalefield_logger.py": "020e8fbb61b6a080"
+ },
+ "args": [
+  "--arm",
+  "base",
+  "--family",
+  "gaussian",
+  "--seed",
+  "1",
+  "--steps",
+  "10000",
+  "--horizon",
+  "30000",
+  "--dump_tensors",
+  "3200,10000",
+  "--ckpt_steps",
+  "0,200,400,800,1600,3200,5000,10000"
+ ],
+ "preflight_forward": {
+  "step0_loss": 10.92311954498291,
+  "recorded_step0_loss": 10.923121452331543,
+  "abs_diff_loss": 1.9073486328125e-06,
+  "max_rel_diff_hidden_rms": 5.727722405551767e-07
+ },
+ "non_analysis_tensors": [
+  "lm_head.weight",
+  "model.embed_tokens.weight",
+  "model.layers.0.input_layernorm.weight",
+  "model.layers.0.post_attention_layernorm.weight",
+  "model.layers.1.input_layernorm.weight",
+  "model.layers.1.post_attention_layernorm.weight",
+  "model.layers.2.input_layernorm.weight",
+  "model.layers.2.post_attention_layernorm.weight",
+  "model.layers.3.input_layernorm.weight",
+  "model.layers.3.post_attention_layernorm.weight",
+  "model.layers.4.input_layernorm.weight",
+  "model.layers.4.post_attention_layernorm.weight",
+  "model.layers.5.input_layernorm.weight",
+  "model.layers.5.post_attention_layernorm.weight",
+  "model.norm.weight"
+ ],
+ "batch_hashes": {
+  "got": [
+   "9c6186efbf8f",
+   "509a213708e1",
+   "4ba83c1dfe39",
+   "048a7b9ad9d4",
+   "244d7baba5c9"
+  ],
+  "recorded": [
+   "9c6186efbf8f",
+   "509a213708e1",
+   "4ba83c1dfe39",
+   "048a7b9ad9d4",
+   "244d7baba5c9"
+  ],
+  "equal": true
+ },
+ "full_snapshot_step0": {
+  "got_sha256_16": "c50879e4f221015d",
+  "recorded_sha256_16": "268c069a3975399a",
+  "equal": false,
+  "n_tensors": 57
+ },
+ "env": {
+  "torch": "2.11.0+cu130",
+  "transformers": "5.5.0",
+  "device": "cpu"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "script": "ivn_v1/ivn_train.py",
+ "script_sha256_16": "8068aad9398daff7",
+ "recorded_script_sha256_16": null,
+ "args": [
+  "--arm",
+  "base",
+  "--family",
+  "gaussian",
+  "--seed",
+  "1"
+ ],
+ "step0_ckpt": {
+  "n_matrices": 42,
+  "keys_match": true,
+  "n_bitwise_equal": 42,
+  "max_abs_diff": 0.0
+ },
+ "preflight_forward": {
+  "step0_loss": 10.92311954498291,
+  "recorded_step0_loss": 10.923121452331543,
+  "abs_diff_loss": 1.9073486328125e-06,
+  "max_rel_diff_hidden_rms": 5.727722405551767e-07
+ },
+ "non_analysis_tensors": [
+  "lm_head.weight",
+  "model.embed_tokens.weight",
+  "model.layers.0.input_layernorm.weight",
+  "model.layers.0.post_attention_layernorm.weight",
+  "model.layers.1.input_layernorm.weight",
+  "model.layers.1.post_attention_layernorm.weight",
+  "model.layers.2.input_layernorm.weight",
+  "model.layers.2.post_attention_layernorm.weight",
+  "model.layers.3.input_layernorm.weight",
+  "model.layers.3.post_attention_layernorm.weight",
+  "model.layers.4.input_layernorm.weight",
+  "model.layers.4.post_attention_layernorm.weight",
+  "model.layers.5.input_layernorm.weight",
+  "model.layers.5.post_attention_layernorm.weight",
+  "model.norm.weight"
+ ],
+ "batch_hashes": {
+  "got": [
+   "9c6186efbf8f",
+   "509a213708e1",
+   "4ba83c1dfe39",
+   "048a7b9ad9d4",
+   "244d7baba5c9"
+  ],
+  "recorded": [
+   "9c6186efbf8f",
+   "509a213708e1",
+   "4ba83c1dfe39",
+   "048a7b9ad9d4",
+   "244d7baba5c9"
+  ],
+  "equal": true
+ },
+ "env": {
+  "torch": "2.11.0+cu130",
+  "transformers": "5.5.0",
+  "device": "cpu"
+ }
+}

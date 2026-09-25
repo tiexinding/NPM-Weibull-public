@@ -1,0 +1,50 @@
+{
+ "source": "10_p5batch_cloud/results/nope_analysis_v1.json qk_structure.*.30000 q_pair_static/k_pair_static",
+ "protocol": "Pearson r of q and k pair profiles per layer; null = 5000 permutations of the k profile within layer (rng seed 0); median-stat null = median over the six layers of per-layer permuted r",
+ "base": {
+  "per_layer_r": [
+   0.6906682247888,
+   0.8799499109290766,
+   0.8406636271117628,
+   0.9521802644151245,
+   0.9236474158201144,
+   0.9942718751376466
+  ],
+  "median_r": 0.9017986633745956,
+  "per_layer_null_q975": [
+   0.3433889770708535,
+   0.3455771886672441,
+   0.35099658523554383,
+   0.35422972720257645,
+   0.3493359003872968,
+   0.3563319963397329
+  ],
+  "median_stat_null_q975": 0.1679472177453696,
+  "median_stat_null_q999": 0.2623955473959885,
+  "p_median": 0.0001999600079984003,
+  "n_pairs": 32
+ },
+ "nope": {
+  "per_layer_r": [
+   0.45165801103885167,
+   0.6642651981830904,
+   0.5157496753468481,
+   0.0667274148686564,
+   0.3247672145728306,
+   0.27503358591985017
+  ],
+  "median_r": 0.38821261280584113,
+  "per_layer_null_q975": [
+   0.3529676241225872,
+   0.35377368303945356,
+   0.34879856876057774,
+   0.3518680764954123,
+   0.3480703764976236,
+   0.350027526251386
+  ],
+  "median_stat_null_q975": 0.16335362797649755,
+  "median_stat_null_q999": 0.2523459014928562,
+  "p_median": 0.0001999600079984003,
+  "n_pairs": 32
+ }
+}

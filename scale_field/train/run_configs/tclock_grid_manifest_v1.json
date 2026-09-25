@@ -1,0 +1,182 @@
+{
+ "schema": "tclock_manifest_v1",
+ "code_sha": {
+  "tclock_train.py": "371574efc80636c4289bfa4a4e07c9707902add05996611a0d328942cb425f8d",
+  "tclock_manifest.py": "704ad2f167d5ce14c95ac766cdc04ec3e749ae03c23b9cc36f451cfd66d93658",
+  "tclock_launch.sh": "2004496efe6e960fe1dba3725e26f724eb456cba2e681e4de67cc11a6342e1c4"
+ },
+ "template_sha": "6d5661129c48cdacca7f0a7464f7ba1d80a2bf7673e2f0954dfe8ae953bfcde1",
+ "tokens_sha_head1M": "01b8d82d7ca74069",
+ "runs": {
+  "tclock_D1_s1": {
+   "status": "done",
+   "init_sha_16": "e08d3c397b8e2069",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D1",
+    "f_shuffle": 0.0,
+    "rho": 1,
+    "U": 61440000,
+    "stream_sha256_16": "a3e61fc3b1109c11",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.0
+   }
+  },
+  "tclock_D1_s2": {
+   "status": "done",
+   "init_sha_16": "7ce94dff5e97331a",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D1",
+    "f_shuffle": 0.0,
+    "rho": 1,
+    "U": 61440000,
+    "stream_sha256_16": "a3e61fc3b1109c11",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.0
+   }
+  },
+  "tclock_D1_s3": {
+   "status": "done",
+   "init_sha_16": "debaa1957a2a1085",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D1",
+    "f_shuffle": 0.0,
+    "rho": 1,
+    "U": 61440000,
+    "stream_sha256_16": "a3e61fc3b1109c11",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.0
+   }
+  },
+  "tclock_D2_s1": {
+   "status": "done",
+   "init_sha_16": "e08d3c397b8e2069",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D2",
+    "f_shuffle": 1.0,
+    "rho": 1,
+    "U": 61440000,
+    "stream_sha256_16": "707249722cff6c1f",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.99205
+   }
+  },
+  "tclock_D2_s2": {
+   "status": "done",
+   "init_sha_16": "7ce94dff5e97331a",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D2",
+    "f_shuffle": 1.0,
+    "rho": 1,
+    "U": 61440000,
+    "stream_sha256_16": "d29a93fe9dad69bc",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.992015
+   }
+  },
+  "tclock_D2_s3": {
+   "status": "done",
+   "init_sha_16": "debaa1957a2a1085",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D2",
+    "f_shuffle": 1.0,
+    "rho": 1,
+    "U": 61440000,
+    "stream_sha256_16": "f8eb839a491ccbf4",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.992023
+   }
+  },
+  "tclock_D3_s1": {
+   "status": "done",
+   "init_sha_16": "e08d3c397b8e2069",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D3",
+    "f_shuffle": 1.0,
+    "rho": 64,
+    "U": 960000,
+    "stream_sha256_16": "130258e9fa5f5667",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.9919989583333333
+   }
+  },
+  "tclock_D3_s2": {
+   "status": "done",
+   "init_sha_16": "7ce94dff5e97331a",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D3",
+    "f_shuffle": 1.0,
+    "rho": 64,
+    "U": 960000,
+    "stream_sha256_16": "2d2320ce0936bf75",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.992003125
+   }
+  },
+  "tclock_D3_s3": {
+   "status": "done",
+   "init_sha_16": "debaa1957a2a1085",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D3",
+    "f_shuffle": 1.0,
+    "rho": 64,
+    "U": 960000,
+    "stream_sha256_16": "46c3963ece3b0374",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.99179375
+   }
+  },
+  "tclock_D4_s1": {
+   "status": "done",
+   "init_sha_16": "e08d3c397b8e2069",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D4",
+    "f_shuffle": 0.0,
+    "rho": 64,
+    "U": 960000,
+    "stream_sha256_16": "4b1d58cf2ff3756e",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.0
+   }
+  },
+  "tclock_D4_s2": {
+   "status": "done",
+   "init_sha_16": "7ce94dff5e97331a",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D4",
+    "f_shuffle": 0.0,
+    "rho": 64,
+    "U": 960000,
+    "stream_sha256_16": "4b1d58cf2ff3756e",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.0
+   }
+  },
+  "tclock_D4_s3": {
+   "status": "done",
+   "init_sha_16": "debaa1957a2a1085",
+   "sched_hash": "836eabd2aba2",
+   "corpus": {
+    "arm": "D4",
+    "f_shuffle": 0.0,
+    "rho": 64,
+    "U": 960000,
+    "stream_sha256_16": "4b1d58cf2ff3756e",
+    "leak_blocks_1024": 0,
+    "measured_moved_frac": 0.0
+   }
+  }
+ },
+ "paired_check_fails": [],
+ "n_done": 12
+}

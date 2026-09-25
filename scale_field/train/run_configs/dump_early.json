@@ -1,0 +1,154 @@
+{
+ "s4_rel_by_matrix": {},
+ "s4_tol": 0.0005,
+ "arm": "base",
+ "family": "gaussian",
+ "seed": 1,
+ "config": "llama70m_config.json",
+ "rope_theta": 10000.0,
+ "hidden_size": 512,
+ "num_hidden_layers": 6,
+ "steps": 10000,
+ "horizon": 30000,
+ "warm": 200,
+ "emin": 0.1,
+ "beta1": 0.9,
+ "beta2": 0.999,
+ "eta_peak": 0.001,
+ "lwd": 0.1,
+ "bs": 24,
+ "seq": 512,
+ "sigma": 0.02,
+ "sum_lr": 9.156686267566558,
+ "cum_decay_exposure": 0.9156686267566558,
+ "sum_log1m_eta_lambda": -0.9157110249246382,
+ "zero_grad_decay_check": {
+  "pass": true,
+  "max_dev": 0.0
+ },
+ "s3_ropeperm": null,
+ "s5_nope": null,
+ "s6_freqscale": null,
+ "s7_act_scale": null,
+ "pi": null,
+ "alpha": null,
+ "v3": {
+  "arm_tag": "base",
+  "vmode": null,
+  "rn": "none",
+  "vperm_seed": 12345,
+  "vperm_meta": {},
+  "mmode": null,
+  "m_window": null,
+  "m_reset_log": [],
+  "rn_match_rel_err_by_kind": null,
+  "dump_tensors": [
+   {
+    "step": 3200,
+    "bytes": 303617166,
+    "mb": 289.6,
+    "sha256_16": "0253979ee9691b92"
+   },
+   {
+    "step": 10000,
+    "bytes": 303617402,
+    "mb": 289.6,
+    "sha256_16": "afadb2c2a85c5e19"
+   }
+  ],
+  "act_scale": null
+ },
+ "corpus": null,
+ "held_log": [],
+ "full_snapshots": {
+  "enabled": true,
+  "dtype": "float16",
+  "dir": "full/",
+  "steps": [
+   {
+    "step": 0,
+    "sha256_16": "268c069a3975399a"
+   },
+   {
+    "step": 200,
+    "sha256_16": "3df9cf5fa3c628fb"
+   },
+   {
+    "step": 400,
+    "sha256_16": "e028407a110a9460"
+   },
+   {
+    "step": 800,
+    "sha256_16": "2c8d8a64b63c9121"
+   },
+   {
+    "step": 1600,
+    "sha256_16": "510d89c09c608483"
+   },
+   {
+    "step": 3200,
+    "sha256_16": "be29560dd96cb32a"
+   },
+   {
+    "step": 5000,
+    "sha256_16": "f84336ac5f0f692f"
+   },
+   {
+    "step": 10000,
+    "sha256_16": "42c95daf5ad6537d"
+   }
+  ]
+ },
+ "batch_hashes_first5": [
+  "9c6186efbf8f",
+  "509a213708e1",
+  "4ba83c1dfe39",
+  "048a7b9ad9d4",
+  "244d7baba5c9"
+ ],
+ "batch_hashes_first20": [
+  "9c6186efbf8f",
+  "509a213708e1",
+  "4ba83c1dfe39",
+  "048a7b9ad9d4",
+  "244d7baba5c9"
+ ],
+ "logger": {
+  "every": 200,
+  "win": 20,
+  "n_windows_written": 46,
+  "quantities": [
+   "x_col_lnrms",
+   "delta_row_lnrms",
+   "G_row/col_lnrms",
+   "mhat_row/col_lnrms",
+   "sqrtvhat_row/col_lnrms",
+   "u_row/col_lnrms",
+   "uapp_row/col_lnrms",
+   "u_row/col_radial (lr-weighted sum)",
+   "uapp_row/col_radial",
+   "G_row/col_signagree",
+   "Wnorm_*_start/end",
+   "h_row/col_start/end"
+  ]
+ },
+ "step_time_plain_s": 0.14795108477850466,
+ "step_time_logger_window_s": 0.21999442784682563,
+ "ckpt_steps": [
+  0,
+  200,
+  400,
+  800,
+  1600,
+  3200,
+  5000,
+  10000
+ ],
+ "resumed_from": 800,
+ "script_sha256_16": {
+  "ivn_train_v3.py": "3bbb7defb0dde2d0",
+  "scalefield_logger.py": "020e8fbb61b6a080"
+ },
+ "wall_sec": 1433.953607082367,
+ "max_vram_gb": 15.962469100952148
+}

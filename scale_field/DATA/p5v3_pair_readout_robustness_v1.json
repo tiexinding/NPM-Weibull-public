@@ -1,0 +1,682 @@
+{
+ "schema": "p5v3-pair-readout-robustness-v1",
+ "script": "p5v3_pair_readout_robustness_v1.py",
+ "script_sha256_16": "200d80531d6e868c",
+ "protocol": "tclock D1-D4 x seeds 1-3, step 5000, 6 layers (72 cells); pair profiles median-centred over the matrix, median over 8 heads; Pearson r of q vs k; gain/balance = var(g)/var(b) with g=x+y, b=x-y",
+ "summary": {
+  "logmean_r": {
+   "median": 0.9287406589604095,
+   "q25": 0.8246355455863665,
+   "q75": 0.9804153527181576
+  },
+  "pooled_r": {
+   "median": 0.9358090027430153,
+   "q25": 0.8323381888644997,
+   "q75": 0.9804016357892479
+  },
+  "logmean_gain_balance": {
+   "median": 22.159336990967,
+   "q25": 8.477299192174439,
+   "q75": 69.02244694871186
+  },
+  "pooled_gain_balance": {
+   "median": 21.981381253473295,
+   "q25": 9.486732876634338,
+   "q75": 77.28793531996071
+  },
+  "pooled_minus_logmean_r": {
+   "median": 0.0011794914999545547,
+   "max_abs": 0.08330990516783676
+  }
+ },
+ "rows": [
+  {
+   "arm": "D1",
+   "seed": 1,
+   "layer": 0,
+   "logmean_r": 0.922469353252071,
+   "logmean_gain_balance": 15.178150625568298,
+   "pooled_r": 0.9282763973876293,
+   "pooled_gain_balance": 16.84120062198095
+  },
+  {
+   "arm": "D1",
+   "seed": 1,
+   "layer": 1,
+   "logmean_r": 0.872749308406365,
+   "logmean_gain_balance": 14.317481540899546,
+   "pooled_r": 0.89129090549643,
+   "pooled_gain_balance": 17.301241442534486
+  },
+  {
+   "arm": "D1",
+   "seed": 1,
+   "layer": 2,
+   "logmean_r": 0.9232982889971635,
+   "logmean_gain_balance": 20.64909622881617,
+   "pooled_r": 0.9229783848930054,
+   "pooled_gain_balance": 20.81043867491219
+  },
+  {
+   "arm": "D1",
+   "seed": 1,
+   "layer": 3,
+   "logmean_r": 0.799772846206332,
+   "logmean_gain_balance": 6.024973090700725,
+   "pooled_r": 0.8559496633159148,
+   "pooled_gain_balance": 6.42433085675089
+  },
+  {
+   "arm": "D1",
+   "seed": 1,
+   "layer": 4,
+   "logmean_r": 0.6474686242871869,
+   "logmean_gain_balance": 4.625869161833785,
+   "pooled_r": 0.5641587191193501,
+   "pooled_gain_balance": 3.4934066145311085
+  },
+  {
+   "arm": "D1",
+   "seed": 1,
+   "layer": 5,
+   "logmean_r": 0.9258671486813852,
+   "logmean_gain_balance": 7.847499733470781,
+   "pooled_r": 0.9353811633325688,
+   "pooled_gain_balance": 7.195028380240636
+  },
+  {
+   "arm": "D1",
+   "seed": 2,
+   "layer": 0,
+   "logmean_r": 0.9151483125204936,
+   "logmean_gain_balance": 18.69905652374959,
+   "pooled_r": 0.9061497955626815,
+   "pooled_gain_balance": 16.767594523350176
+  },
+  {
+   "arm": "D1",
+   "seed": 2,
+   "layer": 1,
+   "logmean_r": 0.9226781225403548,
+   "logmean_gain_balance": 24.545146955533156,
+   "pooled_r": 0.8985137135341598,
+   "pooled_gain_balance": 18.44656414236273
+  },
+  {
+   "arm": "D1",
+   "seed": 2,
+   "layer": 2,
+   "logmean_r": 0.9074499126281272,
+   "logmean_gain_balance": 20.453307797948554,
+   "pooled_r": 0.9003993464190885,
+   "pooled_gain_balance": 17.016403963533826
+  },
+  {
+   "arm": "D1",
+   "seed": 2,
+   "layer": 3,
+   "logmean_r": 0.9048971709685232,
+   "logmean_gain_balance": 8.287216469220562,
+   "pooled_r": 0.9281735598516784,
+   "pooled_gain_balance": 10.797694549063978
+  },
+  {
+   "arm": "D1",
+   "seed": 2,
+   "layer": 4,
+   "logmean_r": 0.8531312051127601,
+   "logmean_gain_balance": 8.647277215815235,
+   "pooled_r": 0.8629259537146037,
+   "pooled_gain_balance": 8.387886768570652
+  },
+  {
+   "arm": "D1",
+   "seed": 2,
+   "layer": 5,
+   "logmean_r": 0.9764487611628957,
+   "logmean_gain_balance": 22.131369374177666,
+   "pooled_r": 0.9757790143300469,
+   "pooled_gain_balance": 23.22466949017256
+  },
+  {
+   "arm": "D1",
+   "seed": 3,
+   "layer": 0,
+   "logmean_r": 0.9712486498341125,
+   "logmean_gain_balance": 57.030914232370144,
+   "pooled_r": 0.9627097344492433,
+   "pooled_gain_balance": 43.413093399000374
+  },
+  {
+   "arm": "D1",
+   "seed": 3,
+   "layer": 1,
+   "logmean_r": 0.8182640641369032,
+   "logmean_gain_balance": 9.978388969148298,
+   "pooled_r": 0.8222264481094116,
+   "pooled_gain_balance": 9.87926796081681
+  },
+  {
+   "arm": "D1",
+   "seed": 3,
+   "layer": 2,
+   "logmean_r": 0.7637182152677752,
+   "logmean_gain_balance": 6.784918465110241,
+   "pooled_r": 0.8091765145072959,
+   "pooled_gain_balance": 7.8582946136961604
+  },
+  {
+   "arm": "D1",
+   "seed": 3,
+   "layer": 3,
+   "logmean_r": 0.5666927226430386,
+   "logmean_gain_balance": 3.5915030520317472,
+   "pooled_r": 0.4978417042048499,
+   "pooled_gain_balance": 2.9215640180210967
+  },
+  {
+   "arm": "D1",
+   "seed": 3,
+   "layer": 4,
+   "logmean_r": 0.8805485293012876,
+   "logmean_gain_balance": 8.779027832816814,
+   "pooled_r": 0.9058268358040924,
+   "pooled_gain_balance": 11.677825956480188
+  },
+  {
+   "arm": "D1",
+   "seed": 3,
+   "layer": 5,
+   "logmean_r": 0.9742991356578554,
+   "logmean_gain_balance": 16.410872784187912,
+   "pooled_r": 0.9736534560377784,
+   "pooled_gain_balance": 15.194993040267267
+  },
+  {
+   "arm": "D2",
+   "seed": 1,
+   "layer": 0,
+   "logmean_r": 0.9555743876711652,
+   "logmean_gain_balance": 13.391429101537708,
+   "pooled_r": 0.9485115300803167,
+   "pooled_gain_balance": 13.575885610637693
+  },
+  {
+   "arm": "D2",
+   "seed": 1,
+   "layer": 1,
+   "logmean_r": 0.9785495854810543,
+   "logmean_gain_balance": 74.3330972913939,
+   "pooled_r": 0.9785478168307375,
+   "pooled_gain_balance": 74.67777565441777
+  },
+  {
+   "arm": "D2",
+   "seed": 1,
+   "layer": 2,
+   "logmean_r": 0.575532556910073,
+   "logmean_gain_balance": 3.692770966673776,
+   "pooled_r": 0.5870820576632566,
+   "pooled_gain_balance": 3.823517282983682
+  },
+  {
+   "arm": "D2",
+   "seed": 1,
+   "layer": 3,
+   "logmean_r": 0.27797278747255083,
+   "logmean_gain_balance": 1.6735244492943644,
+   "pooled_r": 0.28172284966289374,
+   "pooled_gain_balance": 1.676280648142491
+  },
+  {
+   "arm": "D2",
+   "seed": 1,
+   "layer": 4,
+   "logmean_r": 0.8267593727361876,
+   "logmean_gain_balance": 8.54066009982573,
+   "pooled_r": 0.8194210907495467,
+   "pooled_gain_balance": 8.603165061948769
+  },
+  {
+   "arm": "D2",
+   "seed": 1,
+   "layer": 5,
+   "logmean_r": 0.4410248216676903,
+   "logmean_gain_balance": 2.575166566515115,
+   "pooled_r": 0.45321056520323305,
+   "pooled_gain_balance": 2.6569066954305467
+  },
+  {
+   "arm": "D2",
+   "seed": 2,
+   "layer": 0,
+   "logmean_r": 0.9170282503832242,
+   "logmean_gain_balance": 23.023173742408847,
+   "pooled_r": 0.9204942180958637,
+   "pooled_gain_balance": 23.91245228567684
+  },
+  {
+   "arm": "D2",
+   "seed": 2,
+   "layer": 1,
+   "logmean_r": 0.9883379016083785,
+   "logmean_gain_balance": 103.10702722580523,
+   "pooled_r": 0.9899760096800636,
+   "pooled_gain_balance": 114.0120049505796
+  },
+  {
+   "arm": "D2",
+   "seed": 2,
+   "layer": 2,
+   "logmean_r": 0.9672199411993708,
+   "logmean_gain_balance": 36.83524061843426,
+   "pooled_r": 0.9645659579656907,
+   "pooled_gain_balance": 33.567765848282406
+  },
+  {
+   "arm": "D2",
+   "seed": 2,
+   "layer": 3,
+   "logmean_r": 0.7710552985599594,
+   "logmean_gain_balance": 7.504500958216288,
+   "pooled_r": 0.7788755345754151,
+   "pooled_gain_balance": 7.746588700635755
+  },
+  {
+   "arm": "D2",
+   "seed": 2,
+   "layer": 4,
+   "logmean_r": 0.2934618593976326,
+   "logmean_gain_balance": 1.798807127421098,
+   "pooled_r": 0.29140427491038723,
+   "pooled_gain_balance": 1.7912303463326873
+  },
+  {
+   "arm": "D2",
+   "seed": 2,
+   "layer": 5,
+   "logmean_r": 0.5477232659057908,
+   "logmean_gain_balance": 3.188971544002813,
+   "pooled_r": 0.542972608782217,
+   "pooled_gain_balance": 3.1815107765283877
+  },
+  {
+   "arm": "D2",
+   "seed": 3,
+   "layer": 0,
+   "logmean_r": 0.7442091955146279,
+   "logmean_gain_balance": 6.6258841432884115,
+   "pooled_r": 0.7474390336430087,
+   "pooled_gain_balance": 6.716311165667213
+  },
+  {
+   "arm": "D2",
+   "seed": 3,
+   "layer": 1,
+   "logmean_r": 0.3886730388036112,
+   "logmean_gain_balance": 2.008295067403902,
+   "pooled_r": 0.41246741984003876,
+   "pooled_gain_balance": 2.087349300742208
+  },
+  {
+   "arm": "D2",
+   "seed": 3,
+   "layer": 2,
+   "logmean_r": 0.6106978846597502,
+   "logmean_gain_balance": 4.097982296209818,
+   "pooled_r": 0.6318322162876847,
+   "pooled_gain_balance": 4.405213780436802
+  },
+  {
+   "arm": "D2",
+   "seed": 3,
+   "layer": 3,
+   "logmean_r": 0.6442746343391116,
+   "logmean_gain_balance": 4.462608371610273,
+   "pooled_r": 0.6558522363407777,
+   "pooled_gain_balance": 4.595404573282186
+  },
+  {
+   "arm": "D2",
+   "seed": 3,
+   "layer": 4,
+   "logmean_r": 0.8344063553047362,
+   "logmean_gain_balance": 10.508620765411345,
+   "pooled_r": 0.832722075130157,
+   "pooled_gain_balance": 10.336440996815188
+  },
+  {
+   "arm": "D2",
+   "seed": 3,
+   "layer": 5,
+   "logmean_r": 0.8134200684591093,
+   "logmean_gain_balance": 9.4227042575582,
+   "pooled_r": 0.81877091558061,
+   "pooled_gain_balance": 9.781255481529527
+  },
+  {
+   "arm": "D3",
+   "seed": 1,
+   "layer": 0,
+   "logmean_r": 0.9898326593358353,
+   "logmean_gain_balance": 193.83702936941464,
+   "pooled_r": 0.9895527023099654,
+   "pooled_gain_balance": 186.27781084177377
+  },
+  {
+   "arm": "D3",
+   "seed": 1,
+   "layer": 1,
+   "logmean_r": 0.983221428368625,
+   "logmean_gain_balance": 68.09470105470324,
+   "pooled_r": 0.9802065393174313,
+   "pooled_gain_balance": 54.827612124167715
+  },
+  {
+   "arm": "D3",
+   "seed": 1,
+   "layer": 2,
+   "logmean_r": 0.9866673661138567,
+   "logmean_gain_balance": 121.19341976667485,
+   "pooled_r": 0.9894518403224009,
+   "pooled_gain_balance": 150.55040131171737
+  },
+  {
+   "arm": "D3",
+   "seed": 1,
+   "layer": 3,
+   "logmean_r": 0.9891180696868495,
+   "logmean_gain_balance": 114.97688483313829,
+   "pooled_r": 0.9899165316743946,
+   "pooled_gain_balance": 101.57516770030216
+  },
+  {
+   "arm": "D3",
+   "seed": 1,
+   "layer": 4,
+   "logmean_r": 0.9772325067950491,
+   "logmean_gain_balance": 62.828015300434835,
+   "pooled_r": 0.9830929233179493,
+   "pooled_gain_balance": 84.83655920523769
+  },
+  {
+   "arm": "D3",
+   "seed": 1,
+   "layer": 5,
+   "logmean_r": 0.9743982484220671,
+   "logmean_gain_balance": 71.80568463073773,
+   "pooled_r": 0.9768871488088255,
+   "pooled_gain_balance": 54.51851828360081
+  },
+  {
+   "arm": "D3",
+   "seed": 2,
+   "layer": 0,
+   "logmean_r": 0.9815722793331396,
+   "logmean_gain_balance": 107.49203641360627,
+   "pooled_r": 0.9809869252046977,
+   "pooled_gain_balance": 103.16485849619255
+  },
+  {
+   "arm": "D3",
+   "seed": 2,
+   "layer": 1,
+   "logmean_r": 0.9183785437828993,
+   "logmean_gain_balance": 22.18730460775633,
+   "pooled_r": 0.9124716283389944,
+   "pooled_gain_balance": 21.48510430119377
+  },
+  {
+   "arm": "D3",
+   "seed": 2,
+   "layer": 2,
+   "logmean_r": 0.9695640648904739,
+   "logmean_gain_balance": 60.36367764159095,
+   "pooled_r": 0.9795330791152188,
+   "pooled_gain_balance": 90.0825971045892
+  },
+  {
+   "arm": "D3",
+   "seed": 2,
+   "layer": 3,
+   "logmean_r": 0.9776824322118505,
+   "logmean_gain_balance": 82.56031782622019,
+   "pooled_r": 0.9762147267661588,
+   "pooled_gain_balance": 82.30345278276504
+  },
+  {
+   "arm": "D3",
+   "seed": 2,
+   "layer": 4,
+   "logmean_r": 0.9582999118550547,
+   "logmean_gain_balance": 42.330521699530394,
+   "pooled_r": 0.9475055252370639,
+   "pooled_gain_balance": 35.313125436602164
+  },
+  {
+   "arm": "D3",
+   "seed": 2,
+   "layer": 5,
+   "logmean_r": 0.9800297105131636,
+   "logmean_gain_balance": 92.17366815459751,
+   "pooled_r": 0.978920678279339,
+   "pooled_gain_balance": 89.8498687709257
+  },
+  {
+   "arm": "D3",
+   "seed": 3,
+   "layer": 0,
+   "logmean_r": 0.9910676909757916,
+   "logmean_gain_balance": 221.9909777301979,
+   "pooled_r": 0.9915010328833374,
+   "pooled_gain_balance": 233.620228549648
+  },
+  {
+   "arm": "D3",
+   "seed": 3,
+   "layer": 1,
+   "logmean_r": 0.9362043264270578,
+   "logmean_gain_balance": 30.075607967147857,
+   "pooled_r": 0.9671254314931864,
+   "pooled_gain_balance": 57.58401727173259
+  },
+  {
+   "arm": "D3",
+   "seed": 3,
+   "layer": 2,
+   "logmean_r": 0.8920533901156935,
+   "logmean_gain_balance": 17.298754605926216,
+   "pooled_r": 0.9055759324910658,
+   "pooled_gain_balance": 20.179775467171645
+  },
+  {
+   "arm": "D3",
+   "seed": 3,
+   "layer": 3,
+   "logmean_r": 0.9623345951084767,
+   "logmean_gain_balance": 44.13373727716686,
+   "pooled_r": 0.9755745881238437,
+   "pooled_gain_balance": 53.158716423926116
+  },
+  {
+   "arm": "D3",
+   "seed": 3,
+   "layer": 4,
+   "logmean_r": 0.9869666993755575,
+   "logmean_gain_balance": 121.71681441675774,
+   "pooled_r": 0.9897100981466164,
+   "pooled_gain_balance": 116.01396219978105
+  },
+  {
+   "arm": "D3",
+   "seed": 3,
+   "layer": 5,
+   "logmean_r": 0.9840741482581131,
+   "logmean_gain_balance": 65.75845677253012,
+   "pooled_r": 0.9844303686911372,
+   "pooled_gain_balance": 60.61396899992867
+  },
+  {
+   "arm": "D4",
+   "seed": 1,
+   "layer": 0,
+   "logmean_r": 0.9916263771142119,
+   "logmean_gain_balance": 106.86403313469614,
+   "pooled_r": 0.9909829375208542,
+   "pooled_gain_balance": 108.96831566837145
+  },
+  {
+   "arm": "D4",
+   "seed": 1,
+   "layer": 1,
+   "logmean_r": 0.9946668659057596,
+   "logmean_gain_balance": 138.40655281988052,
+   "pooled_r": 0.9945218100111923,
+   "pooled_gain_balance": 139.3774580119773
+  },
+  {
+   "arm": "D4",
+   "seed": 1,
+   "layer": 2,
+   "logmean_r": 0.9878339773474174,
+   "logmean_gain_balance": 138.39201469641637,
+   "pooled_r": 0.9898842472908543,
+   "pooled_gain_balance": 154.0488520546223
+  },
+  {
+   "arm": "D4",
+   "seed": 1,
+   "layer": 3,
+   "logmean_r": 0.9138981824231053,
+   "logmean_gain_balance": 21.490648298770317,
+   "pooled_r": 0.9519304907973026,
+   "pooled_gain_balance": 39.125520199603365
+  },
+  {
+   "arm": "D4",
+   "seed": 1,
+   "layer": 4,
+   "logmean_r": 0.8697972931682195,
+   "logmean_gain_balance": 13.837962738055797,
+   "pooled_r": 0.8666732843972919,
+   "pooled_gain_balance": 13.922404621199878
+  },
+  {
+   "arm": "D4",
+   "seed": 1,
+   "layer": 5,
+   "logmean_r": 0.7816104736218241,
+   "logmean_gain_balance": 7.869667204340507,
+   "pooled_r": 0.8311865300675281,
+   "pooled_gain_balance": 10.408188134406046
+  },
+  {
+   "arm": "D4",
+   "seed": 2,
+   "layer": 0,
+   "logmean_r": 0.9952262774237953,
+   "logmean_gain_balance": 141.87809820828812,
+   "pooled_r": 0.9946320081216335,
+   "pooled_gain_balance": 136.27601057020053
+  },
+  {
+   "arm": "D4",
+   "seed": 2,
+   "layer": 1,
+   "logmean_r": 0.9931342790656993,
+   "logmean_gain_balance": 66.94429942361023,
+   "pooled_r": 0.9934592899728889,
+   "pooled_gain_balance": 70.93538860410412
+  },
+  {
+   "arm": "D4",
+   "seed": 2,
+   "layer": 2,
+   "logmean_r": 0.9862858085045911,
+   "logmean_gain_balance": 95.36298467471003,
+   "pooled_r": 0.9884192096209333,
+   "pooled_gain_balance": 113.42904179770817
+  },
+  {
+   "arm": "D4",
+   "seed": 2,
+   "layer": 3,
+   "logmean_r": 0.9539546955655787,
+   "logmean_gain_balance": 37.66979977277814,
+   "pooled_r": 0.9555999716666557,
+   "pooled_gain_balance": 38.2250541528318
+  },
+  {
+   "arm": "D4",
+   "seed": 2,
+   "layer": 4,
+   "logmean_r": 0.6783286189181167,
+   "logmean_gain_balance": 5.081822873335634,
+   "pooled_r": 0.7489205572840071,
+   "pooled_gain_balance": 5.4568352840419
+  },
+  {
+   "arm": "D4",
+   "seed": 2,
+   "layer": 5,
+   "logmean_r": 0.959695399413405,
+   "logmean_gain_balance": 35.29081306048993,
+   "pooled_r": 0.9556357565484453,
+   "pooled_gain_balance": 31.038998120848273
+  },
+  {
+   "arm": "D4",
+   "seed": 3,
+   "layer": 0,
+   "logmean_r": 0.9909259168689061,
+   "logmean_gain_balance": 117.51266923631552,
+   "pooled_r": 0.9911018271129038,
+   "pooled_gain_balance": 122.75498831956867
+  },
+  {
+   "arm": "D4",
+   "seed": 3,
+   "layer": 1,
+   "logmean_r": 0.9885274698512485,
+   "logmean_gain_balance": 61.32231363527569,
+   "pooled_r": 0.9911122525471979,
+   "pooled_gain_balance": 75.6160961656926
+  },
+  {
+   "arm": "D4",
+   "seed": 3,
+   "layer": 2,
+   "logmean_r": 0.9885745925573468,
+   "logmean_gain_balance": 123.65344640391349,
+   "pooled_r": 0.9901351135697107,
+   "pooled_gain_balance": 140.89883008389424
+  },
+  {
+   "arm": "D4",
+   "seed": 3,
+   "layer": 3,
+   "logmean_r": 0.9316141692394339,
+   "logmean_gain_balance": 28.130565394243924,
+   "pooled_r": 0.915079998229166,
+   "pooled_gain_balance": 22.47765820575282
+  },
+  {
+   "arm": "D4",
+   "seed": 3,
+   "layer": 4,
+   "logmean_r": 0.9367684902505835,
+   "logmean_gain_balance": 29.148415538610227,
+   "pooled_r": 0.9362368421534616,
+   "pooled_gain_balance": 29.659736741949292
+  },
+  {
+   "arm": "D4",
+   "seed": 3,
+   "layer": 5,
+   "logmean_r": 0.9082038148363144,
+   "logmean_gain_balance": 14.180711316309429,
+   "pooled_r": 0.8977484888241595,
+   "pooled_gain_balance": 12.774837766823936
+  }
+ ]
+}

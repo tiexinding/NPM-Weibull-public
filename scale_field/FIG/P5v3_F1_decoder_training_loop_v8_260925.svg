@@ -1,0 +1,329 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2100" height="1256" viewBox="0 64 2100 1256">
+  <defs>
+    <style>
+      .sans{font-family:Arial,Helvetica,sans-serif;fill:#202a33}
+      .serif{font-family:Georgia,'Times New Roman',serif;fill:#202a33}
+      .head{font-size:32px;font-weight:600}
+      .label{font-size:25px}
+      .small{font-size:21px;fill:#65717c}
+      .tiny{font-size:18px;fill:#65717c}
+      .math{font-size:31px;font-style:italic}
+      .mathbig{font-size:41px;font-style:italic}
+      .frame{fill:#fff;stroke:#b6bdc4;stroke-width:2.4}
+      .soft{fill:#f8fafb;stroke:#c7cdd2;stroke-width:2.2}
+      .decoder{fill:#fbfcfd;stroke:#aeb6bd;stroke-width:2.8}
+      .forward{fill:none;stroke:#929ba3;stroke-width:4.2;marker-end:url(#arrow-gray)}
+      .forward-thin{fill:none;stroke:#aab1b7;stroke-width:3;marker-end:url(#arrow-gray)}
+      .feedback{fill:none;stroke:#6850a0;stroke-width:4.5;marker-end:url(#arrow-purple)}
+      .measure{fill:none;stroke:#178773;stroke-width:4;stroke-dasharray:11 9;marker-end:url(#arrow-green)}
+      .measure-line{fill:none;stroke:#178773;stroke-width:3;stroke-dasharray:9 8}
+      .residual{fill:none;stroke:#68727a;stroke-width:5}
+      .muted-line{fill:none;stroke:#c8cdd2;stroke-width:2.2}
+      .weight{fill:#fff;stroke:#178773;stroke-width:2.8}
+      .op{fill:#f4f6f7;stroke:#939da5;stroke-width:2.3}
+      .plus{fill:#fff;stroke:#68727a;stroke-width:2.6}
+      .read{fill:#fff;stroke:#aeb6bd;stroke-width:2.1}
+      .tag{font-size:20px;font-weight:600}
+    </style>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#929ba3"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#6850a0"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#178773"/>
+    </marker>
+    <pattern id="raw-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#edf1f4"/>
+      <rect x="2" y="2" width="20" height="20" fill="#dfe6eb"/>
+      <circle cx="8" cy="8" r="3.5" fill="#d85691" opacity=".43"/>
+      <circle cx="17" cy="16" r="4" fill="#39b6d7" opacity=".42"/>
+    </pattern>
+    <pattern id="core-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#eef6f3"/>
+      <circle cx="8" cy="8" r="3.6" fill="#4f9b83" opacity=".48"/>
+      <circle cx="17" cy="16" r="3.1" fill="#4f9b83" opacity=".30"/>
+    </pattern>
+  </defs>
+
+  <rect width="2100" height="1320" fill="#fff"/>
+
+  <!-- MESOSCOPIC LENS -->
+  <g transform="translate(65,82)">
+    <rect x="0" y="0" width="1970" height="282" class="frame"/>
+
+    <!-- compact raw matrix -->
+    <g transform="translate(45,43)">
+      <text x="105" y="-12" text-anchor="middle" class="sans small">one highlighted projection</text>
+      <rect x="22" y="17" width="190" height="154" fill="url(#raw-grid)" stroke="#202a33" stroke-width="2.7"/>
+      <g transform="translate(22,0)">
+        <rect x="0" y="0" width="31" height="13" fill="#bfeaf4"/>
+        <rect x="31" y="0" width="31" height="13" fill="#69cce5"/>
+        <rect x="62" y="0" width="31" height="13" fill="#39b6d7"/>
+        <rect x="93" y="0" width="31" height="13" fill="#a7e0ed"/>
+        <rect x="124" y="0" width="31" height="13" fill="#52c0dc"/>
+        <rect x="155" y="0" width="35" height="13" fill="#88d7e8"/>
+      </g>
+      <g transform="translate(216,17)">
+        <rect x="0" y="0" width="13" height="25.6" fill="#f1b2ce"/>
+        <rect x="0" y="25.6" width="13" height="25.6" fill="#db6b9e"/>
+        <rect x="0" y="51.2" width="13" height="25.6" fill="#c94280"/>
+        <rect x="0" y="76.8" width="13" height="25.6" fill="#ec99bd"/>
+        <rect x="0" y="102.4" width="13" height="25.6" fill="#d85691"/>
+        <rect x="0" y="128" width="13" height="26" fill="#f5c8da"/>
+      </g>
+      <text x="117" y="101" text-anchor="middle" class="serif mathbig">W<tspan baseline-shift="sub" font-size="24">ℓ,c</tspan>(t)</text>
+      <text x="117" y="205" text-anchor="middle" class="sans small">rows × columns</text>
+    </g>
+
+    <path d="M310 137L374 137" class="measure"/>
+    <text x="342" y="118" text-anchor="middle" class="sans tiny" fill="#178773">decompose</text>
+
+    <!-- exact compact factorization -->
+    <g transform="translate(398,34)">
+      <text x="415" y="17" text-anchor="middle" class="serif mathbig">W<tspan baseline-shift="sub" font-size="24">ℓ,c</tspan>(t) = s D<tspan baseline-shift="sub" font-size="24">r</tspan> Z D<tspan baseline-shift="sub" font-size="24">c</tspan></text>
+      <rect x="0" y="71" width="78" height="70" class="op"/>
+      <text x="39" y="117" text-anchor="middle" class="serif mathbig">s</text>
+      <text x="39" y="174" text-anchor="middle" class="sans small">global</text>
+      <circle cx="112" cy="106" r="16" class="plus"/>
+      <text x="112" y="115" text-anchor="middle" class="sans label">×</text>
+
+      <g transform="translate(143,49)">
+        <rect x="0" y="0" width="43" height="114" fill="#fff" stroke="#202a33" stroke-width="2.5"/>
+        <rect x="3" y="3" width="37" height="18" fill="#f1b2ce"/>
+        <rect x="3" y="21" width="37" height="18" fill="#db6b9e"/>
+        <rect x="3" y="39" width="37" height="18" fill="#c94280"/>
+        <rect x="3" y="57" width="37" height="18" fill="#ec99bd"/>
+        <rect x="3" y="75" width="37" height="18" fill="#d85691"/>
+        <rect x="3" y="93" width="37" height="18" fill="#f5c8da"/>
+        <text x="21" y="-10" text-anchor="middle" class="serif math">D<tspan baseline-shift="sub" font-size="18">r</tspan></text>
+        <text x="21" y="146" text-anchor="middle" class="sans small">row</text>
+      </g>
+      <circle cx="220" cy="106" r="16" class="plus"/>
+      <text x="220" y="115" text-anchor="middle" class="sans label">×</text>
+
+      <rect x="252" y="49" width="218" height="114" fill="url(#core-grid)" stroke="#202a33" stroke-width="2.7"/>
+      <text x="361" y="119" text-anchor="middle" class="serif mathbig">Z</text>
+      <text x="361" y="197" text-anchor="middle" class="sans small">normalized core</text>
+
+      <circle cx="504" cy="106" r="16" class="plus"/>
+      <text x="504" y="115" text-anchor="middle" class="sans label">×</text>
+      <g transform="translate(535,82)">
+        <rect x="0" y="0" width="120" height="48" fill="#fff" stroke="#202a33" stroke-width="2.5"/>
+        <rect x="3" y="3" width="18" height="42" fill="#bfeaf4"/>
+        <rect x="21" y="3" width="18" height="42" fill="#69cce5"/>
+        <rect x="39" y="3" width="18" height="42" fill="#39b6d7"/>
+        <rect x="57" y="3" width="18" height="42" fill="#a7e0ed"/>
+        <rect x="75" y="3" width="18" height="42" fill="#52c0dc"/>
+        <rect x="93" y="3" width="24" height="42" fill="#88d7e8"/>
+        <text x="60" y="-13" text-anchor="middle" class="serif math">D<tspan baseline-shift="sub" font-size="18">c</tspan></text>
+        <text x="60" y="81" text-anchor="middle" class="sans small">column</text>
+      </g>
+    </g>
+
+    <!-- readouts, compact -->
+    <g transform="translate(1165,38)">
+      <text x="0" y="17" class="sans small">readouts at each component, layer and checkpoint</text>
+      <rect x="0" y="34" width="720" height="58" class="read"/>
+      <text x="24" y="72" class="serif math">s</text>
+      <text x="65" y="71" class="sans label">overall magnitude</text>
+      <text x="333" y="71" class="serif math">λ, RMS</text>
+      <rect x="0" y="104" width="720" height="58" class="read"/>
+      <text x="24" y="142" class="serif math">D<tspan baseline-shift="sub" font-size="18">r</tspan>, D<tspan baseline-shift="sub" font-size="18">c</tspan></text>
+      <text x="118" y="141" class="sans label">balancing factors → fields</text>
+      <text x="505" y="141" class="serif math">h<tspan baseline-shift="super" font-size="18">r</tspan>, h<tspan baseline-shift="super" font-size="18">c</tspan></text>
+      <rect x="0" y="174" width="720" height="48" class="read"/>
+      <text x="24" y="207" class="serif label">Z</text>
+      <text x="64" y="206" class="sans label">body profile</text>
+      <text x="250" y="206" class="serif label">quantiles, k<tspan baseline-shift="sub" font-size="16">bi</tspan></text>
+      <text x="491" y="206" class="serif label">fields + Z → k<tspan baseline-shift="sub" font-size="16">raw</tspan></text>
+    </g>
+  </g>
+
+  <!-- direct lens-to-system connection -->
+  <path d="M1050 365L1050 500" class="measure"/>
+  <text x="1072" y="403" class="sans small" fill="#178773">checkpoint lens</text>
+  <text x="1072" y="432" class="sans small" fill="#178773">applied to all green-outlined W</text>
+
+  <!-- data -->
+  <g transform="translate(45,573)">
+    <rect x="0" y="0" width="220" height="166" class="soft"/>
+    <text x="110" y="34" text-anchor="middle" class="sans label">data stream</text>
+    <g transform="translate(20,55)">
+      <rect x="0" y="0" width="27" height="27" fill="#f2c554" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="30" y="0" width="27" height="27" fill="#efab62" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="60" y="0" width="27" height="27" fill="#e78a74" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="90" y="0" width="27" height="27" fill="#f3d77c" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="120" y="0" width="27" height="27" fill="#eaa06a" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="150" y="0" width="27" height="27" fill="#f1c866" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="0" y="32" width="27" height="27" fill="#eaa06a" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="30" y="32" width="27" height="27" fill="#f3d77c" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="60" y="32" width="27" height="27" fill="#f2c554" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="90" y="32" width="27" height="27" fill="#e78a74" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="120" y="32" width="27" height="27" fill="#f1c866" stroke="#202a33" stroke-width="1.6"/>
+      <rect x="150" y="32" width="27" height="27" fill="#efab62" stroke="#202a33" stroke-width="1.6"/>
+    </g>
+    <text x="110" y="140" text-anchor="middle" class="serif label">batch B<tspan baseline-shift="sub" font-size="16">t</tspan></text>
+    <text x="110" y="160" text-anchor="middle" class="sans tiny">tokens and contexts</text>
+  </g>
+  <path d="M270 656L307 656" class="forward"/>
+
+  <!-- embedding -->
+  <g transform="translate(312,607)">
+    <rect x="0" y="0" width="112" height="100" class="op"/>
+    <text x="56" y="39" text-anchor="middle" class="sans label" style="font-size:22px">token</text>
+    <text x="56" y="68" text-anchor="middle" class="sans label" style="font-size:22px">embedding</text>
+    <text x="56" y="94" text-anchor="middle" class="serif small">x<tspan baseline-shift="sub" font-size="14">0</tspan></text>
+  </g>
+  <path d="M428 656L456 656" class="forward"/>
+
+  <!-- decoder layer: all paths progress left to right -->
+  <g transform="translate(460,500)">
+    <rect x="0" y="0" width="1240" height="425" class="decoder"/>
+    <text x="25" y="36" class="sans label">decoder layer ℓ</text>
+    <text x="1208" y="36" text-anchor="end" class="sans small">repeated for ℓ = 1,…,L</text>
+
+    <!-- shared residual rail -->
+    <text x="15" y="231" class="serif math">x<tspan baseline-shift="sub" font-size="18">ℓ</tspan></text>
+    <path d="M53 220L1171 220" class="residual"/>
+
+    <!-- attention branch -->
+    <path d="M78 220L78 106L111 106" class="forward-thin"/>
+    <rect x="116" y="72" width="100" height="68" class="op"/>
+    <text x="166" y="101" text-anchor="middle" class="sans tag">RMSNorm</text>
+    <text x="166" y="127" text-anchor="middle" class="sans tiny">pre-attn</text>
+    <path d="M220 106L246 106" class="forward-thin"/>
+
+    <g transform="translate(251,48)">
+      <g>
+        <rect x="0" y="0" width="82" height="36" class="weight"/>
+        <rect x="72" y="2" width="8" height="32" fill="#d85691"/>
+        <text x="37" y="25" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">q</tspan></text>
+      </g>
+      <g transform="translate(0,43)">
+        <rect x="0" y="0" width="82" height="36" class="weight"/>
+        <rect x="72" y="2" width="8" height="32" fill="#d85691"/>
+        <text x="37" y="25" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">k</tspan></text>
+      </g>
+      <g transform="translate(0,86)">
+        <rect x="0" y="0" width="82" height="36" class="weight"/>
+        <rect x="72" y="2" width="8" height="32" fill="#d85691"/>
+        <rect x="2" y="2" width="70" height="7" fill="#39b6d7"/>
+        <text x="37" y="25" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">v</tspan></text>
+      </g>
+    </g>
+    <path d="M338 66L366 66" class="forward-thin"/>
+    <path d="M338 109L366 109" class="forward-thin"/>
+    <path d="M338 152L366 152" class="forward-thin"/>
+    <rect x="371" y="54" width="188" height="110" class="op"/>
+    <text x="465" y="83" text-anchor="middle" class="sans tag">self-attention</text>
+    <text x="465" y="113" text-anchor="middle" class="serif label">RoPE(Q,K)</text>
+    <text x="465" y="143" text-anchor="middle" class="serif label">softmax(QKᵀ)V</text>
+    <path d="M563 109L588 109" class="forward-thin"/>
+    <g transform="translate(593,86)">
+      <rect x="0" y="0" width="88" height="46" class="weight"/>
+      <rect x="2" y="2" width="84" height="8" fill="#39b6d7"/>
+      <text x="44" y="32" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">o</tspan></text>
+    </g>
+    <path d="M685 109L708 109L708 192" class="forward-thin"/>
+    <circle cx="708" cy="220" r="18" class="plus"/>
+    <text x="708" y="229" text-anchor="middle" class="sans label">+</text>
+
+    <!-- FFN branch -->
+    <path d="M736 220L736 316L766 316" class="forward-thin"/>
+    <rect x="771" y="282" width="100" height="68" class="op"/>
+    <text x="821" y="311" text-anchor="middle" class="sans tag">RMSNorm</text>
+    <text x="821" y="337" text-anchor="middle" class="sans tiny">post-attn</text>
+    <path d="M875 316L901 316" class="forward-thin"/>
+
+    <g transform="translate(906,271)">
+      <rect x="0" y="0" width="90" height="39" class="weight"/>
+      <rect x="80" y="2" width="8" height="35" fill="#d85691"/>
+      <text x="40" y="27" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">gate</tspan></text>
+      <rect x="0" y="51" width="90" height="39" class="weight"/>
+      <rect x="80" y="53" width="8" height="35" fill="#d85691"/>
+      <text x="40" y="78" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">up</tspan></text>
+    </g>
+    <path d="M1001 290L1024 290L1024 316" class="forward-thin"/>
+    <path d="M1001 341L1024 341L1024 316" class="forward-thin"/>
+    <circle cx="1047" cy="316" r="20" class="plus"/>
+    <text x="1047" y="323" text-anchor="middle" class="sans label">⊙</text>
+    <text x="1047" y="382" text-anchor="middle" class="sans tiny">SiLU(gate) × up</text>
+    <path d="M1071 316L1092 316" class="forward-thin"/>
+    <g transform="translate(1097,294)">
+      <rect x="0" y="0" width="90" height="44" class="weight"/>
+      <rect x="2" y="2" width="86" height="8" fill="#39b6d7"/>
+      <text x="45" y="31" text-anchor="middle" class="serif tag">W<tspan baseline-shift="sub" font-size="14">down</tspan></text>
+    </g>
+    <path d="M1191 316L1208 316L1208 247" class="forward-thin"/>
+    <circle cx="1208" cy="220" r="18" class="plus"/>
+    <text x="1208" y="229" text-anchor="middle" class="sans label">+</text>
+
+    <text x="1040" y="199" class="sans tiny">residual stream</text>
+    <text x="1171" y="264" class="serif math">x<tspan baseline-shift="sub" font-size="18">ℓ+1</tspan></text>
+
+  </g>
+
+  <!-- decoder to outputs -->
+  <path d="M1705 720L1730 720" class="forward"/>
+  <g transform="translate(1735,661)">
+    <rect x="0" y="0" width="102" height="118" class="op"/>
+    <text x="51" y="43" text-anchor="middle" class="sans label">LM head</text>
+    <text x="51" y="75" text-anchor="middle" class="sans small">logits</text>
+    <text x="51" y="101" text-anchor="middle" class="serif small">p<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+  </g>
+  <path d="M1841 720L1851 720" class="forward-thin"/>
+  <path d="M1851 720L1851 652L1861 652" class="forward-thin"/>
+  <path d="M1851 720L1851 764L1861 764" class="forward-thin"/>
+  <g transform="translate(1866,607)">
+    <rect x="0" y="0" width="174" height="90" class="op"/>
+    <text x="87" y="39" text-anchor="middle" class="serif math">ℒ<tspan baseline-shift="sub" font-size="18">train</tspan></text>
+    <text x="87" y="70" text-anchor="middle" class="sans small">drives update</text>
+    <rect x="0" y="112" width="174" height="90" class="read"/>
+    <text x="87" y="150" text-anchor="middle" class="sans label">evaluation</text>
+    <text x="87" y="179" text-anchor="middle" class="sans small">held-out behavior</text>
+  </g>
+  <!-- optimizer feedback loop -->
+  <path d="M2040 652L2070 652L2070 1005L1810 1005" class="feedback"/>
+  <g transform="translate(1585,956)">
+    <rect x="0" y="0" width="220" height="98" fill="#faf8fd" stroke="#6850a0" stroke-width="2.6"/>
+    <text x="110" y="39" text-anchor="middle" class="serif math">G<tspan baseline-shift="sub" font-size="18">t</tspan> = ∇<tspan baseline-shift="sub" font-size="18">W</tspan>ℒ<tspan baseline-shift="sub" font-size="18">t</tspan></text>
+    <text x="110" y="73" text-anchor="middle" class="sans small">gradient</text>
+  </g>
+  <path d="M1580 1005L1534 1005" class="feedback"/>
+  <g transform="translate(1240,942)">
+    <rect x="0" y="0" width="288" height="126" fill="#faf8fd" stroke="#6850a0" stroke-width="2.6"/>
+    <text x="144" y="38" text-anchor="middle" class="sans label">AdamW state</text>
+    <text x="144" y="76" text-anchor="middle" class="serif math">M<tspan baseline-shift="sub" font-size="18">t</tspan>, V<tspan baseline-shift="sub" font-size="18">t</tspan></text>
+    <text x="144" y="108" text-anchor="middle" class="serif label">U<tspan baseline-shift="sub" font-size="16">t</tspan> = M̂<tspan baseline-shift="sub" font-size="16">t</tspan>/(√V̂<tspan baseline-shift="sub" font-size="16">t</tspan>+ϵ)</text>
+  </g>
+  <path d="M1235 1005L1189 1005" class="feedback"/>
+  <g transform="translate(835,942)">
+    <rect x="0" y="0" width="348" height="126" fill="#faf8fd" stroke="#6850a0" stroke-width="2.6"/>
+    <text x="174" y="37" text-anchor="middle" class="sans label">update all decoder W</text>
+    <text x="174" y="77" text-anchor="middle" class="serif label">W<tspan baseline-shift="sub" font-size="16">t+1</tspan> = (1−η<tspan baseline-shift="sub" font-size="16">t</tspan>γ<tspan baseline-shift="sub" font-size="12">wd</tspan>)W<tspan baseline-shift="sub" font-size="16">t</tspan> − η<tspan baseline-shift="sub" font-size="16">t</tspan>U<tspan baseline-shift="sub" font-size="16">t</tspan></text>
+  </g>
+  <path d="M830 1005L705 1005L705 932" class="feedback"/>
+  <text x="692" y="985" text-anchor="end" class="sans small" fill="#6850a0">next iteration</text>
+
+  <!-- bottom synthesis -->
+  <line x1="65" y1="1110" x2="2035" y2="1110" class="muted-line"/>
+  <text x="65" y="1153" class="sans label">data → decoder → ℒ<tspan baseline-shift="sub" font-size="16">train</tspan> → G<tspan baseline-shift="sub" font-size="16">t</tspan> → (M<tspan baseline-shift="sub" font-size="16">t</tspan>,V<tspan baseline-shift="sub" font-size="16">t</tspan>) → U<tspan baseline-shift="sub" font-size="16">t</tspan> → W<tspan baseline-shift="sub" font-size="16">t+1</tspan> → next forward pass</text>
+
+  <!-- legend -->
+  <g transform="translate(65,1228)">
+    <line x1="0" y1="0" x2="58" y2="0" class="forward"/>
+    <text x="72" y="8" class="sans small">forward / evaluation</text>
+    <line x1="326" y1="0" x2="384" y2="0" class="feedback"/>
+    <text x="398" y="8" class="sans small">training feedback</text>
+    <line x1="650" y1="0" x2="708" y2="0" class="measure"/>
+    <text x="722" y="8" class="sans small">checkpoint lens</text>
+    <rect x="987" y="-17" width="38" height="28" class="weight"/>
+    <text x="1039" y="8" class="sans small">analyzed projection</text>
+    <rect x="1310" y="-15" width="22" height="22" fill="#d85691"/>
+    <text x="1346" y="7" class="sans small">row / output-side field</text>
+    <rect x="1665" y="-15" width="22" height="22" fill="#39b6d7"/>
+    <text x="1701" y="7" class="sans small">column / input-side field</text>
+  </g>
+</svg>
