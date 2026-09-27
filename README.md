@@ -46,6 +46,15 @@ This repository also hosts the companion data and code for the fifth paper:
 >
 > Data + code: [`scale_field/`](scale_field/) — every projection written exactly as a global scale, two diagonal **row and column scale fields**, and a normalized core; read-out JSON files, extraction scripts, figure scripts and a full data-provenance index.
 
+## How the five papers fit together
+
+<p align="center"><img src="docs/paper_series_map.png" alt="Map of the five papers: Paper 1 provides the Weibull (k, λ) instrument; Papers 2–4 follow the weight scale λ during training (mechanism, data, meaning); Paper 5 looks inside the matrix at row and column scale fields" width="100%"></p>
+
+Paper 1 is the instrument: a two-parameter Weibull fit `(k, λ)` of every weight matrix. Papers 2–4 follow the
+weight scale `λ` through training — how it grows under AdamW (2), where the growth comes from in the data (3), and
+what the growth does and does not indicate (4). Paper 5 looks inside the matrix, at the row and column scale fields
+that sit beneath the pooled `(k, λ)`. The figure is built by [`docs/build_paper_series_map_svg.py`](docs/build_paper_series_map_svg.py) and rendered with [`docs/render_paper_series_map.js`](docs/render_paper_series_map.js) (sharp).
+
 ## Overview
 
 This repository hosts the open-source artifacts described in the paper:
