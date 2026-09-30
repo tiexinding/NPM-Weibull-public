@@ -1,6 +1,6 @@
 # Weight-Scale Growth Tracks Training Effort, Not Learning Quality
 
-Companion code and derived data for **Paper #4** of the NPM-Weibull series:
+Companion code and derived data for **Paper #4** of the five-paper series:
 *"Weight-Scale Growth Tracks Training Effort, Not Learning Quality"* (Ding, 2026).
 
 The paper trains Pythia-70M from scratch on a controlled 4x4 factorial grid over
@@ -55,4 +55,4 @@ are shared with Paper #2/#3; see `Weibull_WeightScale_dynamics/` and
 
 - Paper #1: arXiv:2605.18898 (Weibull framework)
 - Paper #2: arXiv:2606.19367 (AdamW three-force dynamics)
-- Paper #3: doi:10.5281/zenodo.22056013 (data-predictability law)
+- Paper #3: arXiv:2608.23573 (data-predictability law)

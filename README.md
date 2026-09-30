@@ -1,11 +1,11 @@
-# NPM-Weibull
+# Transformer Weight Statistics & Analysis
 
 [![PyPI](https://img.shields.io/pypi/v/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![Python](https://img.shields.io/pypi/pyversions/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![HF Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-NPM--Weibull--DATABASE--v9__1-yellow.svg)](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)
 [![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](LICENSE)
 
-Code, data and the `npm-weibull-py` library for a five-paper series on the magnitude structure of Transformer weights.
+Statistical analysis of Transformer weights, from pooled magnitude distributions to channel-level structure: code, data and the `npm-weibull-py` library for five papers.
 
 <p align="center"><img src="docs/paper_series_map.png" alt="Map of the five papers: Paper 1 provides the Weibull (k, λ) instrument; Papers 2–4 follow the weight scale λ during training (mechanism, data, meaning); Paper 5 looks inside the matrix at row and column scale fields" width="100%"></p>
 
@@ -13,7 +13,7 @@ Code, data and the `npm-weibull-py` library for a five-paper series on the magni
 |---|---|---|---|
 | 1 | A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions | [2605.18898](https://arxiv.org/abs/2605.18898) | [`npm_weibull/`](npm_weibull/), [`database_v9_1/`](database_v9_1/) |
 | 2 | Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics | [2606.19367](https://arxiv.org/abs/2606.19367) | [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) |
-| 3 | Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training | [2608.23573](https://arxiv.org/abs/2608.23573) | [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) · [Zenodo](https://doi.org/10.5281/zenodo.22056013) |
+| 3 | Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training | [2608.23573](https://arxiv.org/abs/2608.23573) | [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) |
 | 4 | Weight-Scale Growth Tracks Training Effort, Not Learning Quality | on hold | [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) |
 | 5 | A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields | [2609.35852](https://arxiv.org/abs/2609.35852) | [`scale_field/`](scale_field/) |
 
@@ -134,4 +134,4 @@ Questions, collaboration, or feedback:
 
 ---
 
-*`NPM-Weibull` is the stable repository and library name from early development; the paper titles reflect the later, methodology-first framing.*
+*The repository (`NPM-Weibull-public`) and the library (`npm-weibull-py`) keep their early-development names.*
