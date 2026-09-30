@@ -1,169 +1,77 @@
 # NPM-Weibull
 
-[![arXiv (Paper 1)](https://img.shields.io/badge/arXiv-2605.18898-b31b1b.svg)](https://arxiv.org/abs/2605.18898)
-[![arXiv (Paper 2)](https://img.shields.io/badge/arXiv-2606.19367-b31b1b.svg)](https://arxiv.org/abs/2606.19367)
-[![arXiv (Paper 3)](https://img.shields.io/badge/arXiv-2608.23573-b31b1b.svg)](https://arxiv.org/abs/2608.23573)
 [![PyPI](https://img.shields.io/pypi/v/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![Python](https://img.shields.io/pypi/pyversions/npm-weibull-py.svg)](https://pypi.org/project/npm-weibull-py/)
 [![HF Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Datasets-NPM--Weibull--DATABASE--v9__1-yellow.svg)](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)
 [![License](https://img.shields.io/badge/license-CC--BY--4.0-blue.svg)](LICENSE)
 
-Companion code and benchmark database for the paper:
-
-> **A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions**
-> Tiexin Ding
-> [arXiv:2605.18898](https://arxiv.org/abs/2605.18898) ([doi:10.48550/arXiv.2605.18898](https://doi.org/10.48550/arXiv.2605.18898))
-
-This repository also hosts the companion code and derived data for the follow-up paper:
-
-> **Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics**
-> Tiexin Ding
-> [arXiv:2606.19367](https://arxiv.org/abs/2606.19367) ([doi:10.48550/arXiv.2606.19367](https://doi.org/10.48550/arXiv.2606.19367))
->
-> Code + derived data: [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) — a leading-order **three-force decomposition** (alignment / injection / decay) explaining why the Weibull scale `λ` rises, overshoots, and relaxes during AdamW training, plus a **spline-displacement** method that recovers the alignment force from sparse public checkpoints. Reuses the `npm_weibull` library below for the Weibull fit.
-
-The third paper in the series asks where the scale growth comes from on the data side:
-
-> **Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training**
-> Tiexin Ding
-> [arXiv:2608.23573](https://arxiv.org/abs/2608.23573) ([doi:10.48550/arXiv.2608.23573](https://doi.org/10.48550/arXiv.2608.23573))
->
-> Code + derived data: [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) — a quantitative link between **corpus predictability** (bigram conditional entropy) and the training-induced growth of the Weibull scale `λ`, held across learning rates and architectures; snapshot archived at [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013).
-
-The fourth paper asks what the growth means:
-
-> **Weight-Scale Growth Tracks Training Effort, Not Learning Quality**
-> Tiexin Ding
-> Submitted to arXiv.
->
-> Code + derived data: [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) — a 4×4 **predictability × repetition** factorial grid on Pythia-70M (76 runs) showing that the paired signals `(Δλ², gap)` separate LEARNED / MEMORIZED / NOTHING-TO-LEARN regimes: scale growth alone can mistake fitting repeated unstructured data for learning, so it tracks **training effort**, not learning quality.
-
-This repository also hosts the companion data and code for the fifth paper:
-
-> **A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields**
-> Tiexin Ding
-> arXiv: to be added at posting
->
-> Data + code: [`scale_field/`](scale_field/) — every projection written exactly as a global scale, two diagonal **row and column scale fields**, and a normalized core; read-out JSON files, extraction scripts, figure scripts and a full data-provenance index.
-
-## How the five papers fit together
+Code, data and the `npm-weibull-py` library for a five-paper series on the magnitude structure of Transformer weights.
 
 <p align="center"><img src="docs/paper_series_map.png" alt="Map of the five papers: Paper 1 provides the Weibull (k, λ) instrument; Papers 2–4 follow the weight scale λ during training (mechanism, data, meaning); Paper 5 looks inside the matrix at row and column scale fields" width="100%"></p>
 
-Paper 1 is the instrument: a two-parameter Weibull fit `(k, λ)` of every weight matrix. Papers 2–4 follow the
-weight scale `λ` through training — how it grows under AdamW (2), where the growth comes from in the data (3), and
-what the growth does and does not indicate (4). Paper 5 looks inside the matrix, at the row and column scale fields
-that sit beneath the pooled `(k, λ)`. The figure is built by [`docs/build_paper_series_map_svg.py`](docs/build_paper_series_map_svg.py) and rendered with [`docs/render_paper_series_map.js`](docs/render_paper_series_map.js) (sharp).
+| # | Paper | arXiv | Code and data |
+|---|---|---|---|
+| 1 | A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions | [2605.18898](https://arxiv.org/abs/2605.18898) | [`npm_weibull/`](npm_weibull/), [`database_v9_1/`](database_v9_1/) |
+| 2 | Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics | [2606.19367](https://arxiv.org/abs/2606.19367) | [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) |
+| 3 | Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training | [2608.23573](https://arxiv.org/abs/2608.23573) | [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) · [Zenodo](https://doi.org/10.5281/zenodo.22056013) |
+| 4 | Weight-Scale Growth Tracks Training Effort, Not Learning Quality | on hold | [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) |
+| 5 | A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields | [2609.35852](https://arxiv.org/abs/2609.35852) | [`scale_field/`](scale_field/) |
 
-## Overview
+All papers by Tiexin Ding. BibTeX entries are under [Citation](#citation); each companion directory has its own README.
 
-This repository hosts the open-source artifacts described in the paper:
+## Paper 1: library and benchmark
 
-- **`npm-weibull-py` v0.4**: A pip-installable Python library for fitting and benchmarking Weibull `(k, λ)` parameters on transformer weight matrices. Seven exported core diagnostics (historical F-numbering F1--F8, with F4/F7 merged) for cross-family comparison, body--tail ablation, paired-correlation analysis, and architecture classification.
-- **`DATABASE_v9_1`** (main cohort): Per-component Weibull fits for **12 model entries** across **7 architectural families** (Pythia 70M/160M/410M/1B/6.9B, OLMo-1, OLMo-2, LLaMA-3, Mistral, Qwen2.5-7B/14B, Qwen3-8B), with per-layer and per-component breakdowns. Also published on the [Hugging Face Hub](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1) as a `datasets`-loadable artifact for streaming / `load_dataset()` workflows.
-- **`DATABASE_v9_1` Qwen-cohort companion**: 11-entry Qwen-family cohort (Qwen2 / Qwen2.5 / Qwen3, sizes 1.5B–14B, depths 28L/36L/48L, includes 4 base-vs-Math-CPT pairs) used in the diagnostic application case (Appendix D). Surfaces the shallow-FFN secondary-population anomaly characteristic of 3B-and-above Qwen entries. See [`database_v9_1/DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md).
-- **Reproducibility examples** (planned): Jupyter notebooks reproducing key paper figures.
+| Component | Contents | Where |
+|---|---|---|
+| `npm-weibull-py` v0.4 | Weibull `(k, λ)` fits and seven core diagnostics (F1–F8, F4/F7 merged) | [`npm_weibull/`](npm_weibull/) · [PyPI](https://pypi.org/project/npm-weibull-py/) · [API](docs/F1_F8_API.md) |
+| `DATABASE_v9_1` main cohort | Per-component fits, 12 models from 7 families (Pythia, OLMo-1/2, LLaMA-3, Mistral, Qwen2.5, Qwen3) | [`database_v9_1/`](database_v9_1/) · [Hugging Face](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1) |
+| `DATABASE_v9_1` Qwen cohort | 11 Qwen entries (1.5B–14B), including 4 base vs Math-CPT pairs | [`DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md) |
+| Examples | Synthetic fit, benchmark comparison, trajectory decomposition | [`examples/`](examples/) |
+| Tests | 47 tests (synthetic, integration, coverage) | [`tests/`](tests/) |
 
-## Status
-
-**v0.4.0 released** (May 2026): library, benchmark database, examples, tests, and pip-install all available.
-
-| Component | Status |
-|---|---|
-| Paper information and citation | ✅ Available ([arXiv:2605.18898](https://arxiv.org/abs/2605.18898)) |
-| Paper #2 companion (three-force + spline) | ✅ Available ([`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/), [arXiv:2606.19367](https://arxiv.org/abs/2606.19367)) |
-| Paper #3 companion (data-predictability law) | ✅ Available ([`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/), [arXiv:2608.23573](https://arxiv.org/abs/2608.23573), [doi:10.5281/zenodo.22056013](https://doi.org/10.5281/zenodo.22056013)) |
-| Paper #4 companion (training-effort grid, 76 runs) | ✅ Available ([`WeightScale_Training_Effort/`](WeightScale_Training_Effort/)) |
-| Paper #5 companion (row and column scale fields) | ✅ Available ([`scale_field/`](scale_field/)) |
-| `npm-weibull-py` v0.4 library source | ✅ Available (`npm_weibull/`) |
-| `DATABASE_v9_1` main cohort (12 entries) | ✅ Available (Python module + CSV) |
-| `DATABASE_v9_1` Qwen-cohort companion (11 entries) | ✅ Available ([`database_v9_1/DATABASE_v9_1_qwen_cohort.md`](database_v9_1/DATABASE_v9_1_qwen_cohort.md)) |
-| `DATABASE_v9_1` on Hugging Face Hub | ✅ Available ([`TiexinDing/NPM-Weibull-DATABASE-v9_1`](https://huggingface.co/datasets/TiexinDing/NPM-Weibull-DATABASE-v9_1)) |
-| Quickstart examples | ✅ Available (`examples/`, 3 runnable scripts) |
-| Tests | ✅ Available (`tests/`, 47 passing, 82% coverage) |
-| Pip-installable release on PyPI | ✅ Available ([pypi.org/project/npm-weibull-py](https://pypi.org/project/npm-weibull-py/)) |
-| API reference documentation | ✅ Available ([`docs/F1_F8_API.md`](docs/F1_F8_API.md)) |
-
-## Install
+## Install and quick start
 
 ```bash
-pip install npm-weibull-py
-
-# Optional extras
-pip install "npm-weibull-py[torch]"   # transformers + safetensors for checkpoint extraction
-pip install "npm-weibull-py[plot]"    # matplotlib for plotting helpers
+pip install npm-weibull-py            # Python >= 3.9; core deps: numpy, scipy
+pip install "npm-weibull-py[torch]"   # + transformers, safetensors (checkpoint extraction)
+pip install "npm-weibull-py[plot]"    # + matplotlib
+pip install -e ".[dev]"               # development install from a clone
 ```
-
-For a development install (clone the repository, edit source, run tests):
-
-```bash
-git clone https://github.com/tiexinding/NPM-Weibull-public.git
-cd NPM-Weibull-public
-pip install -e ".[dev]"   # adds pytest, pytest-cov, ruff, mypy
-```
-
-Requires Python ≥ 3.9. Core dependencies are `numpy` and `scipy` only.
-
-## Quick start
 
 ```python
-from npm_weibull import weibull_fit, DATABASE_v9_1, compare_to_benchmark
+from npm_weibull import weibull_fit, compare_to_benchmark
 
-# F1 — fit Weibull to a weight magnitude histogram
-fit = weibull_fit({"edges": edges, "hist": counts}, trim="mid_80")
+fit = weibull_fit({"edges": edges, "hist": counts}, trim="mid_80")   # F1: Weibull fit of a magnitude histogram
 print(fit["k"], fit["lambda"], fit["R2"])
 
-# Layer B — compare user-side per-component median k to the 12-entry benchmark
-user = {
-    "arch": {"arch": "GQA", "n_q": 32, "n_kv": 8},
-    "median_k_per_kind": {"q": 1.14, "k": 1.13, "v": 1.19, "o": 1.19},
-}
-print(compare_to_benchmark(user)["nearest_neighbor"])
+user = {"arch": {"arch": "GQA", "n_q": 32, "n_kv": 8},
+        "median_k_per_kind": {"q": 1.14, "k": 1.13, "v": 1.19, "o": 1.19}}
+print(compare_to_benchmark(user)["nearest_neighbor"])                 # compare with the 12-model benchmark
 ```
-
-See `examples/` for three runnable demos covering F1 fit, benchmark comparison, and F3/F5 trajectory decomposition. For the full API surface (15 entries: 7 core diagnostics under the F-numbering F1–F8, with F4/F7 merged, + 5 utilities + workflow + benchmark), see [`docs/F1_F8_API.md`](docs/F1_F8_API.md).
 
 ## Repository layout
 
-```
-NPM-Weibull-public/
-├── npm_weibull/           # library (F1-F8 + workflow + benchmark)
-│   ├── core/              # F1 weibull, F5 trajectory, F6_ext distfree, F8 architecture, ...
-│   ├── utils/             # closed-form, histogram, cascade reader, KS/AIC
-│   ├── workflow/          # diagnose_model wrapper (Layer A)
-│   └── benchmark/         # DATABASE_v9_1 + compare_to_benchmark (Layer B)
-├── tests/                 # synthetic + integration tests (12 passing)
-├── examples/              # 01 synthetic fit, 02 benchmark, 03 trajectory
-├── database_v9_1/         # populate_database_v9_1.py + generated CSV/MD
-├── pyproject.toml         # pip install config (v0.4.0)
-└── README.md
-```
+| Directory | Contents |
+|---|---|
+| [`npm_weibull/`](npm_weibull/) | Library: `core/` diagnostics, `utils/`, `workflow/` (`diagnose_model`), `benchmark/` (`DATABASE_v9_1`) |
+| [`database_v9_1/`](database_v9_1/) | Database build script and generated CSV / Markdown |
+| [`examples/`](examples/), [`tests/`](tests/) | Runnable demos; test suite |
+| [`docs/`](docs/) | API reference; series map and its build scripts |
+| [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) | Paper 2 code and derived data |
+| [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) | Paper 3 code and derived data |
+| [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) | Paper 4 code and derived data |
+| [`scale_field/`](scale_field/) | Paper 5 code, read-outs and data-provenance index |
 
-## Quick Reference (from the paper)
+## Key numbers from Paper 1
 
-### Initialization anchor (Appendix A.1)
-Half-Normal initialization yields a deterministic Weibull `(k₀, λ₀)` anchor under middle-80% probability-plot fit:
-
-- `k₀ ≈ 1.2054` (universal across vendors and σ_init scales)
-- `λ₀ ≈ 0.8875 · σ_init` (initialization-scheme-specific)
-
-Verified at step-0 across 5 Pythia sizes within 0.13% relative error.
-
-### Two functional classes (Section 2.2)
-
-- **Transmission Class** (`W_o`, FFN modules `W_gate`, `W_up`, `W_down` for SwiGLU; `W_FFN_in`, `W_FFN_out` for GeLU): the shape parameter `k` stays within the band `[1.186, 1.204]` across architectures (cross-family CV = 0.51%, n = 12 entries).
-- **Selection Class** (`W_q`, `W_k`): departs from the Weibull anchor during training; departure severity tracks attention storage architecture:
-  - Separately-stored MHA (OLMo-1, OLMo-2): `k ∈ [0.76, 0.99]` (deep Selection)
-  - GQA (LLaMA-3, Mistral, Qwen2.5, Qwen3): `k ∈ [1.10, 1.16]` (mild Selection)
-  - Merged `W_qkv` (Pythia): `k ∈ [1.05, 1.18]` (transitional, tracks `T/τ` monotonically)
-
-### λ scaling within Pythia (Section 5.4)
-Terminal mean `λ` across the three Transmission Class kinds scales with `√(η/λ_wd)`:
-
-- Pearson `r = 0.94` (n = 5 Pythia sizes)
-- Linear fit through origin: `λ = 0.087 · √(η/λ_wd)`
-
-Directionally consistent with the AdamW steady-state scaling analysis of Fan et al. (2025).
+| Quantity | Value | Paper |
+|---|---|---|
+| Initialization anchor, half-normal init, middle-80% fit | `k₀ ≈ 1.2054`, `λ₀ ≈ 0.8875 σ_init` (step 0, 5 Pythia sizes, within 0.13%) | App. A.1 |
+| Transmission class `k` (`W_o`, FFN) | 1.186–1.204, cross-family CV 0.51% (12 models) | §2.2 |
+| Selection class `k` (`W_q`, `W_k`): separate MHA (OLMo-1/2) | 0.76–0.99 | §2.2 |
+| Selection class `k`: GQA (LLaMA-3, Mistral, Qwen2.5, Qwen3) | 1.10–1.16 | §2.2 |
+| Selection class `k`: merged `W_qkv` (Pythia) | 1.05–1.18, monotone in `T/τ` | §2.2 |
+| Terminal `λ` vs `√(η/λ_wd)`, Pythia | `r = 0.94` (5 sizes); `λ ≈ 0.087 √(η/λ_wd)` | §5.4 |
 
 ## Citation
 
@@ -200,6 +108,17 @@ Directionally consistent with the AdamW steady-state scaling analysis of Fan et 
   doi           = {10.48550/arXiv.2608.23573},
   url           = {https://arxiv.org/abs/2608.23573}
 }
+
+@misc{ding2026scalefields,
+  title         = {A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields},
+  author        = {Ding, Tiexin},
+  year          = {2026},
+  eprint        = {2609.35852},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2609.35852},
+  url           = {https://arxiv.org/abs/2609.35852}
+}
 ```
 
 ## License
@@ -211,8 +130,8 @@ Code and data in this repository are released under the [Creative Commons Attrib
 Questions, collaboration, or feedback:
 
 - **Email**: tiexinding@gmail.com
-- **GitHub issues**: please use this repository's Issues tab (after content upload)
+- **GitHub issues**: this repository's Issues tab
 
 ---
 
-*Repository identifier note: the `NPM-Weibull` name is the stable library and repository identifier introduced in early development. The paper title ("A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions") reflects the framework's empirical, methodology-first identity adopted in the final draft.*
+*`NPM-Weibull` is the stable repository and library name from early development; the paper titles reflect the later, methodology-first framing.*
