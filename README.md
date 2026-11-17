@@ -14,7 +14,7 @@ Statistical analysis of Transformer weights, from pooled magnitude distributions
 | 1 | A Two-Parameter Weibull Framework for Diagnosing Transformer Weight Distributions | [2605.18898](https://arxiv.org/abs/2605.18898) | [`npm_weibull/`](npm_weibull/), [`database_v9_1/`](database_v9_1/) |
 | 2 | Weibull Weight-Scale Parameter Evolution under AdamW Training Dynamics | [2606.19367](https://arxiv.org/abs/2606.19367) | [`Weibull_WeightScale_dynamics/`](Weibull_WeightScale_dynamics/) |
 | 3 | Data Predictability Shapes Weibull Weight-Scale Growth in Transformer Training | [2608.23573](https://arxiv.org/abs/2608.23573) | [`Data_Predictability_WeightScale/`](Data_Predictability_WeightScale/) |
-| 4 | Weight-Scale Growth Tracks Training Effort, Not Learning Quality | on hold | [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) |
+| 4 | Weight-Scale Growth Tracks Training Effort, Not Learning Quality | in progressing | [`WeightScale_Training_Effort/`](WeightScale_Training_Effort/) |
 | 5 | A Mesoscopic View of Transformer Weights Through Row and Column Scale Fields | [2609.35852](https://arxiv.org/abs/2609.35852) | [`scale_field/`](scale_field/) |
 
 All papers by Tiexin Ding. BibTeX entries are under [Citation](#citation); each companion directory has its own README.
