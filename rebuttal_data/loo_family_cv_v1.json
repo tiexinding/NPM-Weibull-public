@@ -1,0 +1,341 @@
+{
+  "band": [
+    1.186,
+    1.204
+  ],
+  "estimand": "per-entry median FFN terminal k (multi-trim)",
+  "entries": [
+    {
+      "label": "Pythia-70m",
+      "family": "Pythia",
+      "coarse_family": "Pythia",
+      "n_blocks": 6,
+      "n_ffn_fits": 12,
+      "k80": 1.1902710504479086,
+      "k90": 1.1777483222512686,
+      "k100": 1.1388710677712095
+    },
+    {
+      "label": "Pythia-160m",
+      "family": "Pythia",
+      "coarse_family": "Pythia",
+      "n_blocks": 12,
+      "n_ffn_fits": 24,
+      "k80": 1.1944908762980062,
+      "k90": 1.1802195300077387,
+      "k100": 1.1420664162173886
+    },
+    {
+      "label": "Pythia-410m",
+      "family": "Pythia",
+      "coarse_family": "Pythia",
+      "n_blocks": 24,
+      "n_ffn_fits": 48,
+      "k80": 1.2004905774055734,
+      "k90": 1.1863499331940837,
+      "k100": 1.1468821485088538
+    },
+    {
+      "label": "Pythia-1B",
+      "family": "Pythia",
+      "coarse_family": "Pythia",
+      "n_blocks": 16,
+      "n_ffn_fits": 32,
+      "k80": 1.1994081775009022,
+      "k90": 1.1849895199366238,
+      "k100": 1.1454215378369381
+    },
+    {
+      "label": "Pythia-6.9B",
+      "family": "Pythia",
+      "coarse_family": "Pythia",
+      "n_blocks": 32,
+      "n_ffn_fits": 64,
+      "k80": 1.2017949505493877,
+      "k90": 1.1877045025445474,
+      "k100": 1.1483910994152715
+    },
+    {
+      "label": "OLMo-1-7B",
+      "family": "OLMo-1",
+      "coarse_family": "OLMo",
+      "n_blocks": 32,
+      "n_ffn_fits": 96,
+      "k80": 1.203737789938788,
+      "k90": 1.1891752996396145,
+      "k100": 1.1501066515938039
+    },
+    {
+      "label": "OLMo-2-7B",
+      "family": "OLMo-2",
+      "coarse_family": "OLMo",
+      "n_blocks": 32,
+      "n_ffn_fits": 96,
+      "k80": 1.2023074662121078,
+      "k90": 1.1878599440266588,
+      "k100": 1.148708497758515
+    },
+    {
+      "label": "LLaMA-3-8B",
+      "family": "LLaMA-3",
+      "coarse_family": "LLaMA-3",
+      "n_blocks": 32,
+      "n_ffn_fits": 96,
+      "k80": 1.193284614684845,
+      "k90": 1.1792417170197151,
+      "k100": 1.142135648156876
+    },
+    {
+      "label": "Mistral-7B",
+      "family": "Mistral",
+      "coarse_family": "Mistral",
+      "n_blocks": 32,
+      "n_ffn_fits": 96,
+      "k80": 1.1945613593504358,
+      "k90": 1.1807430197169926,
+      "k100": 1.1436990894084689
+    },
+    {
+      "label": "Qwen2.5-7B",
+      "family": "Qwen2.5",
+      "coarse_family": "Qwen",
+      "n_blocks": 28,
+      "n_ffn_fits": 84,
+      "k80": 1.1861585999019246,
+      "k90": 1.1730790833834637,
+      "k100": 1.1367738929935092
+    },
+    {
+      "label": "Qwen2.5-14B",
+      "family": "Qwen2.5",
+      "coarse_family": "Qwen",
+      "n_blocks": 48,
+      "n_ffn_fits": 144,
+      "k80": 1.1920379448503973,
+      "k90": 1.1778623493075555,
+      "k100": 1.1412494842794034
+    },
+    {
+      "label": "Qwen3-8B",
+      "family": "Qwen3",
+      "coarse_family": "Qwen",
+      "n_blocks": 36,
+      "n_ffn_fits": 108,
+      "k80": 1.1868747790421845,
+      "k90": 1.1740102767570921,
+      "k100": 1.1377105074031217
+    }
+  ],
+  "gate": {
+    "published_cv_12entry": 0.0051,
+    "published_cv_a7_subset": 0.0057,
+    "a7_subset_note": "paper's 'depth>=12 subset' = 6-entry SS A.7 subset; published 0.57% used per-family MEAN over fits (B2_paper_data_tables_v1_2605151300.md); here we recompute with the per-entry MEDIAN estimand",
+    "reproduced_full": {
+      "n": 12,
+      "mean": 1.1954515155152052,
+      "median": 1.194526117824221,
+      "min": 1.1861585999019246,
+      "max": 1.203737789938788,
+      "cv_ddof1": 0.005055469386572872,
+      "cv_ddof0": 0.004840243433137173,
+      "in_band": 12
+    },
+    "reproduced_a7_subset_median_estimand": {
+      "n": 6,
+      "mean": 1.1973907032145388,
+      "median": 1.1999493774532377,
+      "min": 1.1868747790421845,
+      "max": 1.203737789938788,
+      "cv_ddof1": 0.00544577551760504,
+      "cv_ddof0": 0.004971290156836087,
+      "in_band": 6
+    },
+    "in_band_count_text_band_1.186": 12,
+    "in_band_count_f160_band_1.187": 10,
+    "band_edge_inconsistency_note": "Table 2's '10/12 in band' was computed against [1.187,1.204] (plot_F160 script) while paper text/table header state [1.186,1.204], under which 12/12 are in band -> C4 patch item"
+  },
+  "family_level_7family": {
+    "family_means": {
+      "Pythia": 1.1972911264403556,
+      "OLMo-1": 1.203737789938788,
+      "OLMo-2": 1.2023074662121078,
+      "LLaMA-3": 1.193284614684845,
+      "Mistral": 1.1945613593504358,
+      "Qwen2.5": 1.189098272376161,
+      "Qwen3": 1.1868747790421845
+    },
+    "family_n_entries": {
+      "Pythia": 5,
+      "OLMo-1": 1,
+      "OLMo-2": 1,
+      "LLaMA-3": 1,
+      "Mistral": 1,
+      "Qwen2.5": 2,
+      "Qwen3": 1
+    },
+    "cv_of_family_means_ddof1": 0.005272579739261527,
+    "cv_of_family_means_ddof0": 0.00488146030026184,
+    "range_of_family_means": [
+      1.1868747790421845,
+      1.203737789938788
+    ],
+    "families_in_band": 7,
+    "variance_decomposition": {
+      "grand_mean": 1.1954515155152052,
+      "sd_between_family_means": 0.00630235629710142,
+      "ss_between": 0.0002923628880625073,
+      "ss_within": 0.00010940903958791732,
+      "ms_between": 4.872714801041789e-05,
+      "ms_within": 2.1881807917583464e-05,
+      "within_share_of_total_ss": 0.27231628707297934
+    }
+  },
+  "family_level_5family": {
+    "family_means": {
+      "Pythia": 1.1972911264403556,
+      "OLMo": 1.203022628075448,
+      "LLaMA-3": 1.193284614684845,
+      "Mistral": 1.1945613593504358,
+      "Qwen": 1.188357107931502
+    },
+    "family_n_entries": {
+      "Pythia": 5,
+      "OLMo": 2,
+      "LLaMA-3": 1,
+      "Mistral": 1,
+      "Qwen": 3
+    },
+    "cv_of_family_means_ddof1": 0.004513314977178938,
+    "cv_of_family_means_ddof0": 0.0040368316371360066,
+    "range_of_family_means": [
+      1.188357107931502,
+      1.203022628075448
+    ],
+    "families_in_band": 5,
+    "variance_decomposition": {
+      "grand_mean": 1.1954515155152052,
+      "sd_between_family_means": 0.005394780589891787,
+      "ss_between": 0.00028804402667679987,
+      "ss_within": 0.00011372790097362783,
+      "ms_between": 7.201100666919997e-05,
+      "ms_within": 1.624684299623255e-05,
+      "within_share_of_total_ss": 0.283065822041653
+    }
+  },
+  "loo_family": {
+    "Pythia": {
+      "n_entries_removed": 5,
+      "entry_level": {
+        "n": 7,
+        "mean": 1.194137507711526,
+        "median": 1.193284614684845,
+        "min": 1.1861585999019246,
+        "max": 1.203737789938788,
+        "cv_ddof1": 0.005727223197952286,
+        "cv_ddof0": 0.005302378352547856,
+        "in_band": 7
+      },
+      "cv_of_family_means_ddof1": 0.005721528942142858
+    },
+    "OLMo-1": {
+      "n_entries_removed": 1,
+      "entry_level": {
+        "n": 11,
+        "mean": 1.194698217840334,
+        "median": 1.1944908762980062,
+        "min": 1.1861585999019246,
+        "max": 1.2023074662121078,
+        "cv_ddof1": 0.004785504068392321,
+        "cv_ddof0": 0.004562799099894658,
+        "in_band": 11
+      },
+      "cv_of_family_means_ddof1": 0.004669685975687642
+    },
+    "OLMo-2": {
+      "n_entries_removed": 1,
+      "entry_level": {
+        "n": 11,
+        "mean": 1.1948282472700322,
+        "median": 1.1944908762980062,
+        "min": 1.1861585999019246,
+        "max": 1.203737789938788,
+        "cv_ddof1": 0.004954904523583847,
+        "cv_ddof0": 0.004724316096520953,
+        "in_band": 11
+      },
+      "cv_of_family_means_ddof1": 0.005040678930497425
+    },
+    "LLaMA-3": {
+      "n_entries_removed": 1,
+      "entry_level": {
+        "n": 11,
+        "mean": 1.1956485064997833,
+        "median": 1.1945613593504358,
+        "min": 1.1861585999019246,
+        "max": 1.203737789938788,
+        "cv_ddof1": 0.005267444753391537,
+        "cv_ddof0": 0.005022311513276805,
+        "in_band": 11
+      },
+      "cv_of_family_means_ddof1": 0.0057160407793316985
+    },
+    "Mistral": {
+      "n_entries_removed": 1,
+      "entry_level": {
+        "n": 11,
+        "mean": 1.1955324388029114,
+        "median": 1.1944908762980062,
+        "min": 1.1861585999019246,
+        "max": 1.203737789938788,
+        "cv_ddof1": 0.005296155577529688,
+        "cv_ddof0": 0.00504968620999894,
+        "in_band": 11
+      },
+      "cv_of_family_means_ddof1": 0.005767336490415633
+    },
+    "Qwen2.5": {
+      "n_entries_removed": 2,
+      "entry_level": {
+        "n": 10,
+        "mean": 1.196722164143014,
+        "median": 1.196984768425669,
+        "min": 1.1868747790421845,
+        "max": 1.203737789938788,
+        "cv_ddof1": 0.00472380223764649,
+        "cv_ddof0": 0.004481392286148869,
+        "in_band": 10
+      },
+      "cv_of_family_means_ddof1": 0.005197698536694788
+    },
+    "Qwen3": {
+      "n_entries_removed": 1,
+      "entry_level": {
+        "n": 11,
+        "mean": 1.1962312188309343,
+        "median": 1.1945613593504358,
+        "min": 1.1861585999019246,
+        "max": 1.203737789938788,
+        "cv_ddof1": 0.004740145876073041,
+        "cv_ddof0": 0.004519551760402419,
+        "in_band": 11
+      },
+      "cv_of_family_means_ddof1": 0.004657757196547794
+    }
+  },
+  "loo_summary": {
+    "entry_cv_min": 0.00472380223764649,
+    "entry_cv_max": 0.005727223197952286,
+    "family_cv_min": 0.004657757196547794,
+    "family_cv_max": 0.005767336490415633
+  },
+  "protocol_echo": {
+    "k90": {
+      "entry_cv_ddof1": 0.004671190095467227,
+      "family_cv_ddof1": 0.004899730527540016
+    },
+    "k100": {
+      "entry_cv_ddof1": 0.0039023472499731256,
+      "family_cv_ddof1": 0.004019890789887583
+    }
+  }
+}

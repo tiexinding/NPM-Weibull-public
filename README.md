@@ -29,6 +29,13 @@ All papers by Tiexin Ding. BibTeX entries are under [Citation](#citation); each 
 | Examples | Synthetic fit, benchmark comparison, trajectory decomposition | [`examples/`](examples/) |
 | Tests | 47 tests (synthetic, integration, coverage) | [`tests/`](tests/) |
 
+### Paper 1: supplementary records
+
+- [Per-matrix fit records](per_matrix_data/): 45 JSON files.
+- [Supporting analyses](rebuttal_data/README.md): analysis records, a supporting figure and the original manifest.
+
+These files are taken from the original OpenReview supplementary attachment; original data and historical figure references are retained.
+
 ## Install and quick start
 
 ```bash

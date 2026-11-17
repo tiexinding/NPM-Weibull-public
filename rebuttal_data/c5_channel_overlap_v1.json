@@ -1,0 +1,37 @@
+{
+  "schema": "c5_channel_overlap_v1",
+  "block": 1,
+  "frac_cut": 0.9,
+  "n_intermediate": 18944,
+  "valley_thresholds": {
+    "gate": 0.002671516202604625,
+    "up": 0.003226926417884884,
+    "down": 0.004022464199444556
+  },
+  "n_dead": {
+    "gate_rows": 5341,
+    "up_rows": 6636,
+    "down_cols": 5402
+  },
+  "pairwise": {
+    "gate_down": 5228,
+    "gate_up": 5136,
+    "up_down": 5039
+  },
+  "gate_down_over_smaller": 0.9788429133121138,
+  "three_way": 5031,
+  "three_way_pct_of_intermediate": 0.26557221283783783,
+  "union": 7007,
+  "jaccard3": 0.7179962894248608,
+  "expected_three_way_if_independent": 533.5070528597445,
+  "enrichment": 9.430053404228598,
+  "sensitivity_common_thr_1e-3": {
+    "n_dead": {
+      "gate": 1909,
+      "up": 5,
+      "down": 0
+    },
+    "three_way": 0,
+    "note": "claim is valley-relative, not absolute-scale"
+  }
+}

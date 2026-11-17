@@ -1,0 +1,17 @@
+{
+  "schema": "c5-decomposition-summary-v1",
+  "entry": "qwen2.5-7b",
+  "block": 1,
+  "description": "Split-histogram decomposition of the raw |w| distribution by fixed suppressed-channel membership (the strict three-way set, n=5031 of 18944 intermediate channels).",
+  "below_valley_mass_fraction_carried_by_threeway_set": {
+    "gate": 0.61,
+    "up": 0.54,
+    "down": 0.52
+  },
+  "suppressed_set_own_mass_below_valley": [
+    0.97,
+    0.98
+  ],
+  "residual_below_valley_mass": "partially suppressed channels and the overlap tail of the main body",
+  "provenance": "Computed by plot_FR_C5_decomposition.py on raw stored bf16 weights (block-1 W_gate/W_up/W_down); the raw weight inputs are too large to ship \u2014 channel membership and thresholds are reproducible from c5_channel_overlap_v1.json plus the released checkpoints."
+}
